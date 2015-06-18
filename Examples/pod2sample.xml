@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by SILVESTR (SF) -->
+<Report xmlns="POD2" xmlns:POD2="POD2" xmlns:TTPAir="TTPAir" xmlns:root="root" xmlns:geo="geo" xmlns:poll="poll" xmlns:measure="measure" xmlns:equip="equip" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="POD2 	pod2.xsd
+                            root  	root.xsd
+			    geo   	geo.xsd  
+			    poll  	pollutant.xsd  
+		            measure 	measure.xsd  
+			    equip 	equipment.xsd
+                            TTPAir      twoTpAir.xsd">
+	<ReportHeader>
+		<root:CreationDate>2004-12-08</root:CreationDate>
+		<root:GeneratedBy>Reporter</root:GeneratedBy>
+		<root:RegistrationDate>2004-12-18</root:RegistrationDate>
+		<root:RegisteredHosts>Міністерство охорони навколишнього природного середовища України</root:RegisteredHosts>
+		<root:SequenceNumber>1</root:SequenceNumber>
+		<root:Remark>ПОД-2</root:Remark>
+		<CargoType>ПОД-2</CargoType>
+	</ReportHeader>
+	<ReportContent>
+		<reportedPeriod>
+			<startDate>2004-07-01</startDate>
+			<endDate>2004-09-30</endDate>
+		</reportedPeriod>
+		<orgInfo>
+			<orgProvider>МАЛОВИСКІВСЬКИЙ СПИРТОВИЙ ЗАВОД </orgProvider>
+			<EDRPOU>00374982</EDRPOU>
+			<approvedPerson>
+				<TTPAir:positioN>директор</TTPAir:positioN>
+				<TTPAir:theName>Альба Віктор Якович</TTPAir:theName>
+			</approvedPerson>
+			<responsiblePerson>
+				<TTPAir:positioN>Начальник інформаційного відділу</TTPAir:positioN>
+				<TTPAir:theName>Пономарьов Ігор Олександрович </TTPAir:theName>
+			</responsiblePerson>
+			<contactPhone>+38 (05258) 51198 </contactPhone>
+			<EMail>spirt@mviska.kw.ukrtel.net</EMail>
+		</orgInfo>
+		<technologyMeasures>
+			<equipmenT>
+				<equip:equipmenTCode>040608</equip:equipmenTCode>
+				<equip:equipmenTName>Виробничі процеси в деревообробній, целюлозно-паперовій та харчовій промисловості, промисловості з  виробництва напоїв та в інших секторах міцні спиртні напої</equip:equipmenTName>
+			</equipmenT>
+			<measure>
+				<measure:measureCode>3</measure:measureCode>
+				<measure:measureName>Пiдвищення ефективностi iснуючих очисних установок ( включаючи їх модернiзацiю,реконструкцiю i ремонт)</measure:measureName>
+			</measure>
+			<measureState>1</measureState>
+			<measureTermin>2004-11-10</measureTermin>
+			<estimatedExpenditures>234567.6</estimatedExpenditures>
+			<actualExpenditures0>10034.8</actualExpenditures0>
+			<actualExpenditures1>0</actualExpenditures1>
+			<actualExpenditures2>0</actualExpenditures2>
+			<actualExpenditures3>5678.9</actualExpenditures3>
+			<actualExpenditures4>0</actualExpenditures4>
+			<basicDocNum>
+				<docDate>2004-08-10</docDate>
+				<docNum>24-4567/2004</docNum>
+			</basicDocNum>
+			<measureProgress>
+				<TTPAir:ProgressExpected>578.567</TTPAir:ProgressExpected>
+				<TTPAir:ProgressAchieved>345.789</TTPAir:ProgressAchieved>
+			</measureProgress>
+		</technologyMeasures>
+	</ReportContent>
+</Report>

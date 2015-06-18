@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!-- Електронна типова форма XML схеми "ЗВІТУ ПРО ОХОРОНУ АТМОСФЕРНОГО ПОВІТРЯ"
+     по формі 2-ТП (повітря)  - квартальна , як елемент единого iнформацiйного середовища.
+     Версія 3.1.1.2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="TTPA_Quater" xmlns="TTPA_Quater" xmlns:TTPAir="TTPAir" xmlns:geo="geo" xmlns:poll="poll" xmlns:measure="measure" xmlns:equip="equip" xmlns:cargo="cargo" xmlns:root="root" xmlns:TTPA_Quater="TTPA_Quater" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="3.1.1.2">
+        <xsd:import namespace="root" schemaLocation="root.xsd"/>
+        <xsd:import namespace="poll" schemaLocation="pollutant.xsd"/>
+        <xsd:import namespace="measure" schemaLocation="measure.xsd"/>
+        <xsd:import namespace="equip" schemaLocation="equipment.xsd"/>
+        <xsd:import namespace="geo" schemaLocation="geo.xsd"/>
+        <xsd:import namespace="cargo" schemaLocation="cargo.xsd"/>
+        <xsd:import namespace="TTPAir" schemaLocation="twoTpAir.xsd"/>
+
+	<xsd:complexType name="reportedPeriod">
+		<xsd:annotation>
+			<xsd:documentation>Звiт за</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="reportedYear" type="xsd:gYear">
+				<xsd:annotation>
+					<xsd:documentation>Р_к</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="reportedQuater" type="TTPAir:Quarter">
+				<xsd:annotation>
+					<xsd:documentation>Квартал</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="reportedPeriod" type="reportedPeriod">
+		<xsd:annotation>
+			<xsd:documentation>Зв_т за</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:simpleType name="twoTpAirQuaterCargoType">
+		<xsd:annotation>
+			<xsd:documentation>Типовий елемент форми 2-ТП квартальна</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="root:CargoType">
+			<xsd:enumeration value="2ТП(повітря) - квартальна"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="CargoType" type="twoTpAirQuaterCargoType" fixed="2ТП(повітря) - квартальна">
+		<xsd:annotation>
+			<xsd:documentation>Тип елементу ЄІС</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ReportHeader">
+		<xsd:annotation>
+			<xsd:documentation>Типовий заголовок</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="root:UnInEnHeader">
+				<xsd:sequence>
+					<xsd:element ref="CargoType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ReportHeader" type="TTPA_Quater:ReportHeader">
+		<xsd:annotation>
+			<xsd:documentation>Типовий заголовок</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="pollEmissionN" type="TTPAir:pollEmissionN">
+		<xsd:annotation>
+			<xsd:documentation>Викиди забруднюючої речовини</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="basicFactors">
+		<xsd:annotation>
+			<xsd:documentation>Показники звіту</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="pollEmissionN" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="twoTpAirBody">
+		<xsd:annotation>
+			<xsd:documentation>Змiст звiту 2-ТП</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="root:UnInEnBody">
+				<xsd:sequence>
+					<xsd:element ref="reportedPeriod"/>
+
+					<xsd:element name="orgInfo" type="TTPAir:orgInfo">
+						<xsd:annotation>
+							<xsd:documentation>Органiзацiя - звiтувач</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="permissionInfo" type="TTPAir:permissionInfo">
+						<xsd:annotation>
+							<xsd:documentation>Iнформацiя по дозволу на викид</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="stateReg" type="TTPAir:stateReg">
+						<xsd:annotation>
+							<xsd:documentation>Державна реєстрацiя</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="basicFactors" type="basicFactors" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Показники звiту</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="twoTpAirCargo">
+		<xsd:annotation>
+			<xsd:documentation>Тип звiту по формi 2-ТП</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="ReportHeader"/>
+			<xsd:element name="ReportContent" type="twoTpAirBody">
+				<xsd:annotation>
+					<xsd:documentation>Змiст звiту</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Report" type="twoTpAirCargo" id="root">
+		<xsd:annotation>
+			<xsd:documentation>Звiт</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

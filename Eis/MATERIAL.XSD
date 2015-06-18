@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема "Матеріали"      Версія 3.1.1.3 Редакція 2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="mater" xmlns:TTPAir="TTPAir" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="mater" xmlns:mater="mater" elementFormDefault="qualified" version="3.1.1.2" xml:lang="uk">
+        <xsd:import namespace="TTPAir" schemaLocation="twoTpAir.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>Матеріали</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="materiaLKind">
+		<xsd:annotation>
+			<xsd:documentation>Вид матеріалу</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Метал"/>
+			<xsd:enumeration value="Деревина"/>
+			<xsd:enumeration value="Пластик"/>
+			<xsd:enumeration value="Корисні копалини"/>
+			<xsd:enumeration value="Нафтопродукти"/>
+			<xsd:enumeration value="Смоли"/>
+			<xsd:enumeration value="Хімічні органічні речовини"/>
+			<xsd:enumeration value="Неорганічні речовини"/>
+			<xsd:enumeration value="Продукти рослинного  та тваринного погодження"/>
+			<xsd:enumeration value="Фарба із вмістом ЛОС менш 5%"/>
+			<xsd:enumeration value="Фарба із вмістом ЛОС більш 5%"/>
+			<xsd:enumeration value="Інші"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="materiaL">
+		<xsd:annotation>
+			<xsd:documentation>Матеріал</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="materiaLKind" type="materiaLKind">
+				<xsd:annotation>
+					<xsd:documentation>Вид матеріалу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="materiaLCode" type="xsd:positiveInteger" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Код матеріалу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="materiaLName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування матеріалу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="materiaLComment">
+		<xsd:annotation>
+			<xsd:documentation>Коментарі</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="materiaLKind" type="materiaLKind">
+				<xsd:annotation>
+					<xsd:documentation>Вид матеріалу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="materiaLCode" type="xsd:positiveInteger">
+				<xsd:annotation>
+					<xsd:documentation>Код матеріалу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="materiaLName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування матеріалу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+		<xsd:complexType name="CMaterial">
+		<xsd:annotation>
+			<xsd:documentation>Використання матеріалів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="materiaL" type="mater:materiaL">
+				<xsd:annotation>
+					<xsd:documentation>Матеріал</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Usage" type="TTPAir:RichFactor">
+				<xsd:annotation>
+					<xsd:documentation>Рiчне використання</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Destination" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Призначення</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Storage" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Умови зберігання</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="infoRefID" type="xsd:positiveInteger" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Наявність документації, що регламентує вимоги санітарного законодавства</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

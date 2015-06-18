@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="windows-1251"?>
+
+<!-- XML схема "MIME формати"
+     Версія 3.1.1.2.
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="mime" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="mime" xmlns:mime="mime" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.1.1.2.">
+	<xsd:annotation>
+		<xsd:documentation>MIME формати</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="mimeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="text/plain"/>
+			<xsd:enumeration value="text/richtext"/>
+			<xsd:enumeration value="text/html"/>
+			<xsd:enumeration value="audio/x-aiff"/>
+			<xsd:enumeration value="audio/basic"/>
+			<xsd:enumeration value="audio/wav"/>
+			<xsd:enumeration value="image/gif"/>
+			<xsd:enumeration value="image/jpeg"/>
+			<xsd:enumeration value="image/pjpeg"/>
+			<xsd:enumeration value="image/tiff"/>
+			<xsd:enumeration value="image/x-png"/>
+			<xsd:enumeration value="image/x-xbitmap"/>
+			<xsd:enumeration value="image/bmp"/>
+			<xsd:enumeration value="image/x-jg"/>
+			<xsd:enumeration value="image/x-emf"/>
+			<xsd:enumeration value="image/x-wmf"/>
+			<xsd:enumeration value="video/avi"/>
+			<xsd:enumeration value="video/mpeg"/>
+			<xsd:enumeration value="application/postscript"/>
+			<xsd:enumeration value="application/base64"/>
+			<xsd:enumeration value="application/macbinhex40"/>
+			<xsd:enumeration value="application/pdf"/>
+			<xsd:enumeration value="application/x-compressed"/>
+			<xsd:enumeration value="application/x-zip-compressed"/>
+			<xsd:enumeration value="application/x-gzip-compressed"/>
+			<xsd:enumeration value="application/java"/>
+			<xsd:enumeration value="application/msword"/>
+			<xsd:enumeration value="application/epl"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="visualType">
+		<xsd:restriction base="mime:mimeType">
+			<xsd:enumeration value="text/plain"/>
+			<xsd:enumeration value="text/richtext"/>
+			<xsd:enumeration value="text/html"/>
+			<xsd:enumeration value="image/gif"/>
+			<xsd:enumeration value="image/jpeg"/>
+			<xsd:enumeration value="image/pjpeg"/>
+			<xsd:enumeration value="image/tiff"/>
+			<xsd:enumeration value="image/x-png"/>
+			<xsd:enumeration value="image/x-xbitmap"/>
+			<xsd:enumeration value="image/bmp"/>
+			<xsd:enumeration value="image/x-jg"/>
+			<xsd:enumeration value="image/x-emf"/>
+			<xsd:enumeration value="image/x-wmf"/>
+			<xsd:enumeration value="video/avi"/>
+			<xsd:enumeration value="video/mpeg"/>
+			<xsd:enumeration value="application/msword"/>
+			<xsd:enumeration value="application/pdf"/>
+			<xsd:enumeration value="application/epl"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="richType">
+		<xsd:restriction base="mime:mimeType">
+			<xsd:enumeration value="text/plain"/>
+			<xsd:enumeration value="text/richtext"/>
+			<xsd:enumeration value="text/html"/>
+			<xsd:enumeration value="application/msword"/>
+			<xsd:enumeration value="application/pdf"/>
+			<xsd:enumeration value="application/epl"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="humanReadable">
+		<xsd:annotation>
+			<xsd:documentation>Iнформацiя у довiльнiй текстовій чи графічній формi</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:base64Binary">
+				<xsd:attribute name="type" type="visualType"/>
+				<xsd:attribute name="ID" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="richInfo">
+		<xsd:annotation>
+			<xsd:documentation>Iнформацiя у довiльнiй текстовій(графічній) формi</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:base64Binary">
+				<xsd:attribute name="type" type="mime:richType"/>
+				<xsd:attribute name="ID" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:schema>

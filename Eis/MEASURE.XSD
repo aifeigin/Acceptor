@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема Додатка 3 до "ЗВІТУ ПРО ОХОРОНУ АТМОСФЕРНОГО ПОВІТРЯ"
+     по формі 2-ТП (повітря)
+     Версія 3.1.1.2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="measure" xmlns:measure="measure" xmlns="measure" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="3.1.1.2">
+	<xsd:annotation>
+		<xsd:documentation>Додаток 3. Заходи. Базові типи</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="measure">
+		<xsd:annotation>
+			<xsd:documentation> Тип природоохоронний захід</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="measureCode" type="xsd:integer" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Код заходу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measureName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування заходу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="measureS">
+		<xsd:annotation>
+			<xsd:documentation> Тип природоохороннi заходи</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="measure" type="measure" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Тип природоохоронний захід</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

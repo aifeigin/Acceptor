@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!-- Електронна типова форма XML схеми "ЗВІТУ ПРО ОХОРОНУ АТМОСФЕРНОГО ПОВІТРЯ"
+     по формі 2-ТП (повітря)  - річна , як елемент единого iнформацiйного середовища.
+     Версія 3.1.1.2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="TTPA_Year" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:TTPA_Year="TTPA_Year" xmlns:TTPAir="TTPAir" xmlns:root="root" xmlns:cargo="cargo" xmlns:equip="equip" xmlns:measure="measure" xmlns:poll="poll" xmlns:geo="geo" xmlns="TTPA_Year" elementFormDefault="qualified" version="3.1.1.2">
+        <xsd:import namespace="root" schemaLocation="root.xsd"/>
+        <xsd:import namespace="poll" schemaLocation="pollutant.xsd"/>
+        <xsd:import namespace="measure" schemaLocation="measure.xsd"/>
+        <xsd:import namespace="equip" schemaLocation="equipment.xsd"/>
+        <xsd:import namespace="geo" schemaLocation="geo.xsd"/>
+        <xsd:import namespace="cargo" schemaLocation="cargo.xsd"/>
+        <xsd:import namespace="TTPAir" schemaLocation="twoTpAir.xsd"/>
+	<xsd:complexType name="Factor">
+		<xsd:annotation>
+			<xsd:documentation>Показник</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="MeasureType" type="cargo:MeasureType" minOccurs="1" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>Одиниця вимiру</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FactorValue" type="xsd:positiveInteger">
+				<xsd:annotation>
+					<xsd:documentation>Значення показника</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="twoTpAirYearCargoType">
+		<xsd:annotation>
+			<xsd:documentation>Типовий елемент форми 2-ТП річна</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="root:CargoType">
+			<xsd:enumeration value="2ТП(повітря) - річна"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="CargoType" type="twoTpAirYearCargoType" fixed="2ТП(повітря) - річна">
+		<xsd:annotation>
+			<xsd:documentation>Тип елементу ЄІС</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ReportHeader">
+		<xsd:annotation>
+			<xsd:documentation>Типовий заголовок</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="root:UnInEnHeader">
+				<xsd:sequence>
+					<xsd:element ref="CargoType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ReportHeader" type="TTPA_Year:ReportHeader">
+		<xsd:annotation>
+			<xsd:documentation>Типовий заголовок</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="reportedPeriod" type="xsd:gYear">
+		<xsd:annotation>
+			<xsd:documentation>Звіт за</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="pollEmissionN" type="TTPAir:pollEmissionN">
+		<xsd:annotation>
+			<xsd:documentation>Викиди забруднюючої речовини</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="technologyMeasures">
+		<xsd:annotation>
+			<xsd:documentation>Заходи, спрямовані на зменшення викидів забруднювальних речовин</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="measure" type="measure:measure">
+				<xsd:annotation>
+					<xsd:documentation>Природоохоронний захід</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measureState" type="TTPAir:measureState" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Оцінка виконання заходу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="estimatedExpenditures" type="TTPAir:expense1000" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Обсяг витрат за кошторисом</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="actualExpenditures" type="TTPAir:expense1000" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Фактично витрачено</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measureProgress" type="TTPAir:measureProgress">
+				<xsd:annotation>
+					<xsd:documentation>Прогрес виконання</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="basicFactors">
+		<xsd:annotation>
+			<xsd:documentation>Показники звіту</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="equipmenT" type="equip:equipmenT">
+				<xsd:annotation>
+					<xsd:documentation>Технологічне устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="pollEmissionN" maxOccurs="unbounded"/>
+			<xsd:element name="ProductionPower" type="Factor">
+				<xsd:annotation>
+					<xsd:documentation>Показник потужності виробництва</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProductionVolume" type="Factor">
+				<xsd:annotation>
+					<xsd:documentation>Показник обсягу виробництва</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="technologyMeasures" type="technologyMeasures" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Заходи, спрямовані на зменшення викидів забруднювальних речовин</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="twoTpAirBody">
+		<xsd:annotation>
+			<xsd:documentation>Зміст звіту 2-ТП</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="root:UnInEnBody">
+				<xsd:sequence>
+					<xsd:element ref="reportedPeriod"/>
+					<xsd:element name="orgInfo" type="TTPAir:orgInfo">
+						<xsd:annotation>
+							<xsd:documentation>Організація – звітувач</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="permissionInfo" type="TTPAir:permissionInfo">
+						<xsd:annotation>
+							<xsd:documentation>Дозвіл на викид</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="stateReg" type="TTPAir:stateReg">
+						<xsd:annotation>
+							<xsd:documentation>Державна реєстрація</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="uaGeoCoordinates" type="geo:uaGeoCoordinates">
+						<xsd:annotation>
+							<xsd:documentation>Географічні координати центроїду</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="basicFactors" type="basicFactors" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Показники звіту</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="isConfidential" type="xsd:boolean" default="false">
+						<xsd:annotation>
+							<xsd:documentation>Згода на оприлюднення</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="twoTpAirCargo">
+		<xsd:annotation>
+			<xsd:documentation>Тип звіту по формі 2-ТП</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="ReportHeader"/>
+			<xsd:element name="ReportContent" type="twoTpAirBody">
+				<xsd:annotation>
+					<xsd:documentation>Зміст звіту</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Report" type="twoTpAirCargo" id="root">
+		<xsd:annotation>
+			<xsd:documentation>Звіт</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

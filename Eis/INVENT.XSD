@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- Електронна типова форма XML схеми "Інвентарізації".
+     Версія 3.1.1.2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology, Institut National de Recherche en Informatique
+     et en Automatique, Keio University). All Rights Reserved. http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="invent" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:invcargo="invcargo" xmlns:root="root" xmlns:cargo="cargo" xmlns:equip="equip" xmlns:poll="poll" xmlns:geo="geo" xmlns="invent" xmlns:invent="invent" xmlns:method="method" xmlns:subst="subst" xmlns:infores="infores" xmlns:TPAir="TTPAir" xmlns:graphics="graphics" elementFormDefault="qualified" version="3.1.1.2">
+    <xsd:import namespace="root"         schemaLocation="root.xsd"/>
+    <xsd:import namespace="poll"         schemaLocation="pollutant.xsd"/>
+    <xsd:import namespace="equip"        schemaLocation="equipment.xsd"/>
+    <xsd:import namespace="cargo"        schemaLocation="cargo.xsd"/>
+    <xsd:import namespace="invcargo" schemaLocation="invbase.xsd"/>
+    <xsd:import namespace="geo"          schemaLocation="geo.xsd"/>
+    <xsd:import namespace="method"       schemaLocation="method.xsd"/>
+    <xsd:import namespace="subst"        schemaLocation="substance.xsd"/>
+    <xsd:import namespace="infores"  schemaLocation="infores.xsd"/>
+    <xsd:import namespace="TTPAir"       schemaLocation="twoTPAir.xsd"/>
+    <xsd:import namespace="graphics" schemaLocation="graphics.xsd"/>
+    <xsd:include schemaLocation="invtype.xsd"/>
+    <xsd:complexType name="orgInfo">
+        <xsd:annotation>
+            <xsd:documentation>Організація – звітувач</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="enterpriseLongName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Повне найменування підприємства</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="enterpriseShortName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Коротке найменування підприємства</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="orgLegalAddress" type="root:PostAddress">
+                <xsd:annotation>
+                    <xsd:documentation>Юридична адреса</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="orgFactAddress" type="root:PostAddress">
+                <xsd:annotation>
+                    <xsd:documentation>Фактична адреса</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="enterYear" type="xsd:gYear">
+                <xsd:annotation>
+                    <xsd:documentation>Рік вводу підприємства в експлуатацію</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="orgCodes">
+                <xsd:annotation>
+                    <xsd:documentation>Ідентифікаційні та класифікаційні атрибутивні Коди підприємства</xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="EDRPOU" type="cargo:edrpoU">
+                            <xsd:annotation>
+                                <xsd:documentation>ЄДРПОУ</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="KVED" type="cargo:kvedCode">
+                            <xsd:annotation>
+                                <xsd:documentation>КВЕД</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="CODU" type="cargo:branchCode" nillable="true">
+                            <xsd:annotation>
+                                <xsd:documentation>КОДУ</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="INDUSTRIAL_UNION" type="xsd:string" nillable="true">
+                            <xsd:annotation>
+                                <xsd:documentation>Виробниче об'єднання</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="approvedPerson" type="TPAir:personInfo" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Керівний склад підприємства</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="airDefenseDepartment" type="xsd:string" nillable="true">
+                <xsd:annotation>
+                    <xsd:documentation>Служба з охорони атмосферного повітря, лабораторії з контролю стану навколишнього природного середовища</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="responsiblePerson" type="TPAir:personInfo" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Особи, відповідальні за дотриманням природоохоронного законодавства</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+	    <xsd:element name="EMail" type="cargo:EMail">
+		<xsd:annotation>
+		 <xsd:documentation>Адреса електронної пошти</xsd:documentation>
+		</xsd:annotation>
+	    </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="outSourcinG">
+        <xsd:annotation>
+            <xsd:documentation>Дані по організації, яка виконувала роботи з інвентаризації</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="orgName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Найменування організації</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="orgPostAddress" type="root:PostAddress">
+                <xsd:annotation>
+                    <xsd:documentation>Поштова адреса</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="orgCodes">
+                <xsd:annotation>
+                    <xsd:documentation>Ідентифікаційні та класифікаційні атрибутивні коди організації</xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="EDRPOU" type="cargo:edrpoU">
+                            <xsd:annotation>
+                                <xsd:documentation>ЄДРПОУ</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="approvedPerson" type="TPAir:personInfo">
+                <xsd:annotation>
+                    <xsd:documentation>Керівник організації</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="aсtivityBasics" type="TPAir:permissionInfo">
+                <xsd:annotation>
+                    <xsd:documentation>Реквизити документу, що підтверджує право на виконання цих робіт</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Generality">
+        <xsd:annotation>
+            <xsd:documentation>Загальна частина</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="theGoal" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Мета і завдання виконання інвентаризації викидів</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="agreementInfo" type="agreementInfo" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Перелік  договорів, на основі яких виконуються роботи</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="approveDate" type="xsd:date">
+                <xsd:annotation>
+                    <xsd:documentation>Дата затвердження звіту по інвентаризації керівником підприємства</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="outSoursingInfo" type="outSourcinG" nillable="true">
+                <xsd:annotation>
+                    <xsd:documentation>Дані по організації, яка виконувала роботи з інвентаризації</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="spacePlanningSolutioN">
+        <xsd:annotation>
+            <xsd:documentation>Об’ємно - планувальні рішення промплощадки</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="descriptioN" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Взаємо розташування підприємств та об’єктів, які граничать з підприємством</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="industrialAreaCount" type="xsd:positiveInteger">
+                <xsd:annotation>
+                    <xsd:documentation>Кількість промислових площадок</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="uaGeoCoordinates" type="geo:uaGeoCoordinates">
+                <xsd:annotation>
+                    <xsd:documentation>Географічні координаті підприємства</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="enterpriseSquare" type="invcargo:enterpriseSquare">
+                <xsd:annotation>
+                    <xsd:documentation>Площа підприємства (км.кв)</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="enterpriseMap" type="graphics:graphicS" nillable="true">
+                <xsd:annotation>
+                    <xsd:documentation>Графічне зображення генерального плану підприємства з нанесеними корпусами і джерелами викиду</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="enterprisePlan" type="graphics:mapSchema" nillable="true">
+                <xsd:annotation>
+                    <xsd:documentation>Cитуаційна карта-схема</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="inventCargoType">
+        <xsd:annotation>
+            <xsd:documentation>Типовий елемент Інвентаризації</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="root:CargoType">
+            <xsd:enumeration value="Інвентаризація"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:element name="CargoType" type="inventCargoType" fixed="Інвентаризація">
+        <xsd:annotation>
+            <xsd:documentation>Тип елементу ЄІС</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="reportedPeriod" type="xsd:gYear">
+        <xsd:annotation>
+            <xsd:documentation>Звіт за 5 років на </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="ReportHeader">
+        <xsd:annotation>
+            <xsd:documentation>Типовий заголовок</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="root:UnInEnHeader">
+                <xsd:sequence>
+                    <xsd:element ref="CargoType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="ReportHeader" type="invent:ReportHeader">
+        <xsd:annotation>
+            <xsd:documentation>Типовий заголовок</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="inventBody">
+        <xsd:annotation>
+            <xsd:documentation>Зміст звіту Інвентаризації</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="root:UnInEnBody">
+                <xsd:sequence>
+                    <xsd:element ref="reportedPeriod"/>
+                    <xsd:element name="orgInfo" type="orgInfo">
+                        <xsd:annotation>
+                            <xsd:documentation>Дані по підприємству</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="generalitY" type="Generality">
+                        <xsd:annotation>
+                            <xsd:documentation>Загальна частина</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="spacePlanningSolutioN" type="spacePlanningSolutioN">
+                        <xsd:annotation>
+                            <xsd:documentation>Об’ємно - планувальні рішення промплощадки</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="evolvingProps" type="evolvingProps" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation>Характеристика джерел виділення забруднюючих речовин</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="srcEmissionProps" type="srcEmissionProps" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation>Характеристика джерел викидів забруднюючих речовин</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="gasCleanEquipProps" type="gasCleanEquipProps" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation>Характеристика установок очищення газу (УОГ)</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="emissionFactorsProps" type="emissionFactorsProps" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation>Показники емісії забруднюючих речовин по виробництвам підприємства</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="infoResources" type="infores:infoRes" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation>Джерела інформації</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="inventCargo">
+        <xsd:annotation>
+            <xsd:documentation>Тип звіту по формі Інвентаризації</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element ref="ReportHeader"/>
+            <xsd:element name="ReportContent" type="inventBody">
+                <xsd:annotation>
+                    <xsd:documentation>Зміст звіту</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Report" type="inventCargo">
+        <xsd:annotation>
+            <xsd:documentation>Звіт</xsd:documentation>
+        </xsd:annotation>
+        <xsd:key name="infoKey">
+            <xsd:selector xpath="infores:infoResources"/>
+            <xsd:field xpath="@infoRefID"/>
+        </xsd:key>
+        <xsd:keyref name="infoKeyState" refer="infoKey">
+            <xsd:selector xpath="infores:infoRef"/>
+            <xsd:field xpath="@infoRefID"/>
+        </xsd:keyref>
+    </xsd:element>
+</xsd:schema>

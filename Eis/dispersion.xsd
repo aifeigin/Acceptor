@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!--  Електронна типова форма XML схеми. Розрахунок забруднення атмосферного повітря за ОНД-86.
+      Версія 3.1.1.3. Редакція 2
+
+      Copyright(С) 2003-2010 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+      http://www.sfund.kiev.ua
+
+      Original copyright:
+
+      Copyright 2001 W3C (Massachusetts Institute of Technology,
+      Institut National de Recherche en Informatique et en Automatique,
+      Keio University). All Rights Reserved.
+      http://www.w3.org/Consortium/Legal/
+
+      This document is governed by the W3C Software License [1] as
+      described in the FAQ [2].
+
+      [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+      [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+
+      Changes history :
+	  11.01.2010 : type evolvingSrc - rectangular mouth for formation source was supported		
+	  12.01.2010 : type emissionSrc - nillable DangClass was allowed
+-->
+<xsd:schema targetNamespace="disp" xmlns:disp="disp" xmlns:technorm="technorm" xmlns:equip="equip" xmlns:sdzone="sdzone" xmlns:geo="geo" xmlns:subst="subst" xmlns:invent="invent" xmlns:invcargo="invcargo" xmlns:cargo="cargo" xmlns="disp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="3.1.1.2">
+        <xsd:import namespace="geo" schemaLocation="geo.xsd"/>
+        <xsd:import namespace="subst" schemaLocation="substance.xsd"/>
+        <xsd:import namespace="equip" schemaLocation="equipment.xsd"/>
+        <xsd:import namespace="sdzone" schemaLocation="sdzone.xsd"/>
+        <xsd:include schemaLocation="dispbase.xsd"/>
+	<xsd:simpleType name="CStrat">
+		<xsd:annotation>
+			<xsd:documentation>коефіцієнт температурної стратифікації атмосфери.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:enumeration value="160"/>
+			<xsd:enumeration value="180"/>
+			<xsd:enumeration value="200"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CMethod">
+		<xsd:annotation>
+			<xsd:documentation>Методика розрахунку викидів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CSquare">
+		<xsd:annotation>
+			<xsd:documentation>площа міста (км.кв)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CProbability">
+		<xsd:annotation>
+			<xsd:documentation>Вірогідність</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CSettlementDepositionCoeff">
+		<xsd:annotation>
+			<xsd:documentation>коефіцієнт впорядкованого осідання</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="1"/>
+			<xsd:maxInclusive value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CPotentiality">
+		<xsd:annotation>
+			<xsd:documentation>коефіцієнт потенцііровання</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CWindSpeed">
+		<xsd:annotation>
+			<xsd:documentation>Швидкість вітру</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CPrecipitation">
+		<xsd:annotation>
+			<xsd:documentation>опади</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:positiveInteger"/>
+	</xsd:simpleType>
+	<xsd:complexType name="substancERef">
+		<xsd:annotation>
+			<xsd:documentation>Забруднююча речовина</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="pollutanTCode" type="subst:pollutanTCode">
+				<xsd:annotation>
+					<xsd:documentation>Код забруднюючої речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="pollutanTName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування забруднюючої речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CWindRose">
+		<xsd:annotation>
+			<xsd:documentation>Середньорічна роза вітрів, %</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="N" type="CProbability">
+				<xsd:annotation>
+					<xsd:documentation>Північ</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NE" type="CProbability">
+				<xsd:annotation>
+					<xsd:documentation>Північний схід</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="E" type="CProbability">
+				<xsd:annotation>
+					<xsd:documentation>Схід</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SE" type="CProbability">
+				<xsd:annotation>
+					<xsd:documentation>Південний схід</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="S" type="CProbability">
+				<xsd:annotation>
+					<xsd:documentation>Південь</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SW" type="CProbability">
+				<xsd:annotation>
+					<xsd:documentation>Південний захід</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="W" type="CProbability">
+				<xsd:annotation>
+					<xsd:documentation>Захід</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NW" type="CProbability">
+				<xsd:annotation>
+					<xsd:documentation>Північний захід</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CWeather">
+		<xsd:annotation>
+			<xsd:documentation>Кліматичні характеристики періоду</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="t_boundary" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>Середня температура найхолоднішого місяця зими чи найжаркішого місяця літа (град С)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="t_average" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>Середня зимова (опалювальний період) чи літня (неопалювальний період) температура  (град С)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Ways" type="CWindRose">
+				<xsd:annotation>
+					<xsd:documentation>Роза вітрів (%)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Rain" type="CPrecipitation">
+				<xsd:annotation>
+					<xsd:documentation>опади (мм)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CZone">
+		<xsd:annotation>
+			<xsd:documentation>Зона впливу</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Strat" type="CStrat">
+				<xsd:annotation>
+					<xsd:documentation>коефіцієнт температурної стратифікації атмосфери.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Winter" type="CWeather">
+				<xsd:annotation>
+					<xsd:documentation>Кліматичні характеристики (зима)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Summer" type="CWeather">
+				<xsd:annotation>
+					<xsd:documentation>Кліматичні характеристики (літо)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="t_base" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>Розрахункова температура опалення, град.С.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Duration" type="xsd:positiveInteger">
+				<xsd:annotation>
+					<xsd:documentation>Опалювальний період, діб</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Wind" type="CWindSpeed">
+				<xsd:annotation>
+					<xsd:documentation>Швидкість вітру 5% забезпеченості, м/с</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Relief" type="xsd:decimal" default="1">
+				<xsd:annotation>
+					<xsd:documentation>Безрозмірний коефіцієнт місцевості</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CitySquare" type="invcargo:enterpriseSquare">
+				<xsd:annotation>
+					<xsd:documentation>площа міста (км.кв.)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Angle" type="invcargo:Angle" default="90">
+				<xsd:annotation>
+					<xsd:documentation>Кут повороту основної системи координат відносно напрямку на північ</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comment" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Коментар</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CWorkingArea">
+		<xsd:annotation>
+			<xsd:documentation>Робоча ділянка</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування підприємства</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="X" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>Координата X центру ділянки в основній системі координат</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Y" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>Координата Y центру ділянки в основній системі координат</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Angle" type="invcargo:Angle">
+				<xsd:annotation>
+					<xsd:documentation>Вугол повороту ділянки в основній системі координат</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Centroid" type="geo:uaGeoCoordinates">
+				<xsd:annotation>
+					<xsd:documentation>Георгафічні координати центроіду ділянки</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CSubst">
+		<xsd:annotation>
+			<xsd:documentation>Відомості про забруднюючі речовини</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="subst:pollutanT">
+				<xsd:sequence>
+					<xsd:element name="SettlementDepositionCoeff" type="disp:CSettlementDepositionCoeff">
+						<xsd:annotation>
+							<xsd:documentation>коефіцієнт впорядкованого осідання</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="GDKm" type="invcargo:emissionConc">
+						<xsd:annotation>
+							<xsd:documentation>ГДКмр</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="GDKs" type="invcargo:emissionConc">
+						<xsd:annotation>
+							<xsd:documentation>ГДКcc</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="GDKr" type="invcargo:emissionConc">
+						<xsd:annotation>
+							<xsd:documentation>ГДКрз</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Comment" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>Вільний текст</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CGroup">
+		<xsd:annotation>
+			<xsd:documentation>Відомості про групи сумації</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="groupCode" type="xsd:positiveInteger">
+				<xsd:annotation>
+					<xsd:documentation>код групи</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="substanceRefs" type="disp:substancERef" maxOccurs="10">
+				<xsd:annotation>
+					<xsd:documentation>Речовини в групі</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Potentiality" type="CPotentiality" default="1">
+				<xsd:annotation>
+					<xsd:documentation>Коефіцієнт потенціювання</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comment" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Вільний текст</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CPollutants">
+		<xsd:annotation>
+			<xsd:documentation>Забруднювачі</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Substances" type="disp:CSubst" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Groups" type="disp:CGroup" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CSrcRegime">
+		<xsd:annotation>
+			<xsd:documentation>Розрахункові режими</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RegimeType" type="invent:RegimeType">
+				<xsd:annotation>
+					<xsd:documentation>Тип режиму</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="emissionPressure" type="invcargo:emissionPressure">
+				<xsd:annotation>
+					<xsd:documentation>тиск газоповітряної суміші, бар</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcGasProps" type="invent:srcGasProps">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика пилогазоповітряної суміші</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcEmissions" type="pollEmissioN" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика викидів забруднюючих речовин</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comment" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Вільний текст</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--
+			- залповий викид, кількість на добу	Число	Period
+			- залповий викид, тривалість викиду	Число	Time
+			-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="equipmenT">
+		<xsd:annotation>
+			<xsd:documentation>Устаткування, що відводиться на джерело забруднення</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+                 <xsd:extension base="equip:equipmenT">
+		   <xsd:sequence>
+		     <xsd:element name="bestTechTarget" type="xsd:boolean" default="true">
+			<xsd:annotation>
+				<xsd:documentation>Чи підлягає технологія до впровадження найкращих доступних технологій та методів керування</xsd:documentation>
+			</xsd:annotation>
+		     </xsd:element>
+		   </xsd:sequence>
+		 </xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="emissionSrc">
+		<xsd:annotation>
+			<xsd:documentation>Тип-стаціонарне джерело забруднення</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="equipmenT" type="equipmenT" minOccurs="1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Обладнання</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DangClass" type="sdzone:CDangClass" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Клас небезпеки виробництва</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування джерела викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcCode" type="invcargo:srcCode">
+				<xsd:annotation>
+					<xsd:documentation>Номер джерела викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcHeight" type="invcargo:srcHeight">
+				<xsd:annotation>
+					<xsd:documentation>Висота джерела забруднення (м)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcSizes" type="invcargo:srcDiameter" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>[1/1] Діаметр джерела забруднення (м) [1/2] Длина джерела (гірла) (м)   [2/2] Ширина джерела (гірла) (м)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcEmissionDisplacement" type="invcargo:srcDisplacement" minOccurs="1" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>Місцезнаходження джерела в основній системі координат (м)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="samplingPoint" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>місце відбору проб</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="gasProps" type="invent:srcGasProps">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика ПГПС</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcEmissions" type="pollEmissioNOut" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика викидів забруднюючих речовин</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>	
+	<xsd:complexType name="pollEmissioNOut">
+		<xsd:annotation>
+			<xsd:documentation>Параметри викидів забруднюючої речовини з труби</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="pollEmissioN">
+				<xsd:sequence>
+					<xsd:element name="emissionVolume" type="invcargo:emissionVolume">
+						<xsd:annotation>
+							<xsd:documentation>Величина викиду т/рік</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="srcEvolvingEmissionProps">
+		<xsd:annotation>
+			<xsd:documentation>Характеристики джерел викидів продуктів виділення</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="srcCode" type="invcargo:srcCode">
+				<xsd:annotation>
+					<xsd:documentation>Код джерела забруднення</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="evolvingSrc" type="evolvingSrc" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Джерела виділення </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+  <xsd:complexType name="evolvingEmissioN">
+    <xsd:annotation>
+      <xsd:documentation>Параметри вид_лення забруднюючої речовини за н.у.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="pollEmissioN">
+        <xsd:sequence>
+          <!-- to comment on export !! -->
+          <xsd:element name="pollMarker" type="technorm:pollMarker" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Марк_ровка забруднюючої речовини для застосування технолог_чних норматив_в</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <!-- to comment on export !! -->
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="pollEmissioNBaseExt">
+		<xsd:annotation>
+			<xsd:documentation>Параметри викид_в забруднюючої речовини з неорган_зованого джерела в формат_ Екозв_т</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="pollEmissioN">
+				<xsd:sequence>
+					<xsd:element name="emissionVolume" type="invcargo:emissionVolume" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Величина викиду т/р_к</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="evolvingSrc">
+		<xsd:annotation>
+			<xsd:documentation>Характеристика джерела виділення забруднюючих речовин</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="srcCode" type="invcargo:srcCode">
+				<xsd:annotation>
+					<xsd:documentation>Номер джерела викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="formationSrcCode" type="invcargo:srcCode">
+				<xsd:annotation>
+					<xsd:documentation>Код джерела утворення забруднюючої речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="formationSrcName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування джерела утворення забруднюючої речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="samplingPoint" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Місце відбору проб</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="flueDiameter" type="invcargo:srcDiameter" minOccurs="1" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>Діаметр (чи довжина х ширина) газоходу,м</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="gasProps" type="invent:srcGasProps">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика ПГПС</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+      <!-- to comment on export !! -->
+      <xsd:element name="techNormMarker" type="technorm:scopE" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>_дентиф_катор технолог_чного норматива до застосування</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="statuS" type="technorm:productioNStatus" minOccurs="0" maxOccurs="1" default="newOne">
+        <xsd:annotation>
+          <xsd:documentation>Статус обладнання, щодо його вводу в експлуатац_ю</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <!-- to comment on export !! -->
+      <xsd:element name="srcEmissions" type="evolvingEmissioN" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика викид_в забруднюючих речовин</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+      </xsd:sequence>
+
+	</xsd:complexType>
+	
+	<xsd:complexType name="srcEmission">
+		<xsd:annotation>
+			<xsd:documentation>Характеристика джерел викидів забруднюючих речовин в атмосферне повітря та їх параметрів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="srcEmission" type="emissionSrc" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика джерел та обсягів забруднюючих речовин, які викидаються в атмосферне повітря стаціонарними джерелами</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcEvolving" type="evolvingSrc" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика джерела виділення забруднюючих речовин</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="gasCleanEquipProps" type="gasCleanEquipProps" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика установок очищення газу (УОГ)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="salvoSrc" type="salvoSrc" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Параметри залпових викидів забруднюючої речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="unorganizedSrc" type="unorganizedSrc" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика джерел неорганізованих викидів</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	 </xsd:complexType>
+	 <xsd:complexType name="gasCleanEquipUnit">
+           <xsd:annotation>
+             <xsd:documentation>Характеристика установок очищення газу (УОГ) (+викиди)</xsd:documentation>
+           </xsd:annotation>
+	   <xsd:complexContent>
+	     <xsd:extension base="gasCleanEquipUnitBase">
+               <xsd:sequence>
+            <!-- to comment on export !! -->
+            <xsd:element name="techNormMarker" type="technorm:scopE" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>_дентиф_катор технолог_чного норматива до застосування</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="statuS" type="technorm:productioNStatus" minOccurs="0" maxOccurs="1" default="newOne">
+              <xsd:annotation>
+                <xsd:documentation>Статус обладнання, щодо його вводу в експлуатац_ю</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <!-- to comment on export !! -->
+
+                 <xsd:element name="pollCleanProps" type="pollCleanProps" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>Характеристика очистки викидів забруднюючих речовин</xsd:documentation>
+                   </xsd:annotation>
+                 </xsd:element>
+               </xsd:sequence>
+	     </xsd:extension>
+	   </xsd:complexContent> 	
+        </xsd:complexType>
+	<xsd:complexType name="gasCleanEquipProps">
+           <xsd:annotation>
+            <xsd:documentation>Характеристика роботи газоочисних установок (ГОУ) *</xsd:documentation>
+           </xsd:annotation>
+           <xsd:sequence>
+            <xsd:element name="srcCode" type="invcargo:srcCode">
+                <xsd:annotation>
+                    <xsd:documentation>Код джерела забруднення</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gasCleanEquipUnits" type="gasCleanEquipUnit" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Характеристика роботи газоочисої установки (ГОУ) </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+           </xsd:sequence>
+    	</xsd:complexType>
+	<xsd:complexType name="unorganizedSrc">
+		<xsd:annotation>
+			<xsd:documentation>Характеристика джерел неорганізованих викидів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="srcCode" type="invcargo:srcCode">
+				<xsd:annotation>
+					<xsd:documentation>Код джерела викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування джерела викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcEmissions" type="pollEmissioNBase" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика викидів забруднюючих речовин</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="CCrit">
+		<xsd:annotation>
+			<xsd:documentation>критерій доцільності</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CCriterion">
+		<xsd:annotation>
+			<xsd:documentation>Критерій доцільності</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="substanceRef" type="disp:substancERef">
+				<xsd:annotation>
+					<xsd:documentation>посилка на забруднюючу речовину</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Crit" type="CCrit">
+				<xsd:annotation>
+					<xsd:documentation>критерій доцільності</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comment" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Вільний текст</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="windSpeed">
+		<xsd:annotation>
+			<xsd:documentation>швидкість вітру</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+			<xsd:fractionDigits value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="windSpeedByParticles">
+		<xsd:annotation>
+			<xsd:documentation>швидкість вітру</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="2"/>
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CSupervisionPoint">
+		<xsd:annotation>
+			<xsd:documentation>місцезнаходження поста спостереження у основній системі координат (м)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="X" type="invcargo:srcMetric">
+				<xsd:annotation>
+					<xsd:documentation>координата X (м)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Y" type="invcargo:srcMetric">
+				<xsd:annotation>
+					<xsd:documentation>координата Y (м)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="meteoInfo">
+		<xsd:annotation>
+			<xsd:documentation>метеорологічні характеристики і коефіцієнти, що визначають умови розсіювання забруднюючих речовин в атмосферному повітрі</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Strat" type="disp:CStrat">
+				<xsd:annotation>
+					<xsd:documentation>коефіцієнт температурної стратифікації атмосфери.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Relief" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>Безрозмірний коефіцієнт рел’єфу місцевості</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="t_summer_boundary" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>Середня температура найжаркішого місяця літа (град С)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="t_winter_boundary" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>Середня температура найхолоднішого місяця зими (град С)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Ways" type="disp:CWindRose">
+				<xsd:annotation>
+					<xsd:documentation>Роза вітрів (%)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Wind" type="disp:CWindSpeed">
+				<xsd:annotation>
+					<xsd:documentation>Швидкість вітру 5% забезпеченості, м/с</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comment" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Коментар</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Angle" type="invcargo:Angle" default="90">
+				<xsd:annotation>
+					<xsd:documentation>Кут повороту системи координат об'єкту вiдносно напрямку на пiвнiч</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CMeasuredBackground">
+		<xsd:annotation>
+			<xsd:documentation>Дані по фоновим концентраціям за данними спостережень</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="supervisionPoint" type="CSupervisionPoint">
+				<xsd:annotation>
+					<xsd:documentation>місцезнаходження поста спостереження у основній системі координат (м)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cCalm" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при швидкості вітру  до 2 м/c (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cNord" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при північному вітрі при швидкості &gt; 2 м/c (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cOst" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при східному вітрі при швидкості &gt; 2 м/c (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cZuid" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при південному вітрі при швидкості &gt; 2 м/c (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cWest" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при західному вітрі при швидкості &gt; 2 м/c (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CCalcBackground">
+		<xsd:annotation>
+			<xsd:documentation>Дані по фоновим концентраціям, отриманим розрахунковим шляхом</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="supervisionPoint" type="CSupervisionPoint">
+				<xsd:annotation>
+					<xsd:documentation>місцезнаходження поста спостереження у основній системі координат (м)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cNord" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при північному вітрі(мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cNordOst" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при північно-східному вітрі(мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cOst" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при східному вітрі(мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cZuidOst" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при південно-східному вітрі (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cZuid" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при південному вітрі (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cZuidWest" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при південно-західному вітрі (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cWest" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при західному вітрі (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cNordWest" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова конц-я при північно-західному вітрі (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CBackGround">
+		<xsd:annotation>
+			<xsd:documentation>Дані по фоновим концентраціям</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="constBackground" type="invcargo:emissionConc" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>постоянна фонова концентрація (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measuredBackground" type="disp:CMeasuredBackground" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>фонова концентрація за данними спостережень (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="calcBackground" type="disp:CCalcBackground" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>фонова концентрація за даними розрахунків (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="pollutanTState">
+		<xsd:annotation>
+			<xsd:documentation>дані про забруднення конкретною речовиною</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="pollutanT" type="invent:pollSubsT">
+				<xsd:annotation>
+					<xsd:documentation>забруднююча речовина</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cQuality" type="invcargo:emissionConc" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Нормативи якості атмосферного повітря(мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GDK" type="invcargo:emissionConc" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>ГДК (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OBRD" type="invcargo:emissionConc" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>ОБРД (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cAverage" type="invcargo:emissionConc" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Середньорічні концентрації (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cMax" type="invcargo:emissionConc" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Максимальна з разових концентрація (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="cBackground" type="CBackGround">
+				<xsd:annotation>
+					<xsd:documentation>Фонова концентрація (мг/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="pollutionState">
+		<xsd:annotation>
+			<xsd:documentation>дані про стан довкілля</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="pollutanTState" type="pollutanTState" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>дані про забруднення речовиною</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

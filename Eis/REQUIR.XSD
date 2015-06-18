@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема "Вимоги"  Версія 3.1.1.3. Редакція 2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+
+     Changes :
+	    03.03.2010 : REF attribute added to requiremenT type to support tech norms
+-->
+<xsd:schema targetNamespace="req" xmlns:req="req" xmlns:emisrang="emisrang" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="req" elementFormDefault="qualified" version="3.1.1.2" xml:lang="uk">
+	<xsd:annotation>
+		<xsd:documentation>Умови</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="conditioN">
+		<xsd:annotation>
+			<xsd:documentation>Умови</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="titlE" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування умови</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="requiremenT" minOccurs="1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Вимоги</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="ID"  type="xsd:string"/>		
+	</xsd:complexType>
+
+	<xsd:element name="requiremenT">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>Вимоги</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element name="titlE" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Найменування вимоги</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="casE" minOccurs="0" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>випадки застосування</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="ID" type="xsd:string"/>
+			<xsd:attribute name="REF" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="casE">
+            <xsd:complexType>
+		<xsd:annotation>
+			<xsd:documentation>Випадки застосування</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+		        <xsd:element name="titlE" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування випадка</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="requiremenT" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Вимоги</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:string"/>
+	    </xsd:complexType>
+	</xsd:element>
+</xsd:schema>

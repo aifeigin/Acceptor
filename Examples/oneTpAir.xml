@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by SILVESTR (SF) -->
+<Report xmlns="OTPAir" xmlns:OTPAir="OTPAir" xmlns:TPAir="TTPAir" xmlns:cargo="cargo" xmlns:equip="equip" xmlns:geo="geo" xmlns:invcargo="invcargo" xmlns:largeSrc="largeSrc" xmlns:poll="poll" xmlns:root="root" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="OTPAir oneTpAir.xsd">
+	<ReportHeader>
+		<root:CreationDate>2005-01-21</root:CreationDate>
+		<root:GeneratedBy>Text editor</root:GeneratedBy>
+		<root:RegistrationDate>2005-01-24</root:RegistrationDate>
+		<root:RegisteredHosts>Міністерство охорони навколишнього природного середовища України</root:RegisteredHosts>
+		<root:SequenceNumber>2</root:SequenceNumber>
+		<root:Remark>Форма 1-ТП (повітря)</root:Remark>
+		<CargoType>1ТП(повітря)</CargoType>
+	</ReportHeader>
+	<ReportContent>
+		<reportedPeriod>2005</reportedPeriod>
+		<orgInfo>
+			<TPAir:orgProvider>Відкрите акціонерне товариство "Миколаївський глиноземний завод"</TPAir:orgProvider>
+			<TPAir:orgPostAddress>
+				<root:Zip>54054</root:Zip>
+				<root:Country>Україна</root:Country>
+				<root:Region>Миколаївська область</root:Region>
+				<root:Town>м.Миколаїв</root:Town>
+				<root:Street>Корабельний</root:Street>
+				<root:Number>34</root:Number>
+				<root:Office/>
+			</TPAir:orgPostAddress>
+			<TPAir:orgCodes>
+				<TPAir:EDRPOU>05409679</TPAir:EDRPOU>
+				<TPAir:KOATUU>4810136600</TPAir:KOATUU>
+				<TPAir:KVED>72.20.0</TPAir:KVED>
+				<TPAir:KFV>20</TPAir:KFV>
+				<TPAir:KOFPG>130</TPAir:KOFPG>
+				<TPAir:CODU>06024</TPAir:CODU>
+			</TPAir:orgCodes>
+			<TPAir:approvedPerson>
+				<TPAir:positioN>Голова правління</TPAir:positioN>
+				<TPAir:theName>Овчинніков Ю.Г.</TPAir:theName>
+			</TPAir:approvedPerson>
+			<TPAir:responsiblePerson>
+				<TPAir:positioN>Керівник лабораторії</TPAir:positioN>
+				<TPAir:theName>Крупська О.В.</TPAir:theName>
+			</TPAir:responsiblePerson>
+			<TPAir:contactPhone>(0512) 63-32-94</TPAir:contactPhone>
+			<TPAir:EMail>nap@nap.mk.ua</TPAir:EMail>
+		</orgInfo>
+		<uaGeoCoordinates>
+			<geo:Longitude>
+				<geo:Gradus>31</geo:Gradus>
+				<geo:Minute>58</geo:Minute>
+				<geo:Second>40</geo:Second>
+				<geo:LongitudeHemisphere>сд</geo:LongitudeHemisphere>
+			</geo:Longitude>
+			<geo:Latitude>
+				<geo:Gradus>46</geo:Gradus>
+				<geo:Minute>58</geo:Minute>
+				<geo:Second>30</geo:Second>
+				<geo:LatitudeHemisphere>пш</geo:LatitudeHemisphere>
+			</geo:Latitude>
+		</uaGeoCoordinates>
+		<permissionInfo>
+			<TPAir:permissionDate>2002-12-10</TPAir:permissionDate>
+			<TPAir:permissionNumber>22</TPAir:permissionNumber>
+			<TPAir:permissionTerm>3</TPAir:permissionTerm>
+		</permissionInfo>
+		<stateReg>
+			<TPAir:regDate>2003-11-10</TPAir:regDate>
+			<TPAir:regNum>2</TPAir:regNum>
+		</stateReg>
+		<largestSingleSources>
+			<srcCode>9</srcCode>
+			<uaGeoCoordinates>
+				<geo:Longitude>
+					<geo:Gradus>31</geo:Gradus>
+					<geo:Minute>58</geo:Minute>
+					<geo:Second>00</geo:Second>
+					<geo:LongitudeHemisphere>сд</geo:LongitudeHemisphere>
+				</geo:Longitude>
+				<geo:Latitude>
+					<geo:Gradus>46</geo:Gradus>
+					<geo:Minute>58</geo:Minute>
+					<geo:Second>00</geo:Second>
+					<geo:LatitudeHemisphere>пш</geo:LatitudeHemisphere>
+				</geo:Latitude>
+			</uaGeoCoordinates>
+			<largeSrcFixedPoints>
+				<largeSrc:pollutanTName>CO</largeSrc:pollutanTName>
+				<largeSrc:equipmenTName>Термічні процеси в металургії</largeSrc:equipmenTName>
+			</largeSrcFixedPoints>
+			<largeSrcFixedPoints>
+				<largeSrc:pollutanTName>NОx</largeSrc:pollutanTName>
+				<largeSrc:equipmenTName>Термічні процеси в металургії</largeSrc:equipmenTName>
+			</largeSrcFixedPoints>
+			<largeSrcFixedPoints>
+				<largeSrc:pollutanTName>SО2</largeSrc:pollutanTName>
+				<largeSrc:equipmenTName>Термічні процеси в металургії</largeSrc:equipmenTName>
+			</largeSrcFixedPoints>
+		</largestSingleSources>
+		<srcProps>
+			<srcCode>9</srcCode>
+			<srcHeight>180</srcHeight>
+			<equipmenT>
+				<equip:equipmenTCode>30313</equip:equipmenTCode>
+				<equip:equipmenTName>Асфальтобетонні змішувачі</equip:equipmenTName>
+			</equipmenT>
+			<productionSector>прокалювальне відділення</productionSector>
+			<srcEmissions>
+				<pollutanT>
+					<poll:pollutanTCode>03001</poll:pollutanTCode>
+					<poll:pollutanTName>Пил коксу</poll:pollutanTName>
+				</pollutanT>
+				<emissionConc>280</emissionConc>
+				<emissionPower>9.54</emissionPower>
+			</srcEmissions>
+			<srcEmissions>
+				<pollutanT>
+					<poll:pollutanTCode>06000</poll:pollutanTCode>
+					<poll:pollutanTName>Оксид вуглецю</poll:pollutanTName>
+				</pollutanT>
+				<emissionConc>297</emissionConc>
+				<emissionPower>11.33</emissionPower>
+			</srcEmissions>
+			<srcEmissions>
+				<pollutanT>
+					<poll:pollutanTCode>04001</poll:pollutanTCode>
+					<poll:pollutanTName>Діоксид азоту</poll:pollutanTName>
+				</pollutanT>
+				<emissionConc>5</emissionConc>
+				<emissionPower>0.19</emissionPower>
+			</srcEmissions>
+			<srcEmissions>
+				<pollutanT>
+					<poll:pollutanTCode>05001</poll:pollutanTCode>
+					<poll:pollutanTName>Сірки діоксид</poll:pollutanTName>
+				</pollutanT>
+				<emissionConc>86</emissionConc>
+				<emissionPower>3.28</emissionPower>
+			</srcEmissions>
+		</srcProps>
+		<srcProps>
+			<srcCode>20</srcCode>
+			<srcHeight>120</srcHeight>
+			<equipmenT>
+				<equip:equipmenTCode>30313</equip:equipmenTCode>
+				<equip:equipmenTName>Асфальтобетонні змішувачі</equip:equipmenTName>
+			</equipmenT>
+			<productionSector>склад пеку</productionSector>
+			<srcEmissions>
+				<pollutanT>
+					<poll:pollutanTCode>11008</poll:pollutanTCode>
+					<poll:pollutanTName>Бензол</poll:pollutanTName>
+				</pollutanT>
+				<emissionConc>2</emissionConc>
+				<emissionPower>0.0018</emissionPower>
+			</srcEmissions>
+			<srcEmissions>
+				<pollutanT>
+					<poll:pollutanTCode>11041</poll:pollutanTCode>
+					<poll:pollutanTName>Толуол</poll:pollutanTName>
+				</pollutanT>
+				<emissionConc>1.2</emissionConc>
+				<emissionPower>0.0011</emissionPower>
+			</srcEmissions>
+			<srcEmissions>
+				<pollutanT>
+					<poll:pollutanTCode>11030</poll:pollutanTCode>
+					<poll:pollutanTName>Ксилол</poll:pollutanTName>
+				</pollutanT>
+				<emissionConc>0.6</emissionConc>
+				<emissionPower>0.00054</emissionPower>
+			</srcEmissions>
+			<srcEmissions>
+				<pollutanT>
+					<poll:pollutanTCode>11048</poll:pollutanTCode>
+					<poll:pollutanTName>Фенол</poll:pollutanTName>
+				</pollutanT>
+				<emissionConc>2.2</emissionConc>
+				<emissionPower>0.002</emissionPower>
+			</srcEmissions>
+			<srcEmissions>
+				<pollutanT>
+					<poll:pollutanTCode>11034</poll:pollutanTCode>
+					<poll:pollutanTName>Нафталін</poll:pollutanTName>
+				</pollutanT>
+				<emissionConc>4.2</emissionConc>
+				<emissionPower>0.0037</emissionPower>
+			</srcEmissions>
+			<srcEmissions>
+				<pollutanT>
+					<poll:pollutanTCode>11000</poll:pollutanTCode>
+					<poll:pollutanTName>Інші неметанові леткі органічні сполуки (НМЛОС)</poll:pollutanTName>
+				</pollutanT>
+				<emissionConc>10.028</emissionConc>
+				<emissionPower>0.010025</emissionPower>
+			</srcEmissions>
+			<srcEmissions>
+				<pollutanT>
+					<poll:pollutanTCode>13101</poll:pollutanTCode>
+					<poll:pollutanTName>Бенз(а)пирен</poll:pollutanTName>
+				</pollutanT>
+				<emissionConc>0.004</emissionConc>
+				<emissionPower>0.000036</emissionPower>
+			</srcEmissions>
+		</srcProps>
+		<gasCleanEquipProps>
+			<srcCode>9</srcCode>
+			<gasCleanEquipUnits>
+				<gasCleanEquipStage>1</gasCleanEquipStage>
+				<gasCleanEquipCode>26400</gasCleanEquipCode>
+				<gasCleanEquipName>Скруббер Ж 3200</gasCleanEquipName>
+				<pollCleanProps>
+					<pollutanT>
+						<poll:pollutanTCode>03001</poll:pollutanTCode>
+						<poll:pollutanTName>Пил коксу</poll:pollutanTName>
+					</pollutanT>
+					<emissionOutConc>280.0</emissionOutConc>
+					<gasCleanEquipCoeff>79.2</gasCleanEquipCoeff>
+				</pollCleanProps>
+			</gasCleanEquipUnits>
+		</gasCleanEquipProps>
+	</ReportContent>
+</Report>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!-- XML схема "Види палива". Версія 3.1.1.3. Редакція 2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+      
+     Changes
+	03.03.2010 - fuel code could be not defined 
+-->
+<xsd:schema targetNamespace="fuel" xmlns:fuel="fuel" xmlns:cargo="cargo" xmlns="fuel" xmlns:invcargo="invcargo"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="3.1.1.2."
+	xml:lang="uk">
+        <xsd:import namespace="cargo" schemaLocation="cargo.xsd" />
+        <xsd:import namespace="invcargo" schemaLocation="invbase.xsd" />
+	<xsd:annotation>
+		<xsd:documentation>Паливо</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="fueLType">
+		<xsd:annotation>
+			<xsd:documentation>Типи палива</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Основне" />
+			<xsd:enumeration value="Резервне" />
+			<xsd:enumeration value="Аварійне" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="fueL">
+		<xsd:annotation>
+			<xsd:documentation>Паливо</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="fuelCode" type="xsd:positiveInteger" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Код палива</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="fuelName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування палива</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="fuelMeasureType" type="cargo:MeasureType">
+				<xsd:annotation>
+					<xsd:documentation>Одиниця виміру</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Usage">
+		<xsd:annotation>
+			<xsd:documentation>Направлення використання</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="total" type="invcargo:factorValue3">
+				<xsd:annotation>
+					<xsd:documentation>усього</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="self" type="invcargo:factorValue3">
+				<xsd:annotation>
+					<xsd:documentation>на власні потреби</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="QMeasureType">
+		<xsd:annotation>
+			<xsd:documentation>Одиниця виміру калорійності</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="cargo:MeasureType">
+			<xsd:enumeration value="Ккал/кг" />
+			<xsd:enumeration value="Ккал/м.куб." />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="Calorie">
+		<xsd:annotation>
+			<xsd:documentation>Калорійність</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Q" type="invcargo:factorValue3">
+				<xsd:annotation>
+					<xsd:documentation>Калорійність</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MeasureType" type="fuel:QMeasureType">
+				<xsd:annotation>
+					<xsd:documentation>одиниця виміру</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CFuel">
+		<xsd:annotation>
+			<xsd:documentation>Рядок таблиці "Використання палива для технологічних потреб, вироблення тепла, пари та електричної енергії, а також транспортних потреб на території підприємства"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Fuel" type="fuel:fueL">
+				<xsd:annotation>
+					<xsd:documentation>вид палива</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Fuel_expence" type="invcargo:factorValue3">
+				<xsd:annotation>
+					<xsd:documentation>витрата палива</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Z" type="invcargo:factorValue">
+				<xsd:annotation>
+					<xsd:documentation>вміст золи (%)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="S" type="invcargo:factorValue">
+				<xsd:annotation>
+					<xsd:documentation>вміст сірки (%)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Q" type="fuel:Calorie">
+				<xsd:annotation>
+					<xsd:documentation>Калорійність (Ккал/кг,Ккал/м3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="F_techno" type="invcargo:factorValue3">
+				<xsd:annotation>
+					<xsd:documentation>витрата палива на технологію</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="F_transport" type="invcargo:factorValue3">
+				<xsd:annotation>
+					<xsd:documentation>витрата палива на транспорт</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="F_electro" type="fuel:Usage">
+				<xsd:annotation>
+					<xsd:documentation>витрата палива на е/енергію (Квт.год/рік)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="F_heat" type="fuel:Usage">
+				<xsd:annotation>
+					<xsd:documentation>витрата палива на вироблення пари та тепла (Гкал./рік)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

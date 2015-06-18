@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема Природоохоронні заходи у складі "Обгрунтуючих матеріалів для отримання дозволу на викиди"
+     Версія 3.1.1.3. Редакція 2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+     Changes :
+            03.04.2010 : element Usage prcision set up to 3 fraction digits
+
+-->
+<xsd:schema targetNamespace="measure" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:invent="invent" xmlns:invcargo="invcargo" xmlns:besttech="besttech" xmlns:bases="bases" xmlns:equip="equip" xmlns:omeasure="omeasure" xmlns:TTPAir="TTPAir" xmlns="measure" xmlns:measure="measure" xmlns:mater="mater" elementFormDefault="qualified" version="3.1.1.2">
+        <xsd:import namespace="besttech" schemaLocation="besttech.xsd"/>
+        <xsd:import namespace="equip" schemaLocation="equipment.xsd"/>
+        <xsd:import namespace="omeasure" schemaLocation="omeasure.xsd"/>
+        <xsd:import namespace="invent" schemaLocation="invtype.xsd"/>
+        <xsd:import namespace="invcargo" schemaLocation="invbase.xsd"/>
+        <xsd:import namespace="TTPAir" schemaLocation="twoTpAir.xsd"/>
+        <xsd:import namespace="bases" schemaLocation="basescargo.xsd"/>
+        <xsd:import namespace="mater" schemaLocation="material.xsd"/>
+        <xsd:include schemaLocation="measure.xsd"/>
+	<xsd:complexType name="envProtectionMeasure">
+		<xsd:annotation>
+			<xsd:documentation>природоохоронні заходи</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence/>
+	</xsd:complexType>
+	<xsd:complexType name="technologyMeasures">
+		<xsd:annotation>
+			<xsd:documentation>Заходи щодо впровадження найкращих існуючих технологій виробництва, які не потребують надмірних витрат та  найкращих доступних технологій і методів керування</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="equipmenT" type="besttech:equipmenT">
+				<xsd:annotation>
+					<xsd:documentation>Технологічне устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="estimatedExpenditures" type="TTPAir:expense1000">
+				<xsd:annotation>
+					<xsd:documentation>Обсяг витрат за кошторисом (тис/грн)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="estimatedEffect" type="TTPAir:emissionVolume">
+				<xsd:annotation>
+					<xsd:documentation>Очікуване зменшення викидів забруднюючих речовин в атмосферне повітря після впровадження заходу,т/рік </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measure" type="measure">
+				<xsd:annotation>
+					<xsd:documentation>Найменування та код природоохоронного заходу за Додатком 3 до форми 2-ТП (повітря)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comment" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Обгрунтування заходу у довільній формі</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="termiN" type="xsd:date" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Термін впровадження</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcCode" type="invcargo:srcCode" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Номер джерела викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="otherMeasures">
+		<xsd:annotation>
+			<xsd:documentation>Заходи щодо скорочення викидів забруднюючих речовин </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="equipmenT" type="equip:equipmenT">
+				<xsd:annotation>
+					<xsd:documentation>Технологічне устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="estimatedExpenditures" type="TTPAir:expense1000">
+				<xsd:annotation>
+					<xsd:documentation>Обсяг витрат за кошторисом (тис/грн)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="estimatedEffect" type="TTPAir:emissionVolume">
+				<xsd:annotation>
+					<xsd:documentation>Очікуване зменшення викидів забруднюючих речовин в атмосферне повітря після впровадження заходу,т/рік </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measure" type="omeasure:measure">
+				<xsd:annotation>
+					<xsd:documentation>Найменування та класифікація природоохоронного заходу п. 2.14 обгрунтуючих матеріалів</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="termiN" type="xsd:date" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Термін впровадження</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcCode" type="invcargo:srcCode">
+				<xsd:annotation>
+					<xsd:documentation>Номер джерела викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="accidentSubst">
+		<xsd:annotation>
+			<xsd:documentation>Найменування та(чи) категорія небезпечної речовини чи групи речовин</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="mater:materiaL"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="accidentSubstInUse">
+		<xsd:annotation>
+			<xsd:documentation>Найменування, маса, категорія небезпечної речовини чи групи речовин, що використовуються або виготовляються, переробляються, зберігаються чи транспортуються на об’єкті</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+		   <xsd:extension base="mater:materiaL">
+		     <xsd:sequence>
+			<xsd:element name="Usage" type="TTPAir:RichFactor">
+				<xsd:annotation>
+					<xsd:documentation>Рiчне використання</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		    </xsd:sequence>
+		  </xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="accidentMeasures">
+		<xsd:annotation>
+			<xsd:documentation>Перелік заходів щодо охорони атмосферного повітря на випадок виникнення надзвичайних ситуацій техногенного та природного характеру, ліквідації наслідків забруднення атмосферного повітря</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="dangObject" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування потенційно небезпечного об’єкта</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="dangObjectPlace" type="bases:objectDisplacement">
+				<xsd:annotation>
+					<xsd:documentation>Місце розташування потенційно небезпечного об’єкта</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="accidentSubstInUse" type="accidentSubstInUse" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Найменування, маса, категорія небезпечної речовини чи групи речовин, що використовуються або виготовляються, переробляються, зберігаються чи транспортуються на об’єкті</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="accidentIdentifySubst" type="accidentSubst" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Найменування або категорія небезпечної речовини чи групи небезпечних речовин, за якими проводилася ідентифікація об’єкта</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="accidentEmissionSubst" type="invent:pollSubsT" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Найменування забруднюючих речовин, які у випадку виникнення надзвичайної ситуації техногенного або природного характеру можуть надійти  в атмосферне повітря</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="envProtectMeasures" type="xsd:string" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Найменування заходів щодо охорони атмосферного повітря на випадок виникнення надзвичайної ситуації</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="accidentLiquidMeasures" type="xsd:string" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Найменування заходів щодо ліквідації наслідків забруднення атмосферного повітря у разі виникнення надзвичайної ситуації</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

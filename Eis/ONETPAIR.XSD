@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- Електронна типова форма XML схеми базових елементiв
+     "ЗВІТУ ПРО ОХОРОНУ АТМОСФЕРНОГО ПОВІТРЯ" по формі 2-ТП (повітря). Версія 3.1.1.2.
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology, Institut National de Recherche en Informatique
+     et en Automatique, Keio University). All Rights Reserved. http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="OTPAir" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:TPAir="TTPAir" xmlns:invcargo="invcargo" xmlns:root="root" xmlns:cargo="cargo" xmlns:equip="equip" xmlns:largeSrc="largeSrc" xmlns:poll="poll" xmlns:geo="geo" xmlns="OTPAir"  xmlns:OTPAir="OTPAir" elementFormDefault="qualified" version="3.1.1.2">
+    <xsd:import namespace="root" schemaLocation="root.xsd"/>
+    <xsd:import namespace="poll" schemaLocation="pollutant.xsd"/>
+    <xsd:import namespace="cargo" schemaLocation="cargo.xsd"/>
+    <xsd:import namespace="invcargo" schemaLocation="invbase.xsd"/>
+    <xsd:import namespace="geo" schemaLocation="geo.xsd"/>
+    <xsd:import namespace="largeSrc" schemaLocation="largesrc.xsd"/>
+    <xsd:import namespace="TTPAir" schemaLocation="twoTpAir.xsd"/>
+    <xsd:complexType name="largestSingleSource">
+        <xsd:annotation>
+            <xsd:documentation>Найбільше джерело забруднення</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="srcCode"  type="invcargo:srcCode">
+                <xsd:annotation>
+                    <xsd:documentation>Код КТД</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="uaGeoCoordinates" type="geo:uaGeoCoordinates">
+                <xsd:annotation>
+                    <xsd:documentation>Географічні координати КТД</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="largeSrcFixedPoints" type="largeSrc:largeSrcFixedPoint" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Базові ознаки КТД</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="pollEmissioN">
+        <xsd:annotation>
+            <xsd:documentation>Викиди забруднюючої речовини</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="pollutanT" type="poll:pollutanT">
+                <xsd:annotation>
+                    <xsd:documentation>Забруднююча речовина</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="emissionConc" type="invcargo:emissionConc">
+                <xsd:annotation>
+                    <xsd:documentation>концентрація забруднюючої речовини мг/ м3</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="emissionPower" type="invcargo:emissionPower">
+                <xsd:annotation>
+                    <xsd:documentation>потужність викиду забруднюючоъ речовини кг/год</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="srcProps">
+        <xsd:annotation>
+            <xsd:documentation>Характеристика  джерела викидів забруднюючих речовин </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="srcCode" type="invcargo:srcCode">
+                <xsd:annotation>
+                    <xsd:documentation>Код джерела забруднення</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="srcHeight" type="invcargo:srcHeight">
+                <xsd:annotation>
+                    <xsd:documentation>Висота джерела забруднення</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="equipmenT" type="equip:equipmenT" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Технологічне устаткування</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="productionSector" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Виробничe устаткування</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="srcEmissions" type="pollEmissioN" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Характеристика викидів забруднюючих речовин</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="pollCleanProps">
+        <xsd:annotation>
+            <xsd:documentation>Характеристика очистки викидів забруднюючих речовин</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="pollutanT" type="poll:pollutanT">
+                <xsd:annotation>
+                    <xsd:documentation>Забруднююча речовина</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="emissionOutConc" type="invcargo:emissionConc">
+                <xsd:annotation>
+                    <xsd:documentation>Концентрація  забруднюючої речовини, мг/м3, на виході з ГОУ</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gasCleanEquipCoeff" type="invcargo:gasCleanEquipCoeff">
+                <xsd:annotation>
+                    <xsd:documentation>Ефективність роботи ГОУ %</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="gasCleanEquipUnit">
+        <xsd:annotation>
+            <xsd:documentation>Характеристика роботи газоочисої установки (ГОУ) </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="gasCleanEquipStage" type="xsd:positiveInteger">
+                <xsd:annotation>
+                    <xsd:documentation>Ступінь очистки</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gasCleanEquipCode" type="invcargo:gasCleanEquipCode">
+                <xsd:annotation>
+                    <xsd:documentation>Код  ГОУ  по ступенях</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gasCleanEquipName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Найменування ГОУ</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="pollCleanProps" type="pollCleanProps" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Характеристика очистки викидів забруднюючих речовин</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="gasCleanEquipProps">
+        <xsd:annotation>
+            <xsd:documentation>Характеристика роботи газоочисних установок (ГОУ) *</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="srcCode" type="invcargo:srcCode">
+                <xsd:annotation>
+                    <xsd:documentation>Код джерела забруднення</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gasCleanEquipUnits" type="gasCleanEquipUnit" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Характеристика роботи газоочисої установки (ГОУ) </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="oneTpAirQuaterCargoType">
+        <xsd:annotation>
+            <xsd:documentation>Типовий елемент форми 1-ТП (повітря)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="root:CargoType">
+            <xsd:enumeration value="1ТП(повітря)"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:element name="CargoType" type="oneTpAirQuaterCargoType" fixed="1ТП(повітря)">
+        <xsd:annotation>
+            <xsd:documentation>Тип елементу ЄІС</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="reportedPeriod" type="xsd:gYear">
+        <xsd:annotation>
+            <xsd:documentation>Звіт за 5 років на </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="ReportHeader">
+        <xsd:annotation>
+            <xsd:documentation>Типовий заголовок</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="root:UnInEnHeader">
+                <xsd:sequence>
+                    <xsd:element ref="CargoType"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="ReportHeader" type="OTPAir:ReportHeader">
+        <xsd:annotation>
+            <xsd:documentation>Типовий заголовок</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="oneTpAirBody">
+        <xsd:annotation>
+            <xsd:documentation>Зміст звіту 1-ТП</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="root:UnInEnBody">
+                <xsd:sequence>
+                    <xsd:element ref="reportedPeriod"/>
+                    <xsd:element name="orgInfo" type="TPAir:orgInfo">
+                        <xsd:annotation>
+                            <xsd:documentation>Організація – звітувач</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="uaGeoCoordinates" type="geo:uaGeoCoordinates">
+                        <xsd:annotation>
+                            <xsd:documentation>Географічні координаті підприємства</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="permissionInfo" type="TPAir:permissionInfo">
+                        <xsd:annotation>
+                            <xsd:documentation>Інформація по дозволу на викид</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="stateReg" type="TPAir:stateReg">
+                        <xsd:annotation>
+                            <xsd:documentation>Державна реєстрація</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="largestSingleSources" type="largestSingleSource" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation>Характеристика КТД</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="srcProps" type="srcProps" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation>Характеристика  джерел викидів забруднюючих речовин</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="gasCleanEquipProps" type="gasCleanEquipProps" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation>Характеристика роботи газоочисних установок (ГОУ)</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="oneTpAirCargo">
+        <xsd:annotation>
+            <xsd:documentation>Тип звіту по формі 1-ТП</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element ref="ReportHeader"/>
+            <xsd:element name="ReportContent" type="oneTpAirBody">
+                <xsd:annotation>
+                    <xsd:documentation>Зміст звіту</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Report" type="oneTpAirCargo">
+        <xsd:annotation>
+            <xsd:documentation>Звіт</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+</xsd:schema>

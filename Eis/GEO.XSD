@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!-- XML схема географiчних координат в рамках єдиного iнформацiйного середовища.
+      Версія 3.1.1.2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+ -->
+<xsd:schema targetNamespace="geo" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="geo" xmlns:geo="geo" elementFormDefault="qualified" version="3.1.1.2">
+	<xsd:annotation>
+		<xsd:documentation>XML схема географічних координат</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="Gradus">
+		<xsd:annotation>
+			<xsd:documentation>Градуси</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:positiveInteger"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="Minute">
+		<xsd:annotation>
+			<xsd:documentation>Хвилини</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Second">
+		<xsd:annotation>
+			<xsd:documentation>Секунди</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LongitudeHemisphere">
+		<xsd:annotation>
+			<xsd:documentation>Півкуля</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LatitudeHemisphere">
+		<xsd:annotation>
+			<xsd:documentation>Півкуля</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:complexType name="Longitude" abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>Довгота</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Gradus" type="Gradus">
+				<xsd:annotation>
+					<xsd:documentation>Градуси</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Minute" type="Minute">
+				<xsd:annotation>
+					<xsd:documentation>Хвилини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Second" type="Second">
+				<xsd:annotation>
+					<xsd:documentation>Секунди</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LongitudeHemisphere" type="LongitudeHemisphere">
+				<xsd:annotation>
+					<xsd:documentation>Півкуля</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Latitude" abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>Широта</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Gradus" type="Gradus">
+				<xsd:annotation>
+					<xsd:documentation>Градуси</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Minute" type="Minute">
+				<xsd:annotation>
+					<xsd:documentation>Хвилини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Second" type="Second">
+				<xsd:annotation>
+					<xsd:documentation>Секунди</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LatitudeHemisphere" type="LatitudeHemisphere">
+				<xsd:annotation>
+					<xsd:documentation>Півкуля</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GeoCoordinates" abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>Географiчнi координати</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Longitude" type="Longitude">
+				<xsd:annotation>
+					<xsd:documentation>Довгота</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Latitude" type="Latitude">
+				<xsd:annotation>
+					<xsd:documentation>Широта</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="uaLongitudeGradus">
+		<xsd:annotation>
+			<xsd:documentation>Градуси довготи для України</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="Gradus">
+			<xsd:minInclusive value="22"/>
+			<xsd:maxInclusive value="40"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="uaLatitudeGradus">
+		<xsd:annotation>
+			<xsd:documentation>Градуси широти для України</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="Gradus">
+			<xsd:minInclusive value="44"/>
+			<xsd:maxInclusive value="52"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="uaLongitudeHemisphere">
+		<xsd:annotation>
+			<xsd:documentation>Півкуля довготи для України</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="LongitudeHemisphere">
+			<xsd:enumeration value="сд"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="uaLatitudeHemisphere">
+		<xsd:annotation>
+			<xsd:documentation>Півкуля широти для України</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="LatitudeHemisphere">
+			<xsd:enumeration value="пш"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="uaLongitude">
+		<xsd:annotation>
+			<xsd:documentation>Довгота для України</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Gradus" type="uaLongitudeGradus"/>
+			<xsd:element name="Minute" type="geo:Minute"/>
+			<xsd:element name="Second" type="geo:Second"/>
+			<xsd:element name="LongitudeHemisphere" type="geo:uaLongitudeHemisphere" default="сд"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="uaLatitude">
+		<xsd:annotation>
+			<xsd:documentation>Широта для України</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Gradus" type="geo:uaLatitudeGradus"/>
+			<xsd:element name="Minute" type="geo:Minute"/>
+			<xsd:element name="Second" type="geo:Second"/>
+			<xsd:element name="LatitudeHemisphere" type="geo:uaLatitudeHemisphere" default="пш"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="uaGeoCoordinates">
+		<xsd:annotation>
+			<xsd:documentation>Географiчнi координати для України</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Longitude" type="geo:uaLongitude"/>
+			<xsd:element name="Latitude"  type="geo:uaLatitude"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

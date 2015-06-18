@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема Додатка 1 до "ЗВІТУ ПРО ОХОРОНУ АТМОСФЕРНОГО ПОВІТРЯ"
+     по формі 2-ТП (повітря)  Версія 3.1.1.3. 
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="poll" xmlns="poll" xmlns:poll="poll" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.3.3" xml:lang="uk">
+	<xsd:annotation>
+		<xsd:documentation>XML схема Додатку 1 до "ЗВІТУ ПРО ОХОРОНУ АТМОСФЕРНОГО ПОВІТРЯ" по формі 2-ТП (повітря). Базові типи</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="refPollutanTCode">
+		<xsd:annotation>
+			<xsd:documentation>Ссилочний(службовий) запис забруднюючої речовини</xsd:documentation>
+		</xsd:annotation>	
+	        <xsd:simpleContent>	
+                  <xsd:extension base="pollutanTCode"/>
+                </xsd:simpleContent>	
+	</xsd:complexType>
+	<xsd:simpleType name="pollutanTCategory">
+		<xsd:annotation>
+			<xsd:documentation>Категорія забруднюючої речовини</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		        <xsd:enumeration value="Найбільш поширені забруднюючі речовини">
+		            <xsd:annotation>
+			<xsd:documentation>data aware</xsd:documentation>
+               		           </xsd:annotation>
+		        </xsd:enumeration>
+		        <xsd:enumeration value="Небезпечні забруднюючі речовини">
+		          <xsd:annotation>
+		            <xsd:documentation>data aware</xsd:documentation>
+                	          </xsd:annotation>
+		       </xsd:enumeration>
+		       <xsd:enumeration value="Інші забруднюючі речовини, присутні у викидах об’єкта">
+		          <xsd:annotation>
+		           <xsd:documentation>default</xsd:documentation>
+               		          </xsd:annotation>
+		       </xsd:enumeration>
+		       <xsd:enumeration value="Забруднюючі речовини, для яких не встановлені ГДК (ОБРД) в атмосферному повітрі населених міст">
+		            <xsd:annotation>
+		              <xsd:documentation>data aware</xsd:documentation>
+               		            </xsd:annotation>
+		       </xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="pollutanTCode">
+		<xsd:annotation>
+			<xsd:documentation>Код забруднюючої речовини за ПЗР</xsd:documentation>
+		</xsd:annotation>
+                <xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{5}"/>
+		</xsd:restriction>
+	</xsd:simpleType>	
+	<xsd:complexType name="pollutanT">
+		<xsd:annotation>
+			<xsd:documentation>Забруднююча речовина</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="pollutanTCode" type="pollutanTCode" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Код забруднюючої речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="pollutanTName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування забруднюючої речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- Електронна типова форма XML схеми базових елементiв "Інвентарізації".
+     Версія 3.1.1.3. Редакція 2a.
+
+     Copyright(С) 2003-2010 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology, Institut National de Recherche en Informatique
+     et en Automatique, Keio University). All Rights Reserved. http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+
+     Changes history :
+     11.01.2010 : diameter precision is set to 2 fraction digits
+		  unitQuantity & factorValue fraction digits restrictions are removed     		  	
+     January,2013 srcCode in decimals allowed
+-->
+<xsd:schema targetNamespace="invcargo" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:invcargo="invcargo" xmlns:mime="mime" elementFormDefault="qualified" version="3.1.1.2">
+        <xsd:import namespace="mime" schemaLocation="mime.xsd"/>
+	<xsd:simpleType name="srcCode">
+		<xsd:annotation>
+			<xsd:documentation>Код джерела викідів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="gasCleanEquipCode">
+		<xsd:annotation>
+			<xsd:documentation>Код ГОУ</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{5}|\([0-9]{1}:[1-9]{1}\)[0-9]{4}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="srcHeight">
+		<xsd:annotation>
+			<xsd:documentation>Висота джерела(м)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="1"/>
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="srcMetric">
+		<xsd:annotation>
+			<xsd:documentation>Параметри місцезнаходження джерела(м)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="srcDiameter">
+		<xsd:annotation>
+			<xsd:documentation>Діаметр джерела(м)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="2"/>
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="emissionConc">
+		<xsd:annotation>
+			<xsd:documentation>Концентрація забруднюючої речовини, мг/ м3</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="unitQuantity">
+		<xsd:annotation>
+			<xsd:documentation>Кількість одиниць виміру</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+<!--
+			<xsd:fractionDigits value="1"/>
+-->
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="emissionValue">
+		<xsd:annotation>
+			<xsd:documentation>Величина викиду забруднюючої речовини, г/c</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="emissionPower">
+		<xsd:annotation>
+			<xsd:documentation>Потужність викиду забруднюючої речовини, кг/год</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="emissionVolume">
+		<xsd:annotation>
+			<xsd:documentation>Величина викиду забруднюючої речовини, т/рік</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="gasCleanEquipCoeff">
+		<xsd:annotation>
+			<xsd:documentation>Ефективність роботи ГОУ %</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="invcargo:Coeff">
+			<xsd:fractionDigits value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="gasDepletion">
+		<xsd:annotation>
+			<xsd:documentation>Об’ємна фізична витрата газу м3/с</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="gasVelocity">
+		<xsd:annotation>
+			<xsd:documentation>Швидкість вихіду газу м/сек</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="gasTemperature">
+		<xsd:annotation>
+			<xsd:documentation>Температура град.С</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="whPerYear">
+		<xsd:annotation>
+			<xsd:documentation>Час роботи, год</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="8784"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="factorValue">
+		<xsd:annotation>
+			<xsd:documentation>Значення показника емісії</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+<!--
+			<xsd:fractionDigits value="2"/>
+-->
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="factorValue3">
+		<xsd:annotation>
+			<xsd:documentation>Значення показника з точнiстю 3 знаки</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="3"/>
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enterpriseSquare">
+		<xsd:annotation>
+			<xsd:documentation>Площа підприємства (км.кв)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Angle">
+		<xsd:annotation>
+			<xsd:documentation>Вугол повороту</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="360"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Percentage">
+		<xsd:annotation>
+			<xsd:documentation>% вмiст</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="emissionPressure">
+		<xsd:annotation>
+			<xsd:documentation>Тиск газоповітряної суміші, бар</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Coeff">
+		<xsd:annotation>
+			<xsd:documentation>Ефективність %</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="srcDisplacement">
+		<xsd:annotation>
+			<xsd:documentation>Місцезнаходження джерела в заводській системі координат</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="srcX" type="invcargo:srcMetric">
+				<xsd:annotation>
+					<xsd:documentation>[1] Координата X точкового або початку лінійного, центру симетрії площинного[2]Координата X другого кінця лінійного</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcY" type="invcargo:srcMetric">
+				<xsd:annotation>
+					<xsd:documentation>[1] Координата Y точкового або початку лінійного, центру симетрії площинного [2] Координата Y другого кінця лінійного</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="richInfo">
+		<xsd:annotation>
+			<xsd:documentation>Iнформацiя у текстовiй чи у довiльнiй текстовiй формi</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="comment"	 type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="richInfo" type="mime:richInfo" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

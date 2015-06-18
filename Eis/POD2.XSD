@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!-- Електронна типова форма XML схеми  «ЖУРНАЛ обліку виконанн
+      заходів з метою охорони атмосферного повітря» по формі ПОД-2, як елемент
+      единого iнформацiйного середовища.
+      Версія 3.1.1.2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="POD2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:root="root" xmlns:cargo="cargo" xmlns:equip="equip" xmlns:measure="measure" xmlns:poll="poll" xmlns:geo="geo" xmlns="POD2" xmlns:POD2="POD2" xmlns:TTPAir="TTPAir" elementFormDefault="qualified" version="3.1.1.2">
+        <xsd:import namespace="root" schemaLocation="root.xsd"/>
+        <xsd:import namespace="poll" schemaLocation="pollutant.xsd"/>
+        <xsd:import namespace="measure" schemaLocation="measure.xsd"/>
+        <xsd:import namespace="equip" schemaLocation="equipment.xsd"/>
+        <xsd:import namespace="geo" schemaLocation="geo.xsd"/>
+        <xsd:import namespace="cargo" schemaLocation="cargo.xsd"/>
+        <xsd:import namespace="TTPAir" schemaLocation="twoTpAir.xsd"/>
+	<xsd:simpleType name="podCargoType">
+		<xsd:annotation>
+			<xsd:documentation>Типовий елемент  ПОД-2</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="root:CargoType">
+			<xsd:enumeration value="ПОД-2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="CargoType" type="podCargoType" fixed="ПОД-2">
+		<xsd:annotation>
+			<xsd:documentation>Тип елементу ЄІС</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="pod2Header">
+		<xsd:annotation>
+			<xsd:documentation>Заголовок форми ПОД-2</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="root:UnInEnHeader">
+				<xsd:sequence>
+					<xsd:element ref="CargoType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="orgInfo">
+		<xsd:annotation>
+			<xsd:documentation>Організація – звітувач</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="orgProvider" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування органiзацiї - складача iнформацiї</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EDRPOU" type="cargo:edrpoU">
+				<xsd:annotation>
+					<xsd:documentation>ЄДРПОУ</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="approvedPerson" type="TTPAir:personInfo">
+				<xsd:annotation>
+					<xsd:documentation>Керівник організації</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="responsiblePerson" type="TTPAir:personInfo">
+				<xsd:annotation>
+					<xsd:documentation>Відповідальна особа</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="contactPhone" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Контактний телефон</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EMail" type="cargo:EMail" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Адреса електронної пошти</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ReportHeader" type="pod2Header">
+		<xsd:annotation>
+			<xsd:documentation>Типовий заголовок</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="reportedPeriod">
+		<xsd:annotation>
+			<xsd:documentation>Звіт за</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="startDate" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>Дата початку звітного періоду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="endDate" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>Дата закінчення звітного періоду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="reportedPeriod" type="reportedPeriod">
+		<xsd:annotation>
+			<xsd:documentation>Звіт за</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="basicDocNum">
+		<xsd:annotation>
+			<xsd:documentation> Дата та  номер документа, що підтверджує впровадження заходу </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="docDate" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>Дата документу- підстави </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="docNum" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Номер документу- підстави</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="technologyMeasures">
+		<xsd:annotation>
+			<xsd:documentation>Технологічні заходи</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="equipmenT" type="equip:equipmenT">
+				<xsd:annotation>
+					<xsd:documentation>Технологічне устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measure" type="measure:measure">
+				<xsd:annotation>
+					<xsd:documentation>Природоохоронний захід</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measureState" type="TTPAir:measureState">
+				<xsd:annotation>
+					<xsd:documentation>Оцінка виконання заходу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measureTermin" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>Термін виконання заходу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="estimatedExpenditures" type="TTPAir:expense1000">
+				<xsd:annotation>
+					<xsd:documentation>Обсяг витрат за кошторисом</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="actualExpenditures0" type="TTPAir:expense1000" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Фактично витрачено на початок звітного року</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="actualExpenditures1" type="TTPAir:expense1000" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Фактично витрачено в I кварталі</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="actualExpenditures2" type="TTPAir:expense1000" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Фактично витрачено в II кварталі</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="actualExpenditures3" type="TTPAir:expense1000" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Фактично витрачено в III кварталі</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="actualExpenditures4" type="TTPAir:expense1000" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Фактично витрачено в IV кварталі</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="basicDocNum" type="basicDocNum">
+				<xsd:annotation>
+					<xsd:documentation>Документ підстава</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measureProgress" type="TTPAir:measureProgress">
+				<xsd:annotation>
+					<xsd:documentation>Прогресс_виконання</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="pod2Body">
+		<xsd:annotation>
+			<xsd:documentation>Зміст звіту ПОД-2</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="root:UnInEnBody">
+				<xsd:sequence>
+					<xsd:element ref="reportedPeriod"/>
+					<xsd:element name="orgInfo" type="POD2:orgInfo">
+						<xsd:annotation>
+							<xsd:documentation>Організація – звітувач</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="technologyMeasures" type="technologyMeasures" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Заходи, спрямовані на зменшення викидів забруднювальних речовин</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="pod2Cargo">
+		<xsd:annotation>
+			<xsd:documentation>Тип звіту по формі ПОД-2</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="ReportHeader"/>
+			<xsd:element name="ReportContent" type="pod2Body">
+				<xsd:annotation>
+					<xsd:documentation>Зміст звіту</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Report" type="pod2Cargo" id="root">
+		<xsd:annotation>
+			<xsd:documentation>Звіт корневий елемент</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

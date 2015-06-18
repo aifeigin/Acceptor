@@ -1,0 +1,2060 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by SILVESTR (SF) -->
+<Report xmlns:TTPAir="TTPAir" xmlns:root="root" xmlns:infores="infores" xmlns:mime="mime" xmlns:sdzone="sdzone" xmlns:ovnsdisp="ovnsdisp" xmlns:equip="equip" xmlns:invent="invent" xmlns:mater="mater" xmlns:emisrang="emisrang" xmlns:invcargo="invcargo" xmlns:fuel="fuel" xmlns:omeasure="omeasure" xmlns:geo="geo" xmlns:measure="measure" xmlns:poll="poll" xmlns:req="req" xmlns:disp="disp" xmlns:besttech="besttech" xmlns="bases" xmlns:bases="bases" xmlns:emisposs="emisposs" xmlns:cargo="cargo" xmlns:assets="assets" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:SchemaLocation="bases bases1.xsd bases production.xsd bases basescargo.xsd emisposs emisposs.xsd sdzone sdzone.xsd emisrang emisrang.xsd assets assets.xsd ovnsdisp ovnsdisp.xsd disp dispersion.xsd infores infores.xsd mater material.xsd fuel fuel.xsd root root.xsd equip equipment.xsd cargo cargo.xsd poll pollutant.xsd omeasure omeasure.xsd geo geo.xsd mime mime.xsd poll pollutant.xsd measure basesmeasure.xsd invent invtype.xsd invcargo invbase.xsd TTPAir twoTpAir.xsd besttech besttech.xsd req requir.xsd">
+	<bases:ReportHeader>
+		<root:CreationDate>2006-08-25</root:CreationDate>
+		<root:GeneratedBy xsi:nil="false">Екозвіт</root:GeneratedBy>
+		<root:RegistrationDate xsi:nil="true"/>
+		<root:RegisteredHosts xsi:nil="true"/>
+		<root:SequenceNumber xsi:nil="false">175</root:SequenceNumber>
+		<root:Remark xsi:nil="false">ДОКУМЕНТ СУМІСНИЙ</root:Remark>
+		<CargoType>Обґрунтування обсягів викидів(об'єкт 3-ї групи)</CargoType>
+	</bases:ReportHeader>
+	<bases:ReportContent>
+		<bases:reportedPeriod>2005-10-10</bases:reportedPeriod>
+		<bases:applyTarget>2</bases:applyTarget>
+		<bases:orgInfo>
+			<bases:orgProvider>Відкрите акціонерне товариство “Склоприлад”</bases:orgProvider>
+			<bases:orgAddress>
+				<root:Zip>51900</root:Zip>
+				<root:Country>Україна</root:Country>
+				<root:Region>Дніпропетровська область</root:Region>
+				<root:Town xsi:nil="false">Дніпродзержинськ</root:Town>
+				<root:Street>вул. Ковпака </root:Street>
+				<root:Number>67</root:Number>
+				<root:Office xsi:nil="true"/>
+			</bases:orgAddress>
+			<bases:approvedPerson>
+				<TTPAir:positioN xsi:nil="false">Директор</TTPAir:positioN>
+				<TTPAir:theName>Чебикіна Людмила В’ячеславівна</TTPAir:theName>
+			</bases:approvedPerson>
+			<bases:industrialArea>
+				<bases:objectName>основна площадка</bases:objectName>
+				<bases:objectAddress>
+					<bases:objectAddress>
+						<root:Zip>51900</root:Zip>
+						<root:Country>Україна</root:Country>
+						<root:Region>Дніпропетровська область</root:Region>
+						<root:Town xsi:nil="false">Дніпродзержинськ</root:Town>
+						<root:Street>вул. Ковпака</root:Street>
+						<root:Number>67</root:Number>
+						<root:Office xsi:nil="true"/>
+					</bases:objectAddress>
+					<bases:objectPlace/>
+				</bases:objectAddress>
+				<bases:industrialAreaCode>1</bases:industrialAreaCode>
+				<bases:contactPerson>
+					<bases:contactInfo>
+						<TTPAir:positioN xsi:nil="false">інженер</TTPAir:positioN>
+						<TTPAir:theName>Буровець Володимир  Олександрович</TTPAir:theName>
+					</bases:contactInfo>
+					<bases:contactPhone xsi:nil="false">(0562) 23 58 18</bases:contactPhone>
+					<bases:EMail xsi:nil="false">burovec@mail.ru</bases:EMail>
+				</bases:contactPerson>
+			</bases:industrialArea>
+			<bases:industrialArea xmlns:bases="bases">
+				<bases:objectName>Цех з монтажу та ремонту устаткування</bases:objectName>
+				<bases:objectAddress>
+					<bases:objectAddress>
+						<root:Zip xmlns:root="root">51900</root:Zip>
+						<root:Country xmlns:root="root">Україна</root:Country>
+						<root:Region xmlns:root="root">Дніпропетровська область</root:Region>
+						<root:Town xsi:nil="false" xmlns:root="root">Дніпродзержинськ</root:Town>
+						<root:Street xmlns:root="root">Атомна</root:Street>
+						<root:Number xmlns:root="root">3</root:Number>
+						<root:Office xsi:nil="true" xmlns:root="root"/>
+					</bases:objectAddress>
+					<bases:objectPlace/>
+				</bases:objectAddress>
+				<bases:industrialAreaCode>2</bases:industrialAreaCode>
+				<bases:contactPerson>
+					<bases:contactInfo>
+						<TTPAir:positioN xsi:nil="false" xmlns:TTPAir="TTPAir"> начальник цеху</TTPAir:positioN>
+						<TTPAir:theName xmlns:TTPAir="TTPAir">Гринько Петро Валентинович</TTPAir:theName>
+					</bases:contactInfo>
+					<bases:contactPhone xsi:nil="false">(0562) 475846</bases:contactPhone>
+					<bases:EMail xsi:nil="false">grunko@rambler.ru</bases:EMail>
+				</bases:contactPerson>
+			</bases:industrialArea>
+			<bases:orgCodes>
+				<bases:EDRPOU>14307481</bases:EDRPOU>
+				<bases:KVED>26.1</bases:KVED>
+				<bases:KOATUU>322335000</bases:KOATUU>
+			</bases:orgCodes>
+		</bases:orgInfo>
+		<bases:developerInfo>
+			<bases:orgDeveloper>ЧП НТЦ Екобезпека</bases:orgDeveloper>
+			<bases:orgAddress>
+				<root:Zip>75001</root:Zip>
+				<root:Country>Україна</root:Country>
+				<root:Region>Херсонська область</root:Region>
+				<root:Town xsi:nil="false">Херсон</root:Town>
+				<root:Street>Херсоньска</root:Street>
+				<root:Number>22</root:Number>
+				<root:Office xsi:nil="true"/>
+			</bases:orgAddress>
+			<bases:approvedPerson>
+				<TTPAir:positioN xsi:nil="false">директор</TTPAir:positioN>
+				<TTPAir:theName>Шевельов О.Ю.</TTPAir:theName>
+			</bases:approvedPerson>
+			<bases:responsiblePersons>
+				<bases:execPerson>
+					<bases:contactInfo>
+						<TTPAir:positioN xsi:nil="false">Інженер</TTPAir:positioN>
+						<TTPAir:theName>Стецько М.А.</TTPAir:theName>
+					</bases:contactInfo>
+					<bases:contactPhone xsi:nil="false">(0542) 23 58 18</bases:contactPhone>
+					<bases:EMail xsi:nil="true"/>
+				</bases:execPerson>
+				<bases:qualInfo xsi:nil="true"/>
+			</bases:responsiblePersons>
+			<bases:permissionInfo>
+				<TTPAir:permissionDate>2003-10-11</TTPAir:permissionDate>
+				<TTPAir:permissionNumber>5</TTPAir:permissionNumber>
+				<TTPAir:permissionTerm>5</TTPAir:permissionTerm>
+			</bases:permissionInfo>
+		</bases:developerInfo>
+		<bases:nostraObjects>
+			<bases:objectName>"ДніпроАЗОТ", ВАТ</bases:objectName>
+			<bases:objectAddress>
+				<bases:objectAddress>
+					<root:Zip>51900</root:Zip>
+					<root:Country>Україна</root:Country>
+					<root:Region>Дніпропетровська область</root:Region>
+					<root:Town xsi:nil="false">Дніпродзержинськ</root:Town>
+					<root:Street>Горобця</root:Street>
+					<root:Number>1</root:Number>
+					<root:Office xsi:nil="true"/>
+				</bases:objectAddress>
+				<bases:objectPlace/>
+			</bases:objectAddress>
+		</bases:nostraObjects>
+		<bases:neighbourObjects>
+			<bases:objectName>object</bases:objectName>
+			<bases:objectAddress>
+				<bases:objectPlace>the place</bases:objectPlace>
+			</bases:objectAddress>
+		</bases:neighbourObjects>
+		<bases:productionInfo>
+			<bases:industryDesc>
+				<equip:industrYCode>III</equip:industrYCode>
+				<equip:industrYName>Енергетика (процеси спалювання в енергетиці та переробній промисловості (стаціонарні джерела)</equip:industrYName>
+				<equip:technologY>
+					<equip:technologYCode/>
+					<equip:technologYName/>
+					<equip:equipmenT>
+						<equip:equipmenTCode/>
+						<equip:equipmenTName/>
+					</equip:equipmenT>
+				</equip:technologY>
+				<bases:equipmentDesc>
+					<bases:equipmenTGroup>Основне обладнання </bases:equipmenTGroup>
+					<bases:equipmenT>
+						<equip:equipmenTCode>130317</equip:equipmenTCode>
+						<equip:equipmenTName>Контактні технологічні  процеси/інше скло (уключаючи спеціальне скло)</equip:equipmenTName>
+					</bases:equipmenT>
+					<bases:equipmenT xmlns:bases="bases">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</bases:equipmenT>
+					<bases:ProductionPower>
+						<TTPAir:MeasureType>шт.</TTPAir:MeasureType>
+						<TTPAir:MeasureType xmlns:TTPAir="TTPAir">р</TTPAir:MeasureType>
+						<TTPAir:FactorValue>1800</TTPAir:FactorValue>
+						<bases:ProductionFactorType>проектна</bases:ProductionFactorType>
+					</bases:ProductionPower>
+					<bases:ProductionPower xmlns:bases="bases">
+						<TTPAir:MeasureType xmlns:TTPAir="TTPAir">шт.</TTPAir:MeasureType>
+						<TTPAir:MeasureType xmlns:TTPAir="TTPAir">р</TTPAir:MeasureType>
+						<TTPAir:FactorValue xmlns:TTPAir="TTPAir">1500</TTPAir:FactorValue>
+						<bases:ProductionFactorType>фактична</bases:ProductionFactorType>
+					</bases:ProductionPower>
+					<bases:ProductionPower xmlns:bases="bases">
+						<TTPAir:MeasureType xmlns:TTPAir="TTPAir">шт.</TTPAir:MeasureType>
+						<TTPAir:MeasureType xmlns:TTPAir="TTPAir">р</TTPAir:MeasureType>
+						<TTPAir:FactorValue xmlns:TTPAir="TTPAir">300</TTPAir:FactorValue>
+						<bases:ProductionFactorType>резервна</bases:ProductionFactorType>
+					</bases:ProductionPower>
+					<bases:Regime>
+						<bases:regimeDesc>Нормальний режим роботи </bases:regimeDesc>
+						<bases:regimeType>base</bases:regimeType>
+						<bases:duratioN>267</bases:duratioN>
+						<bases:workingHours>2136</bases:workingHours>
+						<bases:stopHours>427</bases:stopHours>
+					</bases:Regime>
+					<bases:Regime xmlns:bases="bases">
+						<bases:regimeDesc>режим залпового викиду</bases:regimeDesc>
+						<bases:regimeType>salvo</bases:regimeType>
+						<bases:duratioN>10</bases:duratioN>
+						<bases:workingHours>160</bases:workingHours>
+						<bases:stopHours>20</bases:stopHours>
+					</bases:Regime>
+					<bases:Deterioration>
+						<bases:inputDate>1998-10-10</bases:inputDate>
+						<bases:amortizationTerm>10</bases:amortizationTerm>
+						<bases:reconstructionDate>2003-10-10</bases:reconstructionDate>
+					</bases:Deterioration>
+				</bases:equipmentDesc>
+				<bases:industrialAreaCode>1</bases:industrialAreaCode>
+			</bases:industryDesc>
+			<bases:industryDesc xmlns:bases="bases">
+				<equip:industrYCode xmlns:equip="equip">I</equip:industrYCode>
+				<equip:industrYName xmlns:equip="equip">Енергетика (процеси спалювання в енергетиці та переробній промисловості (стаціонарні джерела)</equip:industrYName>
+				<equip:technologY xmlns:equip="equip">
+					<equip:technologYCode/>
+					<equip:technologYName/>
+					<equip:equipmenT>
+						<equip:equipmenTCode/>
+						<equip:equipmenTName/>
+					</equip:equipmenT>
+				</equip:technologY>
+				<bases:equipmentDesc>
+					<bases:equipmenTGroup>Теплосилове обладнання </bases:equipmenTGroup>
+					<bases:equipmenT>
+						<equip:equipmenTCode>130317</equip:equipmenTCode>
+						<equip:equipmenTName>Контактні технологічні  процеси/інше скло (уключаючи спеціальне скло)</equip:equipmenTName>
+					</bases:equipmenT>
+					<bases:equipmenT xmlns:bases="bases">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</bases:equipmenT>
+					<bases:ProductionPower>
+						<TTPAir:MeasureType>шт.</TTPAir:MeasureType>
+						<TTPAir:MeasureType xmlns:TTPAir="TTPAir">р</TTPAir:MeasureType>
+						<TTPAir:FactorValue>1800</TTPAir:FactorValue>
+						<bases:ProductionFactorType>проектна</bases:ProductionFactorType>
+					</bases:ProductionPower>
+					<bases:ProductionPower xmlns:bases="bases">
+						<TTPAir:MeasureType xmlns:TTPAir="TTPAir">шт.</TTPAir:MeasureType>
+						<TTPAir:MeasureType xmlns:TTPAir="TTPAir">р</TTPAir:MeasureType>
+						<TTPAir:FactorValue xmlns:TTPAir="TTPAir">1500</TTPAir:FactorValue>
+						<bases:ProductionFactorType>фактична</bases:ProductionFactorType>
+					</bases:ProductionPower>
+					<bases:ProductionPower xmlns:bases="bases">
+						<TTPAir:MeasureType xmlns:TTPAir="TTPAir">шт.</TTPAir:MeasureType>
+						<TTPAir:MeasureType xmlns:TTPAir="TTPAir">р</TTPAir:MeasureType>
+						<TTPAir:FactorValue xmlns:TTPAir="TTPAir">300</TTPAir:FactorValue>
+						<bases:ProductionFactorType>резервна</bases:ProductionFactorType>
+					</bases:ProductionPower>
+					<bases:Regime>
+						<bases:regimeDesc>Нормальний режим роботи </bases:regimeDesc>
+						<bases:regimeType>base</bases:regimeType>
+						<bases:duratioN>267</bases:duratioN>
+						<bases:workingHours>2136</bases:workingHours>
+						<bases:stopHours>427</bases:stopHours>
+					</bases:Regime>
+					<bases:Regime xmlns:bases="bases">
+						<bases:regimeDesc>режим залпового викиду</bases:regimeDesc>
+						<bases:regimeType>salvo</bases:regimeType>
+						<bases:duratioN>10</bases:duratioN>
+						<bases:workingHours>160</bases:workingHours>
+						<bases:stopHours>20</bases:stopHours>
+					</bases:Regime>
+					<bases:Deterioration>
+						<bases:inputDate>1998-10-10</bases:inputDate>
+						<bases:amortizationTerm>10</bases:amortizationTerm>
+						<bases:reconstructionDate>2003-10-10</bases:reconstructionDate>
+					</bases:Deterioration>
+				</bases:equipmentDesc>
+				<bases:industrialAreaCode>2</bases:industrialAreaCode>
+			</bases:industryDesc>
+		</bases:productionInfo>
+		<bases:enterpriseMap xsi:nol="true"/>
+		<bases:sanitaryDefenceZone>
+			<sdzone:defenceZoneSize>
+				<sdzone:classBasics>Підприємство классифікується як виробництво полiхлорвiнiлового пластифiкату, вiнiпласту, мiпластових сепараторiв пiнополiуретану, поропластiв, склопластiв, стиропору за классифікацією ДЕРЖАВНИХ САНIТАРНИХ ПРАВИЛ ПЛАНУВАННЯ ТА ЗАБУДОВИ НАСЕЛЕНИХ ПУНКТIВ, 1996 р. </sdzone:classBasics>
+				<sdzone:dangClass xsi:nil="false">4</sdzone:dangClass>
+				<sdzone:zoneSize>100</sdzone:zoneSize>
+			</sdzone:defenceZoneSize>
+			<sdzone:defenceZoneBasic>
+				<invcargo:comment>це мій файл</invcargo:comment>
+				<invcargo:richInfo type="text/plain">xOXy4Ov87eD/IOjt9O7w7OD26P8g7iDw5ef+7OUNCg0Kz/Du9OXx8ej/OiDP8O7j8ODs7Ojx8vss8eXy5eLo6ugs5Ojn4Ont5fD7LA0KxODy4DogMDQvMDQvMjAwNQ0KzuHw4Ofu4uDt6OU6IOL78fjl5SDS6O8g8ODh7vL7OiDv7vHy7v/t7eD/LCDt5e/u6+376SDk5e38DQrM6O3o7ODr/O3g/yDn4PDv6+Dy4CAkOiAyMDANCs7v6PHg7ejlOsru7O/8/vLl8O3g/yDA6uDk5ezo/yAi2MDDIiAs7/Dl5O7x8uDi6PIg8OXg6/zt8/4g7+7s7vn8IOIg7+7o8erlIPLg6uj1IPHv5fbo4Ovo8fLu4joNCi3K7uzv/P7y5fDt4P8g4/Dg9Ojq4CDoIMjt8uXw7eXyIC0g8uX17e7r7uPo6C4NCi3R5fLl4vvlIPLl9e3u6+7j6Ogg6CDx6PHy5ezt7uUg4OTs6O3o8fLw6PDu4uDt6OUuDQot0ODn8ODh7vLq4CDv8O7j8ODs7e7j7iDu4eXx7+X35e3o/y4NCtMgwuDxIOXx8vwg8OXg6/zt4P8g4u7n7O7m7e7x8vwg4vvh8ODy/CDx7vLw8+Tt6OrgIOjnIOvz9/jo9SDx8vPk5e3y7uIg7eD45ekgwOrg5OXs6OguDQrB7uvl5SDv7uvt8/4g6O307vDs4Pbo/iDuIMru7O/8/vLl8O3u6SDA6uDk5ezo6CAi2MDDIiDC+yDs7ubl8uUg7+7r8/fo8vwg7+4g4OTw5fHzOg0KV1dXLklUU1RFUC5PUkcNCg0KDQrC8eUg4u7v8O7x+yDoIO/u5uXr4O3o/yDv7iDv7uLu5PMg4uDq4O3x6Okg6CDw5ef+7OUg7+4g8uXr5fTu7fMgOC0wNDQtNDY0LTkzLTE0DQo4LTA2Ny00ODktMjctMjQgKNHl8OPl6SDA7eDy7uvo5eLo9ykuDQoNCsTr/yDh7uvl5SDu7+Xw4PLo4u3u4+4g7+7o8ergIMLg+OXj7iDh8+Tz+eXj7iDx7vLw8+Tt6OrgIO/w7vHo7CDC4PEg4vvx++vg8vwg4O3q5fL7IO3gIA0KVGVzZWlAYmlnbWlyLm5ldA0KDQrE4O3t4P8g8/Hr8+PgIOHl8e/r4PLt4CDoIO/w5eTu8fLg4uv/5fLx/yDW5e3y8O7sINLw8+Tu8/Hy8O7p8fLi4CDKwCAi2MDDIg0KDQrC+yDx7O7m5fLlIO3g6fLoIOTu8fLu6e3u4+4g7+Xw8e/l6vLo4u3u4+4g8e7y8PPk7ejq4CDo5yDr8/f46PUg8evz+ODy5evl6SDK7uzv/P7y5fDt7ukgwOrg5OXs6OggItjAwyINCg0KDQrS5esuOiA0NjQtOTMtMTQgZS1tYWlsOlRlc2VpQGJpZ21pci5uZXQNCg0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0NCg0KAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</invcargo:richInfo>
+			</sdzone:defenceZoneBasic>
+		</bases:sanitaryDefenceZone>
+		<bases:Material>
+			<mater:materiaL>
+				<mater:materiaLKind>Фарба із вмістом ЛОС менш 5%</mater:materiaLKind>
+				<mater:materiaLCode xsi:nil="true"/>
+				<mater:materiaLName>Фарба із вмістом ЛОС менш 5%, Фарбування</mater:materiaLName>
+			</mater:materiaL>
+			<mater:Usage>
+				<TTPAir:MeasureType>л</TTPAir:MeasureType>
+				<TTPAir:MeasureType xmlns:TTPAir="TTPAir">р</TTPAir:MeasureType>
+				<TTPAir:FactorValue>500</TTPAir:FactorValue>
+			</mater:Usage>
+			<mater:Destination>Фарбування</mater:Destination>
+			<mater:Storage>Склад</mater:Storage>
+		</bases:Material>
+		<bases:Material xmlns:bases="bases">
+			<mater:materiaL xmlns:mater="mater">
+				<mater:materiaLKind>Неорганічні речовини</mater:materiaLKind>
+				<mater:materiaLCode xsi:nil="true"/>
+				<mater:materiaLName>кварц</mater:materiaLName>
+			</mater:materiaL>
+			<mater:Usage xmlns:mater="mater">
+				<TTPAir:MeasureType xmlns:TTPAir="TTPAir">кг</TTPAir:MeasureType>
+				<TTPAir:MeasureType xmlns:TTPAir="TTPAir">р</TTPAir:MeasureType>
+				<TTPAir:FactorValue xmlns:TTPAir="TTPAir">120000</TTPAir:FactorValue>
+			</mater:Usage>
+			<mater:Destination xmlns:mater="mater">виготовлення скла</mater:Destination>
+			<mater:Storage xmlns:mater="mater">склад</mater:Storage>
+		</bases:Material>
+		<bases:Fuel xmlns:bases="bases">
+			<fuel:Fuel xmlns:fuel="fuel">
+				<fuel:fuelCode>1</fuel:fuelCode>
+				<fuel:fuelName>Мазут</fuel:fuelName>
+				<fuel:fuelMeasureType/>
+			</fuel:Fuel>
+			<fuel:Fuel_expence xmlns:fuel="fuel">0.000</fuel:Fuel_expence>
+			<fuel:Z xmlns:fuel="fuel">0.00</fuel:Z>
+			<fuel:S xmlns:fuel="fuel">0.00</fuel:S>
+			<fuel:Q xmlns:fuel="fuel">
+				<fuel:Q>0.000</fuel:Q>
+				<fuel:MeasureType>Ккал/кг</fuel:MeasureType>
+			</fuel:Q>
+			<fuel:F_techno xmlns:fuel="fuel">0.000</fuel:F_techno>
+			<fuel:F_transport xmlns:fuel="fuel">0.000</fuel:F_transport>
+			<fuel:F_electro xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_electro>
+			<fuel:F_heat xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_heat>
+		</bases:Fuel>
+		<bases:Fuel xmlns:bases="bases">
+			<fuel:Fuel xmlns:fuel="fuel">
+				<fuel:fuelCode>2</fuel:fuelCode>
+				<fuel:fuelName>Газойль</fuel:fuelName>
+				<fuel:fuelMeasureType/>
+			</fuel:Fuel>
+			<fuel:Fuel_expence xmlns:fuel="fuel">0.000</fuel:Fuel_expence>
+			<fuel:Z xmlns:fuel="fuel">0.00</fuel:Z>
+			<fuel:S xmlns:fuel="fuel">0.00</fuel:S>
+			<fuel:Q xmlns:fuel="fuel">
+				<fuel:Q>0.000</fuel:Q>
+				<fuel:MeasureType>Ккал/кг</fuel:MeasureType>
+			</fuel:Q>
+			<fuel:F_techno xmlns:fuel="fuel">0.000</fuel:F_techno>
+			<fuel:F_transport xmlns:fuel="fuel">0.000</fuel:F_transport>
+			<fuel:F_electro xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_electro>
+			<fuel:F_heat xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_heat>
+		</bases:Fuel>
+		<bases:Fuel xmlns:bases="bases">
+			<fuel:Fuel xmlns:fuel="fuel">
+				<fuel:fuelCode>3</fuel:fuelCode>
+				<fuel:fuelName>Природний газ</fuel:fuelName>
+				<fuel:fuelMeasureType/>
+			</fuel:Fuel>
+			<fuel:Fuel_expence xmlns:fuel="fuel">4.380</fuel:Fuel_expence>
+			<fuel:Z xmlns:fuel="fuel">5.00</fuel:Z>
+			<fuel:S xmlns:fuel="fuel">12.00</fuel:S>
+			<fuel:Q xmlns:fuel="fuel">
+				<fuel:Q>5000.000</fuel:Q>
+				<fuel:MeasureType>Ккал/м.куб.</fuel:MeasureType>
+			</fuel:Q>
+			<fuel:F_techno xmlns:fuel="fuel">3.000</fuel:F_techno>
+			<fuel:F_transport xmlns:fuel="fuel">1.380</fuel:F_transport>
+			<fuel:F_electro xmlns:fuel="fuel">
+				<fuel:total>12500.000</fuel:total>
+				<fuel:self>12500.000</fuel:self>
+			</fuel:F_electro>
+			<fuel:F_heat xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_heat>
+		</bases:Fuel>
+		<bases:Fuel xmlns:bases="bases">
+			<fuel:Fuel xmlns:fuel="fuel">
+				<fuel:fuelCode>4</fuel:fuelCode>
+				<fuel:fuelName>Стиснутий газ</fuel:fuelName>
+				<fuel:fuelMeasureType>тис.м3</fuel:fuelMeasureType>
+			</fuel:Fuel>
+			<fuel:Fuel_expence xmlns:fuel="fuel">0.000</fuel:Fuel_expence>
+			<fuel:Z xmlns:fuel="fuel">0.00</fuel:Z>
+			<fuel:S xmlns:fuel="fuel">0.00</fuel:S>
+			<fuel:Q xmlns:fuel="fuel">
+				<fuel:Q>0.000</fuel:Q>
+				<fuel:MeasureType>Ккал/кг</fuel:MeasureType>
+			</fuel:Q>
+			<fuel:F_techno xmlns:fuel="fuel">0.000</fuel:F_techno>
+			<fuel:F_transport xmlns:fuel="fuel">0.000</fuel:F_transport>
+			<fuel:F_electro xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_electro>
+			<fuel:F_heat xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_heat>
+		</bases:Fuel>
+		<bases:Fuel xmlns:bases="bases">
+			<fuel:Fuel xmlns:fuel="fuel">
+				<fuel:fuelCode>5</fuel:fuelCode>
+				<fuel:fuelName>Вугілля</fuel:fuelName>
+				<fuel:fuelMeasureType/>
+			</fuel:Fuel>
+			<fuel:Fuel_expence xmlns:fuel="fuel">0.000</fuel:Fuel_expence>
+			<fuel:Z xmlns:fuel="fuel">0.00</fuel:Z>
+			<fuel:S xmlns:fuel="fuel">0.00</fuel:S>
+			<fuel:Q xmlns:fuel="fuel">
+				<fuel:Q>0.000</fuel:Q>
+				<fuel:MeasureType>Ккал/кг</fuel:MeasureType>
+			</fuel:Q>
+			<fuel:F_techno xmlns:fuel="fuel">0.000</fuel:F_techno>
+			<fuel:F_transport xmlns:fuel="fuel">0.000</fuel:F_transport>
+			<fuel:F_electro xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_electro>
+			<fuel:F_heat xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_heat>
+		</bases:Fuel>
+		<bases:Fuel xmlns:bases="bases">
+			<fuel:Fuel xmlns:fuel="fuel">
+				<fuel:fuelCode>6</fuel:fuelCode>
+				<fuel:fuelName>Дизельне паливо</fuel:fuelName>
+				<fuel:fuelMeasureType/>
+			</fuel:Fuel>
+			<fuel:Fuel_expence xmlns:fuel="fuel">0.000</fuel:Fuel_expence>
+			<fuel:Z xmlns:fuel="fuel">0.00</fuel:Z>
+			<fuel:S xmlns:fuel="fuel">0.00</fuel:S>
+			<fuel:Q xmlns:fuel="fuel">
+				<fuel:Q>0.000</fuel:Q>
+				<fuel:MeasureType>Ккал/кг</fuel:MeasureType>
+			</fuel:Q>
+			<fuel:F_techno xmlns:fuel="fuel">0.000</fuel:F_techno>
+			<fuel:F_transport xmlns:fuel="fuel">0.000</fuel:F_transport>
+			<fuel:F_electro xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_electro>
+			<fuel:F_heat xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_heat>
+		</bases:Fuel>
+		<bases:Fuel xmlns:bases="bases">
+			<fuel:Fuel xmlns:fuel="fuel">
+				<fuel:fuelCode>7</fuel:fuelCode>
+				<fuel:fuelName>Бензин</fuel:fuelName>
+				<fuel:fuelMeasureType>л</fuel:fuelMeasureType>
+			</fuel:Fuel>
+			<fuel:Fuel_expence xmlns:fuel="fuel">0.000</fuel:Fuel_expence>
+			<fuel:Z xmlns:fuel="fuel">0.00</fuel:Z>
+			<fuel:S xmlns:fuel="fuel">0.00</fuel:S>
+			<fuel:Q xmlns:fuel="fuel">
+				<fuel:Q>0.000</fuel:Q>
+				<fuel:MeasureType>Ккал/кг</fuel:MeasureType>
+			</fuel:Q>
+			<fuel:F_techno xmlns:fuel="fuel">0.000</fuel:F_techno>
+			<fuel:F_transport xmlns:fuel="fuel">0.000</fuel:F_transport>
+			<fuel:F_electro xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_electro>
+			<fuel:F_heat xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_heat>
+		</bases:Fuel>
+		<bases:Fuel xmlns:bases="bases">
+			<fuel:Fuel xmlns:fuel="fuel">
+				<fuel:fuelCode>8</fuel:fuelCode>
+				<fuel:fuelName>Відходи деревини</fuel:fuelName>
+				<fuel:fuelMeasureType/>
+			</fuel:Fuel>
+			<fuel:Fuel_expence xmlns:fuel="fuel">0.000</fuel:Fuel_expence>
+			<fuel:Z xmlns:fuel="fuel">0.00</fuel:Z>
+			<fuel:S xmlns:fuel="fuel">0.00</fuel:S>
+			<fuel:Q xmlns:fuel="fuel">
+				<fuel:Q>0.000</fuel:Q>
+				<fuel:MeasureType>Ккал/кг</fuel:MeasureType>
+			</fuel:Q>
+			<fuel:F_techno xmlns:fuel="fuel">0.000</fuel:F_techno>
+			<fuel:F_transport xmlns:fuel="fuel">0.000</fuel:F_transport>
+			<fuel:F_electro xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_electro>
+			<fuel:F_heat xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_heat>
+		</bases:Fuel>
+		<bases:Fuel xmlns:bases="bases">
+			<fuel:Fuel xmlns:fuel="fuel">
+				<fuel:fuelCode>9</fuel:fuelCode>
+				<fuel:fuelName>Дрова</fuel:fuelName>
+				<fuel:fuelMeasureType>т</fuel:fuelMeasureType>
+			</fuel:Fuel>
+			<fuel:Fuel_expence xmlns:fuel="fuel">0.000</fuel:Fuel_expence>
+			<fuel:Z xmlns:fuel="fuel">0.00</fuel:Z>
+			<fuel:S xmlns:fuel="fuel">0.00</fuel:S>
+			<fuel:Q xmlns:fuel="fuel">
+				<fuel:Q>0.000</fuel:Q>
+				<fuel:MeasureType>Ккал/кг</fuel:MeasureType>
+			</fuel:Q>
+			<fuel:F_techno xmlns:fuel="fuel">0.000</fuel:F_techno>
+			<fuel:F_transport xmlns:fuel="fuel">0.000</fuel:F_transport>
+			<fuel:F_electro xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_electro>
+			<fuel:F_heat xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_heat>
+		</bases:Fuel>
+		<bases:Fuel xmlns:bases="bases">
+			<fuel:Fuel xmlns:fuel="fuel">
+				<fuel:fuelCode>10</fuel:fuelCode>
+				<fuel:fuelName>Торф</fuel:fuelName>
+				<fuel:fuelMeasureType/>
+			</fuel:Fuel>
+			<fuel:Fuel_expence xmlns:fuel="fuel">0.000</fuel:Fuel_expence>
+			<fuel:Z xmlns:fuel="fuel">0.00</fuel:Z>
+			<fuel:S xmlns:fuel="fuel">0.00</fuel:S>
+			<fuel:Q xmlns:fuel="fuel">
+				<fuel:Q>0.000</fuel:Q>
+				<fuel:MeasureType>Ккал/кг</fuel:MeasureType>
+			</fuel:Q>
+			<fuel:F_techno xmlns:fuel="fuel">0.000</fuel:F_techno>
+			<fuel:F_transport xmlns:fuel="fuel">0.000</fuel:F_transport>
+			<fuel:F_electro xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_electro>
+			<fuel:F_heat xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_heat>
+		</bases:Fuel>
+		<bases:Fuel xmlns:bases="bases">
+			<fuel:Fuel xmlns:fuel="fuel">
+				<fuel:fuelCode>11</fuel:fuelCode>
+				<fuel:fuelName>Інше</fuel:fuelName>
+				<fuel:fuelMeasureType>?</fuel:fuelMeasureType>
+			</fuel:Fuel>
+			<fuel:Fuel_expence xmlns:fuel="fuel">0.000</fuel:Fuel_expence>
+			<fuel:Z xmlns:fuel="fuel">0.00</fuel:Z>
+			<fuel:S xmlns:fuel="fuel">0.00</fuel:S>
+			<fuel:Q xmlns:fuel="fuel">
+				<fuel:Q>0.000</fuel:Q>
+				<fuel:MeasureType>Ккал/кг</fuel:MeasureType>
+			</fuel:Q>
+			<fuel:F_techno xmlns:fuel="fuel">0.000</fuel:F_techno>
+			<fuel:F_transport xmlns:fuel="fuel">0.000</fuel:F_transport>
+			<fuel:F_electro xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_electro>
+			<fuel:F_heat xmlns:fuel="fuel">
+				<fuel:total>0.000</fuel:total>
+				<fuel:self>0.000</fuel:self>
+			</fuel:F_heat>
+		</bases:Fuel>
+		<bases:uaGeoCoordinates>
+			<geo:Longitude>
+				<geo:Gradus>34</geo:Gradus>
+				<geo:Minute>37</geo:Minute>
+				<geo:Second>00</geo:Second>
+				<geo:LongitudeHemisphere>сд</geo:LongitudeHemisphere>
+			</geo:Longitude>
+			<geo:Latitude>
+				<geo:Gradus>48</geo:Gradus>
+				<geo:Minute>30</geo:Minute>
+				<geo:Second>00</geo:Second>
+				<geo:LatitudeHemisphere>пш</geo:LatitudeHemisphere>
+			</geo:Latitude>
+		</bases:uaGeoCoordinates>
+		<bases:meteoInfo>
+			<disp:Strat>200</disp:Strat>
+			<disp:Relief>1</disp:Relief>
+			<disp:t_summer_boundary>22</disp:t_summer_boundary>
+			<disp:t_winter_boundary>-18</disp:t_winter_boundary>
+			<disp:Ways>
+				<disp:N>10</disp:N>
+				<disp:NE>15</disp:NE>
+				<disp:E>10</disp:E>
+				<disp:SE>15</disp:SE>
+				<disp:S>10</disp:S>
+				<disp:SW>15</disp:SW>
+				<disp:W>10</disp:W>
+				<disp:NW>15</disp:NW>
+			</disp:Ways>
+			<disp:Wind>10</disp:Wind>
+			<disp:Comment/>
+			<disp:Angle>90</disp:Angle>
+		</bases:meteoInfo>
+		<bases:enterprisePlan xsi:nil="true"/>
+		<bases:pollutionVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang" ID="10743">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">05001</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">330</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Ангідрид сірчистий</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Найбільш поширені забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">4</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">4</emisrang:pollutanTGroup>
+				<emisrang:factVolume>40</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">41.1</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">2.1</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+				<emisrang:potentialVolume xmlns:emisrang="emisrang">
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130317</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/інше скло (уключаючи спеціальне скло)</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">40</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">07001</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">337</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Вуглецю оксид</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Найбільш поширені забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">4</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">4</emisrang:pollutanTGroup>
+				<emisrang:factVolume>30</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">1.5</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">30</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang" ID="9427">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">03000</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+					<invent:pollSubstName xmlns:invent="invent">Речовини у вигляді суспендованих твердих частинок (мікрочастинки та волокна )</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Найбільш поширені забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="true" xmlns:emisrang="emisrang"/>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">1</emisrang:pollutanTGroup>
+				<emisrang:factVolume>20.200</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">21.000</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">50</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang" ID="12023">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11008</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">602</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Бензол</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Небезпечні забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">3</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">3</emisrang:pollutanTGroup>
+				<emisrang:factVolume>23</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">21</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130317</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/інше скло (уключаючи спеціальне скло)</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">15</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1873</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Етиленiмiн</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Інші забруднюючі речовини, присутні у викидах об’єкта</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">2</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">3</emisrang:pollutanTGroup>
+				<emisrang:factVolume>23</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">21</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">11</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1216</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Диметиловий ефiр сiрчаної кислоти (диметилсульфат)</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Інші забруднюючі речовини, присутні у викидах об’єкта</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">2</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">3</emisrang:pollutanTGroup>
+				<emisrang:factVolume>12.456</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">11.000</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">11</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">10004</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+					<invent:pollSubstName xmlns:invent="invent">2-Нафталамін</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Небезпечні забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">1</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">3</emisrang:pollutanTGroup>
+				<emisrang:factVolume>11.245</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">11.000</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">11</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">15002</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+					<invent:pollSubstName xmlns:invent="invent">Вінілхлорид</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Небезпечні забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">3</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">3</emisrang:pollutanTGroup>
+				<emisrang:factVolume>11.200</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">10.000</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">10</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">01104</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">143</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Марганець i його сполуки (у пере-рахунку на дiоксид марганцю)</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Небезпечні забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">3</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">2</emisrang:pollutanTGroup>
+				<emisrang:factVolume>1.345</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">1.500</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">1.5</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">15000</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">349</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Хлор</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Небезпечні забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">2</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">4</emisrang:pollutanTGroup>
+				<emisrang:factVolume>2.333</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">3.500</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130317</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/інше скло (уключаючи спеціальне скло)</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">3.5</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11048</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1071</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Фенол</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Небезпечні забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">1</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">5</emisrang:pollutanTGroup>
+				<emisrang:factVolume>20.000</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">22.000</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">22</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11001</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">2001</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Акрилонiтрил</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Небезпечні забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">3</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">3</emisrang:pollutanTGroup>
+				<emisrang:factVolume>2.000</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">2.5</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">2.5</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11049</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1325</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Формальдегід</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Небезпечні забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">1</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">5</emisrang:pollutanTGroup>
+				<emisrang:factVolume>10.200</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">12.000</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">12</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11030</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">616</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Ксилол</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Небезпечні забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">2</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">5</emisrang:pollutanTGroup>
+				<emisrang:factVolume>12.000</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">11</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">11</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11007</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1401</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Ацетон</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Небезпечні забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false" xmlns:emisrang="emisrang">3</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false" xmlns:emisrang="emisrang">5</emisrang:pollutanTGroup>
+				<emisrang:factVolume>2.678</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">3.000</emisrang:volumeLimit>
+				<emisrang:potentialVolume>
+					<emisposs:equipmenT xmlns:emisposs="emisposs">
+						<equip:equipmenTCode xmlns:equip="equip">130315</equip:equipmenTCode>
+						<equip:equipmenTName xmlns:equip="equip">Контактні технологічні  процеси/виробництво контейнерного скла</equip:equipmenTName>
+					</emisposs:equipmenT>
+					<emisposs:emissionVolume xmlns:emisposs="emisposs">3</emisposs:emissionVolume>
+				</emisrang:potentialVolume>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1707</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Диметилсульфiд</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Інші забруднюючі речовини, присутні у викидах об’єкта</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="true" xmlns:emisrang="emisrang"/>
+				<emisrang:pollutanTGroup xsi:nil="true" xmlns:emisrang="emisrang"/>
+				<emisrang:factVolume>1.234</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">1.5</emisrang:volumeLimit>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">04001</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">301</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Азоту дiоксид</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Найбільш поширені забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false">4</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false">4</emisrang:pollutanTGroup>
+				<emisrang:factVolume>0</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">0</emisrang:volumeLimit>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">01009</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">185</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Свинець сiрчистий (у перера-хунку на свинець)</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Найбільш поширені забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false">3</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false">2</emisrang:pollutanTGroup>
+				<emisrang:factVolume>12</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">10</emisrang:volumeLimit>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">515</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Метиленциклобутан</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Інші забруднюючі речовини, присутні у викидах об’єкта</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="true"/>
+				<emisrang:pollutanTGroup xsi:nil="true"/>
+				<emisrang:factVolume>0</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">0</emisrang:volumeLimit>
+			</emisrang:pollutanTVolume>
+			<emisrang:pollutanTVolume xmlns:emisrang="emisrang">
+				<emisrang:pollSubsT>
+					<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">04002</invent:pollutanTCode>
+					<invent:subsTCode xsi:nil="false" xmlns:invent="invent">304</invent:subsTCode>
+					<invent:pollSubstName xmlns:invent="invent">Азоту оксид</invent:pollSubstName>
+				</emisrang:pollSubsT>
+				<emisrang:pollutanTCategory>Найбільш поширені забруднюючі речовини</emisrang:pollutanTCategory>
+				<emisrang:dangClass xsi:nil="false">4</emisrang:dangClass>
+				<emisrang:pollutanTGroup xsi:nil="false">4</emisrang:pollutanTGroup>
+				<emisrang:factVolume>0</emisrang:factVolume>
+				<emisrang:volumeLimit xsi:nil="false">0</emisrang:volumeLimit>
+			</emisrang:pollutanTVolume>
+		</bases:pollutionVolume>
+		<bases:srcEmission>
+			<disp:srcEmission>
+				<disp:equipmenT>
+					<equip:equipmenTCode>130317</equip:equipmenTCode>
+					<equip:equipmenTName>устаткування (установки) для виготовлення скла, включаючи скловолокно, з плавильною потужністю, яка перевищує 20 тонн на день</equip:equipmenTName>
+					<disp:bestTechTarget>true</disp:bestTechTarget>
+				</disp:equipmenT>
+				<disp:DangClass>4</disp:DangClass>
+				<disp:srcName>Теплосиловий цех</disp:srcName>
+				<disp:srcCode>1</disp:srcCode>
+				<disp:srcHeight>30.0</disp:srcHeight>
+				<disp:srcSizes>2.1</disp:srcSizes>
+				<disp:srcEmissionDisplacement>
+					<invcargo:srcX>1200</invcargo:srcX>
+					<invcargo:srcY>1200</invcargo:srcY>
+				</disp:srcEmissionDisplacement>
+				<disp:samplingPoint>вустя</disp:samplingPoint>
+				<disp:gasProps>
+					<invent:gasDepletion>10.21</invent:gasDepletion>
+					<invent:gasVelocity>35.36</invent:gasVelocity>
+					<invent:gasTemperature>100</invent:gasTemperature>
+				</disp:gasProps>
+				<disp:srcEmissions>
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false">04001</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false">301</invent:subsTCode>
+						<invent:pollSubstName>Азоту дiоксид</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">1.80</disp:emissionG>
+					<disp:emissionPower>6.2</disp:emissionPower>
+					<disp:emissionConc>233.2</disp:emissionConc>
+					<disp:emissionVolume>55.2</disp:emissionVolume>
+				</disp:srcEmissions>
+				<disp:srcEmissions xmlns:disp="disp">
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">05001</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">330</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Ангiдрид сiрчистий</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">22.2</disp:emissionG>
+					<disp:emissionPower>70</disp:emissionPower>
+					<disp:emissionConc>2880.4</disp:emissionConc>
+					<disp:emissionVolume>700</disp:emissionVolume>
+				</disp:srcEmissions>
+				<disp:srcEmissions xmlns:disp="disp">
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">07001</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">337</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Вуглецю оксид</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">1.46</disp:emissionG>
+					<disp:emissionPower>5.2</disp:emissionPower>
+					<disp:emissionConc>184.9</disp:emissionConc>
+					<disp:emissionVolume>46.04</disp:emissionVolume>
+				</disp:srcEmissions>
+				<disp:srcEmissions xmlns:disp="disp">
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">03000</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+						<invent:pollSubstName xmlns:invent="invent">Речовини у вигляді суспендованих твердих частинок (мікрочастинки та волокна )</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.8</disp:emissionG>
+					<disp:emissionPower>2.8</disp:emissionPower>
+					<disp:emissionConc>100</disp:emissionConc>
+					<disp:emissionVolume>25.22</disp:emissionVolume>
+				</disp:srcEmissions>
+				<disp:srcEmissions xmlns:disp="disp">
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">01009</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">185</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Свинець сiрчистий (у перера-хунку на свинець)</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.0009</disp:emissionG>
+					<disp:emissionPower>0.003</disp:emissionPower>
+					<disp:emissionConc>10</disp:emissionConc>
+					<disp:emissionVolume>0.028</disp:emissionVolume>
+				</disp:srcEmissions>
+			</disp:srcEmission>
+			<disp:srcEmission xmlns:disp="disp">
+				<disp:equipmenT>
+					<equip:equipmenTCode xmlns:equip="equip">130105</equip:equipmenTCode>
+					<equip:equipmenTName xmlns:equip="equip">Процеси спалювання в котлоагрегатах. газових турбінах і  стаціонарних двигунах/стаціонарні двигуни</equip:equipmenTName>
+					<disp:bestTechTarget>false</disp:bestTechTarget>
+				</disp:equipmenT>
+				<disp:DangClass>4</disp:DangClass>
+				<disp:srcName>деревообробний станок</disp:srcName>
+				<disp:srcCode>4</disp:srcCode>
+				<disp:srcHeight>2.1</disp:srcHeight>
+				<disp:srcSizes>2.1</disp:srcSizes>
+				<disp:srcEmissionDisplacement>
+					<invcargo:srcX xmlns:invcargo="invcargo">1000</invcargo:srcX>
+					<invcargo:srcY xmlns:invcargo="invcargo">2000</invcargo:srcY>
+				</disp:srcEmissionDisplacement>
+				<disp:samplingPoint>поруч</disp:samplingPoint>
+				<disp:gasProps>
+					<invent:gasDepletion xmlns:invent="invent">22.1</invent:gasDepletion>
+					<invent:gasVelocity xmlns:invent="invent">76.55</invent:gasVelocity>
+					<invent:gasTemperature xmlns:invent="invent">100</invent:gasTemperature>
+				</disp:gasProps>
+				<disp:srcEmissions>
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">07001</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">337</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Оксид вуглецю</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.005</disp:emissionG>
+					<disp:emissionPower>0.02</disp:emissionPower>
+					<disp:emissionConc>5</disp:emissionConc>
+					<disp:emissionVolume>0.15</disp:emissionVolume>
+				</disp:srcEmissions>
+			</disp:srcEmission>
+			<disp:srcEmission xmlns:disp="disp">
+				<disp:equipmenT>
+					<equip:equipmenTCode xmlns:equip="equip">130105</equip:equipmenTCode>
+					<equip:equipmenTName xmlns:equip="equip">Процеси спалювання в котлоагрегатах. газових турбінах і  стаціонарних двигунах/стаціонарні двигуни</equip:equipmenTName>
+					<disp:bestTechTarget>false</disp:bestTechTarget>
+				</disp:equipmenT>
+				<disp:DangClass>4</disp:DangClass>
+				<disp:srcName>заточний станок</disp:srcName>
+				<disp:srcCode>5</disp:srcCode>
+				<disp:srcHeight>2.2</disp:srcHeight>
+				<disp:srcSizes>2.1</disp:srcSizes>
+				<disp:srcEmissionDisplacement>
+					<invcargo:srcX xmlns:invcargo="invcargo">1000</invcargo:srcX>
+					<invcargo:srcY xmlns:invcargo="invcargo">2000</invcargo:srcY>
+				</disp:srcEmissionDisplacement>
+				<disp:samplingPoint>поруч</disp:samplingPoint>
+				<disp:gasProps>
+					<invent:gasDepletion xmlns:invent="invent">22.1</invent:gasDepletion>
+					<invent:gasVelocity xmlns:invent="invent">76.55</invent:gasVelocity>
+					<invent:gasTemperature xmlns:invent="invent">100</invent:gasTemperature>
+				</disp:gasProps>
+				<disp:srcEmissions>
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">07001</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">337</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Оксид вуглецю</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.02</disp:emissionG>
+					<disp:emissionPower>0.07</disp:emissionPower>
+					<disp:emissionConc>5</disp:emissionConc>
+					<disp:emissionVolume>0.6</disp:emissionVolume>
+				</disp:srcEmissions>
+			</disp:srcEmission>
+			<disp:srcEmission xmlns:disp="disp">
+				<disp:equipmenT>
+					<equip:equipmenTCode xmlns:equip="equip">060100</equip:equipmenTCode>
+					<equip:equipmenTName xmlns:equip="equip">коксові печі</equip:equipmenTName>
+					<disp:bestTechTarget>true</disp:bestTechTarget>
+				</disp:equipmenT>
+				<disp:DangClass>4</disp:DangClass>
+				<disp:srcName>Цех нанесення лакофарбів</disp:srcName>
+				<disp:srcCode>6</disp:srcCode>
+				<disp:srcHeight>6.0</disp:srcHeight>
+				<disp:srcSizes>2.2</disp:srcSizes>
+				<disp:srcEmissionDisplacement>
+					<invcargo:srcX xmlns:invcargo="invcargo">1000</invcargo:srcX>
+					<invcargo:srcY xmlns:invcargo="invcargo">1000</invcargo:srcY>
+				</disp:srcEmissionDisplacement>
+				<disp:samplingPoint>переділ</disp:samplingPoint>
+				<disp:gasProps>
+					<invent:gasDepletion xmlns:invent="invent">6.0</invent:gasDepletion>
+					<invent:gasVelocity xmlns:invent="invent">22.81</invent:gasVelocity>
+					<invent:gasTemperature xmlns:invent="invent">56</invent:gasTemperature>
+				</disp:gasProps>
+				<disp:srcEmissions>
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11008</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">602</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Бензол</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.9</disp:emissionG>
+					<disp:emissionPower>3</disp:emissionPower>
+					<disp:emissionConc>3</disp:emissionConc>
+					<disp:emissionVolume>20.222</disp:emissionVolume>
+				</disp:srcEmissions>
+				<disp:srcEmissions xmlns:disp="disp">
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1873</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Етиленiмiн</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.4</disp:emissionG>
+					<disp:emissionPower>1.2</disp:emissionPower>
+					<disp:emissionConc>2</disp:emissionConc>
+					<disp:emissionVolume>12.03</disp:emissionVolume>
+				</disp:srcEmissions>
+				<disp:srcEmissions xmlns:disp="disp">
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">10004</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+						<invent:pollSubstName xmlns:invent="invent">-Нафтиламін</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.01</disp:emissionG>
+					<disp:emissionPower>0.03</disp:emissionPower>
+					<disp:emissionConc>0.008</disp:emissionConc>
+					<disp:emissionVolume>0.3</disp:emissionVolume>
+				</disp:srcEmissions>
+				<disp:srcEmissions xmlns:disp="disp">
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">15002</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+						<invent:pollSubstName xmlns:invent="invent">Вініл хлористий</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.007</disp:emissionG>
+					<disp:emissionPower>0.02</disp:emissionPower>
+					<disp:emissionConc>8</disp:emissionConc>
+					<disp:emissionVolume>0.22</disp:emissionVolume>
+				</disp:srcEmissions>
+				<disp:srcEmissions xmlns:disp="disp">
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1216</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Диметиловий ефiр сiрчаної кислоти (диметилсульфат)</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.009</disp:emissionG>
+					<disp:emissionPower>0.003</disp:emissionPower>
+					<disp:emissionConc>0.08</disp:emissionConc>
+					<disp:emissionVolume>0.28</disp:emissionVolume>
+				</disp:srcEmissions>
+			</disp:srcEmission>
+			<disp:srcEmission xmlns:disp="disp">
+				<disp:equipmenT>
+					<equip:equipmenTCode xmlns:equip="equip">130105</equip:equipmenTCode>
+					<equip:equipmenTName xmlns:equip="equip">Процеси спалювання в котлоагрегатах. газових турбінах і  стаціонарних двигунах/стаціонарні двигуни</equip:equipmenTName>
+					<disp:bestTechTarget>false</disp:bestTechTarget>
+				</disp:equipmenT>
+				<disp:DangClass>4</disp:DangClass>
+				<disp:srcName>фарбувальна камера</disp:srcName>
+				<disp:srcCode>7</disp:srcCode>
+				<disp:srcHeight>1.2</disp:srcHeight>
+				<disp:srcSizes>2.2</disp:srcSizes>
+				<disp:srcEmissionDisplacement>
+					<invcargo:srcX xmlns:invcargo="invcargo">1100</invcargo:srcX>
+					<invcargo:srcY xmlns:invcargo="invcargo">1000</invcargo:srcY>
+				</disp:srcEmissionDisplacement>
+				<disp:samplingPoint>ветиляційна шахта</disp:samplingPoint>
+				<disp:gasProps>
+					<invent:gasDepletion xmlns:invent="invent">22.1</invent:gasDepletion>
+					<invent:gasVelocity xmlns:invent="invent">84.01</invent:gasVelocity>
+					<invent:gasTemperature xmlns:invent="invent">100</invent:gasTemperature>
+				</disp:gasProps>
+				<disp:srcEmissions>
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11048</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1071</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Фенол</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.02</disp:emissionG>
+					<disp:emissionPower>0.072</disp:emissionPower>
+					<disp:emissionConc>0.2</disp:emissionConc>
+					<disp:emissionVolume>0.63072</disp:emissionVolume>
+				</disp:srcEmissions>
+				<disp:srcEmissions xmlns:disp="disp">
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11001</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">2001</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Акрилонітрил</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.005</disp:emissionG>
+					<disp:emissionPower>0.15768</disp:emissionPower>
+					<disp:emissionConc>0.1</disp:emissionConc>
+					<disp:emissionVolume>0.018</disp:emissionVolume>
+				</disp:srcEmissions>
+			</disp:srcEmission>
+			<disp:srcEmission xmlns:disp="disp">
+				<disp:equipmenT>
+					<equip:equipmenTCode xmlns:equip="equip">130105</equip:equipmenTCode>
+					<equip:equipmenTName xmlns:equip="equip">Процеси спалювання в котлоагрегатах. газових турбінах і  стаціонарних двигунах/стаціонарні двигуни</equip:equipmenTName>
+					<disp:bestTechTarget>false</disp:bestTechTarget>
+				</disp:equipmenT>
+				<disp:DangClass>4</disp:DangClass>
+				<disp:srcName>зварювальний апарат</disp:srcName>
+				<disp:srcCode>2</disp:srcCode>
+				<disp:srcHeight>12.2</disp:srcHeight>
+				<disp:srcSizes>2.1</disp:srcSizes>
+				<disp:srcEmissionDisplacement>
+					<invcargo:srcX xmlns:invcargo="invcargo">2000</invcargo:srcX>
+					<invcargo:srcY xmlns:invcargo="invcargo">3000</invcargo:srcY>
+				</disp:srcEmissionDisplacement>
+				<disp:samplingPoint>повітрязабір</disp:samplingPoint>
+				<disp:gasProps>
+					<invent:gasDepletion xmlns:invent="invent">11.2</invent:gasDepletion>
+					<invent:gasVelocity xmlns:invent="invent">38.79</invent:gasVelocity>
+					<invent:gasTemperature xmlns:invent="invent">43</invent:gasTemperature>
+				</disp:gasProps>
+				<disp:srcEmissions>
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">03000</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+						<invent:pollSubstName xmlns:invent="invent">Речовини у вигляді суспендованих твердих частинок (мікрочастинки та волокна )</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.004</disp:emissionG>
+					<disp:emissionPower>0.01</disp:emissionPower>
+					<disp:emissionConc>5</disp:emissionConc>
+					<disp:emissionVolume>0.12</disp:emissionVolume>
+				</disp:srcEmissions>
+				<disp:srcEmissions xmlns:disp="disp">
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">07001</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">337</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Оксид вуглецю</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.003</disp:emissionG>
+					<disp:emissionPower>0.09</disp:emissionPower>
+					<disp:emissionConc>5</disp:emissionConc>
+					<disp:emissionVolume>0.1</disp:emissionVolume>
+				</disp:srcEmissions>
+			</disp:srcEmission>
+			<disp:srcEvolving xmlns:disp="disp">
+				<disp:srcCode>1</disp:srcCode>
+				<disp:formationSrcCode>1</disp:formationSrcCode>
+				<disp:formationSrcName>силове обладнання</disp:formationSrcName>
+				<disp:samplingPoint>отвір</disp:samplingPoint>
+				<disp:flueDiameter>2.2</disp:flueDiameter>
+				<disp:gasProps>
+					<invent:gasDepletion xmlns:invent="invent">22.2</invent:gasDepletion>
+					<invent:gasVelocity xmlns:invent="invent">1.46</invent:gasVelocity>
+					<invent:gasTemperature xmlns:invent="invent">100</invent:gasTemperature>
+				</disp:gasProps>
+				<disp:srcEmissions>
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">04001</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">301</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Діоксид азоту [NО2]</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.00037</disp:emissionG>
+					<disp:emissionPower>0.0013</disp:emissionPower>
+					<disp:emissionConc>1.233</disp:emissionConc>
+				</disp:srcEmissions>
+				<disp:srcEmissions xmlns:disp="disp">
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">07001</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false" xmlns:invent="invent">337</invent:subsTCode>
+						<invent:pollSubstName xmlns:invent="invent">Оксид вуглецю</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.00116</disp:emissionG>
+					<disp:emissionPower>0.004176</disp:emissionPower>
+					<disp:emissionConc>3.8666666</disp:emissionConc>
+				</disp:srcEmissions>
+			</disp:srcEvolving>
+			<disp:gasCleanEquipProps>
+				<disp:srcCode>1</disp:srcCode>
+				<disp:gasCleanEquipUnits>
+					<disp:gasCleanEquipStage>1</disp:gasCleanEquipStage>
+					<disp:gasCleanEquipCode>(1:4)0000</disp:gasCleanEquipCode>
+					<disp:gasCleanEquipName>Каталітичні реактори</disp:gasCleanEquipName>
+					<disp:gasInDepletion>0.5</disp:gasInDepletion>
+					<disp:gasOutDepletion>0.4</disp:gasOutDepletion>
+					<disp:pollCleanProps>
+						<invent:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false">11030</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false">616</invent:subsTCode>
+							<invent:pollSubstName>Ксилол</invent:pollSubstName>
+						</invent:pollSubsT>
+						<invent:emissionOutConc>24.5</invent:emissionOutConc>
+						<invent:gasCleanEquipCoeff>80</invent:gasCleanEquipCoeff>
+						<disp:emissionInConc>30.66</disp:emissionInConc>
+					</disp:pollCleanProps>
+				</disp:gasCleanEquipUnits>
+			</disp:gasCleanEquipProps>
+			<disp:salvoSrc>
+				<disp:srcCode>1</disp:srcCode>
+				<disp:srcEmissions>
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false">07001</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false">337</invent:subsTCode>
+						<invent:pollSubstName>Оксид вуглецю</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.5</disp:emissionG>
+					<disp:emissionPower>1.8</disp:emissionPower>
+					<disp:emissionConc>21</disp:emissionConc>
+					<disp:salvoSchedule>
+						<disp:periodicitY>місяць</disp:periodicitY>
+						<disp:comment/>
+					</disp:salvoSchedule>
+					<disp:duratioN>
+						<disp:duratioN>12 </disp:duratioN>
+						<disp:TimeMeasure>годин</disp:TimeMeasure>
+					</disp:duratioN>
+					<disp:emissionVolume>0.2</disp:emissionVolume>
+				</disp:srcEmissions>
+			</disp:salvoSrc>
+			<disp:unorganizedSrc>
+				<disp:srcCode>12</disp:srcCode>
+				<disp:srcName>фарбувальна площадка</disp:srcName>
+				<disp:srcEmissions>
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false">11030</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="false">616</invent:subsTCode>
+						<invent:pollSubstName>Ксилол</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.004</disp:emissionG>
+					<disp:emissionPower>0.00331</disp:emissionPower>
+				</disp:srcEmissions>
+			</disp:unorganizedSrc>
+			<disp:unorganizedSrc xmlns:disp="disp">
+				<disp:srcCode>14</disp:srcCode>
+				<disp:srcName>погрузочна площадка</disp:srcName>
+				<disp:srcEmissions>
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">03000</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+						<invent:pollSubstName xmlns:invent="invent">Речовини у вигляді суспендованих твердих частинок (мікрочастинки та волокна )</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.004</disp:emissionG>
+					<disp:emissionPower>0.00331</disp:emissionPower>
+				</disp:srcEmissions>
+			</disp:unorganizedSrc>
+			<disp:unorganizedSrc xmlns:disp="disp">
+				<disp:srcCode>16</disp:srcCode>
+				<disp:srcName>разгрузочна площадка</disp:srcName>
+				<disp:srcEmissions>
+					<disp:pollSubsT>
+						<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">03000</invent:pollutanTCode>
+						<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+						<invent:pollSubstName xmlns:invent="invent">Речовини у вигляді суспендованих твердих частинок (мікрочастинки та волокна )</invent:pollSubstName>
+					</disp:pollSubsT>
+					<disp:emissionG xsi:nil="false">0.001</disp:emissionG>
+					<disp:emissionPower>0.02</disp:emissionPower>
+				</disp:srcEmissions>
+			</disp:unorganizedSrc>
+		</bases:srcEmission>
+		<bases:srcEmissionReg>
+			<emisrang:conditioN>
+				<req:titlE>До викидів забруднюючих речовин (в тому числі, до технологічного процесу, обладнання та споруд, очистки газопилового потоку)</req:titlE>
+				<req:requiremenT>
+					<req:titlE>Не для одного з вказаних дозволених видів викидів в атмосферу не повинні перевищуватися гранично допустимі рівні викидів, наведені в розділі 2 додатку до Дозволу. Інших викидів в атмосферу, що  чинять суттєвий вплив на навколишнє середовище, бути не повинно</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Моніторинг і аналіз для кожного окремого виду викидів в атмосферу повинні робитися відповідно до Умови 4 даного розділу. Звіт про результати моніторингу повинен надаватися Держуправлінню щоквартально</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Статистичні звіти про викиди в атмосферу повинні надаватися Держуправлінню. Наведена в таких звітах інформація повинна готуватися у відповідності з інструкціями з даного питання</req:titlE>
+				</req:requiremenT>
+			</emisrang:conditioN>
+			<emisrang:conditioN>
+				<req:titlE>До технологічного процесу</req:titlE>
+				<req:requiremenT>
+					<req:titlE/>
+				</req:requiremenT>
+			</emisrang:conditioN>
+			<emisrang:conditioN>
+				<req:titlE>До обладнання та споруд</req:titlE>
+				<req:requiremenT>
+					<req:titlE/>
+				</req:requiremenT>
+			</emisrang:conditioN>
+			<emisrang:conditioN>
+				<req:titlE>До очистки газопилового потоку</req:titlE>
+				<req:requiremenT>
+					<req:titlE/>
+				</req:requiremenT>
+			</emisrang:conditioN>
+			<emisrang:conditioN>
+				<req:titlE>Виробничий контроль</req:titlE>
+				<req:requiremenT>
+					<req:titlE>Гранично допустимі викиди в атмосферу в рамках Дозволу повинні тлумачитися наступним чином:</req:titlE>
+					<req:casE>
+						<req:titlE>Неперервний моніторинг</req:titlE>
+						<req:requiremenT>
+							<req:titlE>Не один середній показник за 24 години не повинен перевищувати гранично допустимі величини дозволених викидів.</req:titlE>
+						</req:requiremenT>
+						<req:requiremenT>
+							<req:titlE>97% усіх середніх показників за 20 хвилин при постійному вимірюванні протягом року не повинні перевищувати гранично допустимі величини дозволених викидів</req:titlE>
+						</req:requiremenT>
+						<req:requiremenT>
+							<req:titlE>3 % середніх значень, виміряних за двадцятихвилинний інтервал не повинні перевищувати 1,2 встановленого значення нормативу граничнодопустимого викиду</req:titlE>
+						</req:requiremenT>
+					</req:casE>
+					<req:casE>
+						<req:titlE>Періодичний моніторинг:</req:titlE>
+						<req:requiremenT>
+							<req:titlE>Для будь-якого параметру, вимірювання якого в силу особливостей пробовідбору/аналізу за 20 хвилин неможливо, необхідно встановити придатний період пробовідбору, а отримані при таких вимірах величини не повинні перевищувати гранично допустиму величину дозволених викиді</req:titlE>
+						</req:requiremenT>
+						<req:requiremenT>
+							<req:titlE>Результати вимірювань масової концентрації забруднюючої речовини, які характеризують вміст цієї забруднюючої речовини за двадцятихвилинний проміжок часу по всьому вимірному перерізу газоходу, вважаються такими, що не перевищують значення відповідного нормативу граничнодопустимого викиду, якщо значення кожного результату вимірювання не перевищують значення встановленого нормативу граничнодопустимого викиду</req:titlE>
+						</req:requiremenT>
+						<req:requiremenT>
+							<req:titlE>Гранично допустима інтенсивність викидів повинна розраховуватися на основі концентрацій як середня величина за певний період часу, помножена на величину відповідної масової витрати. Не один з визначених таким чином показників не повинен перевищувати гранично допустиму величину інтенсивності викидів</req:titlE>
+						</req:requiremenT>
+						<req:requiremenT>
+							<req:titlE>Для всіх інших параметрів, не один із середніх показників за \r\n20 хвилин не повинен перевищувати гранично допустиму  \r\nвеличину дозволених викидів</req:titlE>
+						</req:requiremenT>
+					</req:casE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Гранично допустимі концентрації для викидів в атмосферу, встановлені в Дозволі, повинні досягатися без розбавлення повітрям та повинні ґрунтуватися на величинах обсягу газів, призведених до наступних нормальних умов:</req:titlE>
+					<req:casE>
+						<req:titlE>У випадку газів (окрім продуктів спалювання):</req:titlE>
+						<req:requiremenT>
+							<req:titlE>Температура: 273К, тиск: 101,3 кПа (без виправлень на вміст кисню та вологості).</req:titlE>
+						</req:requiremenT>
+					</req:casE>
+					<req:casE>
+						<req:titlE>У випадку газоподібних продуктів спалювання:</req:titlE>
+						<req:requiremenT>
+							<req:titlE>3% кисню для рідкого та газоподібного палива, 6% кисню  для твердого палива.</req:titlE>
+						</req:requiremenT>
+						<req:requiremenT>
+							<req:titlE>15% кисню для газових турбін та дизельних двигунів</req:titlE>
+						</req:requiremenT>
+					</req:casE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Оператор повинен проводити відбір проб, аналіз, вимірювання, дослідження, обслуговування та калібрування відповідно до розділу 5 – Перелік заходів щодо здійснення контролю за  дотриманням затверджених нормативів граничнодопустимих викидів забруднюючих речовин та умов дозволу на викиди.</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Оператор повинен підготувати програму, яка буде відповідати вимогам Держуправління для виявлення та скорочення викидів летючих речовин в атмосферне повітря. Зазначена програма повинна бути включена в Програму природоохоронних заходів.</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>У випадках, коли змішування перед викидом може впливати на можливість вимірювання параметру, тоді даний параметр може визначатися перед змішуванням (за умовою, попереднього письмового дозволу Держуправління).</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Всі автоматичні пристрої контролю та пробовідбірники повинні постійно функціонувати (за виключенням періодів технічного обслуговування та калібрування) при здійсненні виробничої діяльності. якщо не передбачено альтернативного порядку  пробовідбору або моніторингу на необмежений період часу (для цього повинен бути письмовий дозвіл Держу правління). У випадку,           несправності будь-якого пристрою для неперервного контролю, Оператор повинен поінформувати про це Держуправління як      можливо скоріше (наскільки це практично можливо) та ввести в дію альтернативні пристрої пробовідбору/моніторингу. Для використання альтернативного  устаткування (окрім надзвичайних ситуацій) необхідно отримати  попередній письмовий дозвіл Держуправління.</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Повинно бути забезпечено необхідне технічне обслуговування устаткування для моніторингу та аналітичного устаткування для того, щоб моніторинг давав точні дані про викиди забруднюючих речовин.</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Після аналізу результатів випробувань, частота, методи та перелік робіт з моніторингу, відбору проб та аналізу, приведені  в Дозволі, повинні коректуватися при умові  попереднього письмового дозволу Держуправління.</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>На всіх джерелах викидів Оператор повинен встановити такі пристрої або устаткування для пробовідбору (включаючи устаткування для вводу даних або інше електронне устаткування), які можуть бути приписані Держуправлінням. Все устаткування повинно забезпечувати безпечне функціонування всіх систем робовідбору та моніторингу.</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Оператор повинен забезпечувати постійний та безпечний доступ к точкам відбору проб для контролю викидів в атмосферне повітря, а також безпечний доступ до будь-яких інших точок пробовідбору та моніторингу, відповідно вимогам Держуправління.</req:titlE>
+				</req:requiremenT>
+			</emisrang:conditioN>
+			<emisrang:conditioN>
+				<req:titlE>До адміністративних дій у разі виникнення надзвичайних ситуацій техногенного та природного характеру</req:titlE>
+				<req:requiremenT>
+					<req:titlE>Суб’єкт господарювання (Оператор) повинен направляти повідомлення, як по телефону, так і по факсу (якщо є така можливість) в Держуправління або в інший підрозділ Держуправління як можливо скоріше (на скільки це практично можливо), після того, як відбувається щось з наступного:</req:titlE>
+					<req:casE>
+						<req:titlE>Будь-який викид, який не відповідає вимогам Дозволу</req:titlE>
+					</req:casE>
+					<req:casE>
+						<req:titlE>Будь-яка несправність чи поломка контрольного обладнання або  обладнання для моніторингу, яка може призвести до втрати  контролю за системою попередження забруднення.</req:titlE>
+					</req:casE>
+					<req:casE>
+						<req:titlE>Будь-яка аварія може створити загрозу забруднення повітря або  може потребувати екстрених заходів реагування. У якості  складової частини повідомлення, Оператор повинен вказати дату та час такої аварії, привести докладну інформацію про те, що сталося та заходи, прийняті для мінімізації викидів і для попередження подібних аварій в майбутньому</req:titlE>
+					</req:casE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Оператор повинен документально фіксувати будь-які аварії, вказані в пункті 3.2.1 даної умови. В повідомленні, яке надається Держуправлінню, повинна наводитися докладна інформація про обставини, які призвели до аварії та про всі прийняті дії для мінімізації впливу на навколишнє середовище та для мінімізації обсягу утворених відходів.</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Звіт за довільною формою про всі зафіксовані аварії повинен надаватися Держуправлінню в якості складової частини Річного екологічного звіту. Наведена у такому звіті інформація повинна готуватися у відповідності з інструкціями, затвердженими Міністерством надзвичайних ситуацій України</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Оператор повинен ввести в дію та підтримати в дії Систему управління охороною навколишнім природним середовищем, яка відповідає потребам даного Дозволу. В даній системі повинні враховуватися всі виробничі операції та повинні розглядатися всі практичні можливі варіанти для використання більш чистих технологій, більш чистих виробничих процесів та для мінімізації викидів.</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>План природоохоронних заходів та цільових показників. Оператор повинен підготувати План природоохоронних заходів та цільових показників. Даний План повинен передбачати календарні строки для досягнення комплексу встановлених цільових показників. Як мінімум, цей План повинен охоплювати п’ятилітній період. План  повинен щорічно переглядатися, а про внесенні до нього доповнення необхідно інформувати Держуправління для узгодження таких доповнень. Розподілення відповідальності за досягнення цільових показників.</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Інформування та підготовка персоналу. Оператор повинен ввести в дію і підтримати в дії процедури для визначення необхідних сфер підготовки персоналу для всіх співробітників, робота яких може здійснити суттєвий вплив на забруднення атмосферного повітря. Повинна підтримуватися відповідна документація про підготовку персоналу. Персонал, який виконує спеціальні завдання, повинен володіти  необхідною кваліфікацією (необхідною освітою, підготовкою та/або досвідом роботи).</req:titlE>
+				</req:requiremenT>
+				<req:requiremenT>
+					<req:titlE>Обов’язки. Оператор повинен забезпечити, щоб відповідальна особа, визначена   у відповідності з умовами Указу Президента про затвердження        положення про Міністерство охорони навколишнього природного        середовища України була доступна на об’єкті в будь-який час, коли  відбувається вказана діяльність. </req:titlE>
+				</req:requiremenT>
+			</emisrang:conditioN>
+			<emisrang:basicSrcEmissionRange xmlns:emisrang="emisrang">
+				<emisrang:srcCode>1</emisrang:srcCode>
+				<emisrang:srcHeight>30.0</emisrang:srcHeight>
+				<emisrang:srcEmissionDisplacement>Теплосиловий цех : (X=1200; Y=1200)</emisrang:srcEmissionDisplacement>
+				<emisrang:gasDepletion>10.21</emisrang:gasDepletion>
+				<emisrang:emissionRange>
+					<emisrang:allowedEmission>
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">03000</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">Речовини у вигляді суспендованих твердих частинок (мікрочастинки та волокна )</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">100</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="false">0.8</emisrang:allowedEmissionG>
+							<emisrang:allowedEmissionPower>2.8</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:allowedEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">05001</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">330</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Ангiдрид сiрчистий</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">2880.4</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="false">22.2</emisrang:allowedEmissionG>
+							<emisrang:allowedEmissionPower>70</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:allowedEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">01009</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">185</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Свинець сiрчистий (у перера-хунку на свинець)</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="true"/>
+							<emisrang:allowedEmissionG xsi:nil="false">0.0009</emisrang:allowedEmissionG>
+							<emisrang:allowedEmissionPower>0.003</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment>Для Свинець сiрчистий (у перера-хунку на свинець) граничнодопустимий викид, відповідно до законодавства, не встановлено, так як величина масової витрати менше 25.000 г/год</emisrang:Comment>
+					</emisrang:allowedEmission>
+					<emisrang:allowedEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">04001</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">301</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Азоту дiоксид</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">233.2</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="false">1.80</emisrang:allowedEmissionG>
+							<emisrang:allowedEmissionPower>6.2</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:allowedEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">07001</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">337</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Вуглецю оксид</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">184.9</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="false">1.46</emisrang:allowedEmissionG>
+							<emisrang:allowedEmissionPower>5.2</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">03000</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">Речовини у вигляді суспендованих твердих частинок (мікрочастинки та волокна )</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>50</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше 500.0 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">07001</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">337</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Вуглецю оксид</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>250</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 5000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">04001</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">301</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Азоту дiоксид</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>500</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 5000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">05001</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">330</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Ангiдрид сiрчистий</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>500</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 5000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+				</emisrang:emissionRange>
+			</emisrang:basicSrcEmissionRange>
+			<emisrang:basicSrcEmissionRange xmlns:emisrang="emisrang">
+				<emisrang:srcCode>6</emisrang:srcCode>
+				<emisrang:srcHeight>6.0</emisrang:srcHeight>
+				<emisrang:srcEmissionDisplacement>Цех нанесення лакофарбів : (X=1000; Y=1000)</emisrang:srcEmissionDisplacement>
+				<emisrang:gasDepletion>6.0</emisrang:gasDepletion>
+				<emisrang:emissionRange>
+					<emisrang:allowedEmission>
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">15002</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">Вініл хлористий</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">8</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="false">0.007</emisrang:allowedEmissionG>
+							<emisrang:allowedEmissionPower>0.02</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:allowedEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1216</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Диметиловий ефiр сiрчаної кислоти (диметилсульфат)</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">0.08</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="false">0.009</emisrang:allowedEmissionG>
+							<emisrang:allowedEmissionPower>0.003</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:allowedEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">10004</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">-Нафтиламін</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">0.008</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="false">0.01</emisrang:allowedEmissionG>
+							<emisrang:allowedEmissionPower>0.03</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:allowedEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11008</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">602</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Бензол</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">3</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="false">0.9</emisrang:allowedEmissionG>
+							<emisrang:allowedEmissionPower>3</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:allowedEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1873</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Етиленiмiн</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">2</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="false">0.4</emisrang:allowedEmissionG>
+							<emisrang:allowedEmissionPower>1.2</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">10004</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">-Нафтиламін</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>0.1</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 0.5000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1216</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Диметиловий ефiр сiрчаної кислоти (диметилсульфат)</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>1</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 5.000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1873</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Етиленiмiн</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>1</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 5.000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1216</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Диметиловий ефiр сiрчаної кислоти (диметилсульфат)</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:pollSubsT xmlns:emisrang="emisrang">
+							<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1873</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Етиленiмiн</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>1</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 5.000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">15002</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">Вініл хлористий</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:pollSubsT xmlns:emisrang="emisrang">
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11008</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">602</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Бензол</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>5</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 25.000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1216</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Диметиловий ефiр сiрчаної кислоти (диметилсульфат)</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:pollSubsT xmlns:emisrang="emisrang">
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">10004</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">-Нафтиламін</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:pollSubsT xmlns:emisrang="emisrang">
+							<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1873</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Етиленiмiн</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>1</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 0.5000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">15002</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">Вініл хлористий</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:pollSubsT xmlns:emisrang="emisrang">
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">10004</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">-Нафтиламін</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:pollSubsT xmlns:emisrang="emisrang">
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11008</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">602</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Бензол</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>5</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 0.5000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">15002</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">Вініл хлористий</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:pollSubsT xmlns:emisrang="emisrang">
+							<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1216</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Диметиловий ефiр сiрчаної кислоти (диметилсульфат)</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:pollSubsT xmlns:emisrang="emisrang">
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11008</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">602</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Бензол</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:pollSubsT xmlns:emisrang="emisrang">
+							<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1873</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Етиленiмiн</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>5</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 5.000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+				</emisrang:emissionRange>
+			</emisrang:basicSrcEmissionRange>
+			<emisrang:srcEmissionRange xmlns:emisrang="emisrang">
+				<emisrang:srcCode>2</emisrang:srcCode>
+				<emisrang:srcCode>4</emisrang:srcCode>
+				<emisrang:srcCode>5</emisrang:srcCode>
+				<emisrang:emissionRange>
+					<emisrang:allowedEmission>
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">03000</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">Речовини у вигляді суспендованих твердих частинок (мікрочастинки та волокна )</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">150</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="true"/>
+							<emisrang:allowedEmissionPower>0.01</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:allowedEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">07001</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">337</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Оксид вуглецю</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="true"/>
+							<emisrang:allowedEmissionG xsi:nil="false">0.02</emisrang:allowedEmissionG>
+							<emisrang:allowedEmissionPower>0.07</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment>Для Оксид вуглецю граничнодопустимий викид, відповідно до законодавства, не встановлено, так як величина масової витрати менше 5000 г/год; Для Оксид вуглецю граничнодопустимий викид, відповідно до законодавства, не встановлено, так як величина масової витрати менше 5000 г/год; Для Оксид вуглецю граничнодопустимий викид, відповідно до законодавства, не встановлено, так як величина масової витрати менше 5000 г/год</emisrang:Comment>
+					</emisrang:allowedEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">03000</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="true" xmlns:invent="invent"/>
+							<invent:pollSubstName xmlns:invent="invent">Речовини у вигляді суспендованих твердих частинок (мікрочастинки та волокна )</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>150</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше 0 г/год та менше або дорівнює 500.0 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+				</emisrang:emissionRange>
+				<emisrang:Comment/>
+			</emisrang:srcEmissionRange>
+			<emisrang:srcEmissionRange xmlns:emisrang="emisrang">
+				<emisrang:srcCode>7</emisrang:srcCode>
+				<emisrang:emissionRange>
+					<emisrang:allowedEmission>
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11048</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1071</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Фенол</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">20</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="true"/>
+							<emisrang:allowedEmissionPower>0.072</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:allowedEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11001</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">2001</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Акрилонітрил</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:allowedEmissionRange>
+							<emisrang:termiN xsi:nil="false">2005-10-10</emisrang:termiN>
+							<emisrang:allowedEmissionConc xsi:nil="false">5</emisrang:allowedEmissionConc>
+							<emisrang:allowedEmissionG xsi:nil="true"/>
+							<emisrang:allowedEmissionPower>0.15768</emisrang:allowedEmissionPower>
+						</emisrang:allowedEmissionRange>
+						<emisrang:Comment/>
+					</emisrang:allowedEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11001</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">2001</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Акрилонітрил</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>5</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 25.000 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+					<emisrang:normEmission xmlns:emisrang="emisrang">
+						<emisrang:pollSubsT>
+							<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11048</invent:pollutanTCode>
+							<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1071</invent:subsTCode>
+							<invent:pollSubstName xmlns:invent="invent">Фенол</invent:pollSubstName>
+						</emisrang:pollSubsT>
+						<emisrang:normEmissionFactor>
+							<emisrang:emissionConc>20</emisrang:emissionConc>
+							<emisrang:emissionConcCondition>Концентрація при н.у. більше або дорівнює 0 г/год та менше 100.0 г/год</emisrang:emissionConcCondition>
+							<emisrang:infoRefID xsi:nil="true"/>
+						</emisrang:normEmissionFactor>
+						<emisrang:Comment/>
+					</emisrang:normEmission>
+				</emisrang:emissionRange>
+				<emisrang:Comment/>
+			</emisrang:srcEmissionRange>
+			<emisrang:unorganizedSrcEmissionRange xmlns:emisrang="emisrang">
+				<emisrang:srcCode>12</emisrang:srcCode>
+				<emisrang:srcCode>14</emisrang:srcCode>
+				<emisrang:srcCode>16</emisrang:srcCode>
+				<emisrang:requirmenTRefs/>
+				<emisrang:Comment>нормативи граничнодопустимих викидів не встановлюються. Регулювання здійснюється за вимогами, що викладені у  підрозділі []</emisrang:Comment>
+			</emisrang:unorganizedSrcEmissionRange>
+			<emisrang:salvoSrcEmissionRange xmlns:emisrang="emisrang">
+				<emisrang:srcCode>1</emisrang:srcCode>
+				<emisrang:emissionRange/>
+				<emisrang:Comment>не повинні перевищувати 3-х кратне 
+значення встановлених у розділі 2.1 граничнодопустимих викидів по оксиду вуглецю, речовин у вигляді суспендованих твердих частинок                 недиференційованих за складом
+</emisrang:Comment>
+			</emisrang:salvoSrcEmissionRange>
+		</bases:srcEmissionReg>
+		<bases:accidentMeasures>
+			<measure:dangObject>Склад</measure:dangObject>
+			<measure:dangObjectPlace>
+				<bases:objectPlace>фарбувальна площадка</bases:objectPlace>
+			</measure:dangObjectPlace>
+			<measure:accidentSubstInUse xmlns:measure="measure" xmlns:mater="mater">
+				<mater:materiaLKind xmlns:mater="mater">Неорганічні речовини</mater:materiaLKind>
+				<mater:materiaLCode xsi:nil="true" xmlns:mater="mater"/>
+				<mater:materiaLName xmlns:mater="mater">кварц</mater:materiaLName>
+				<measure:Usage xmlns:mater="mater">
+					<TTPAir:MeasureType xmlns:TTPAir="TTPAir">р</TTPAir:MeasureType>
+					<TTPAir:FactorValue xmlns:TTPAir="TTPAir">120000</TTPAir:FactorValue>
+				</measure:Usage>
+			</measure:accidentSubstInUse>
+			<measure:accidentIdentifySubst xmlns:measure="measure">
+				<mater:materiaLKind xmlns:mater="mater">Фарба із вмістом ЛОС менш 5%</mater:materiaLKind>
+				<mater:materiaLCode xsi:nil="true" xmlns:mater="mater"/>
+				<mater:materiaLName xmlns:mater="mater">Фарба із вмістом ЛОС менш 5%, Фарбування</mater:materiaLName>
+			</measure:accidentIdentifySubst>
+			<measure:accidentEmissionSubst xmlns:measure="measure">
+				<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">11008</invent:pollutanTCode>
+				<invent:subsTCode xsi:nil="false" xmlns:invent="invent">602</invent:subsTCode>
+				<invent:pollSubstName xmlns:invent="invent">Бензол</invent:pollSubstName>
+			</measure:accidentEmissionSubst>
+			<measure:accidentEmissionSubst xmlns:measure="measure">
+				<invent:pollutanTCode xsi:nil="true" xmlns:invent="invent"/>
+				<invent:subsTCode xsi:nil="false" xmlns:invent="invent">1216</invent:subsTCode>
+				<invent:pollSubstName xmlns:invent="invent">Диметиловий ефiр сiрчаної кислоти (диметилсульфат)</invent:pollSubstName>
+			</measure:accidentEmissionSubst>
+			<measure:accidentEmissionSubst xmlns:measure="measure">
+				<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">07001</invent:pollutanTCode>
+				<invent:subsTCode xsi:nil="false" xmlns:invent="invent">337</invent:subsTCode>
+				<invent:pollSubstName xmlns:invent="invent">Вуглецю оксид</invent:pollSubstName>
+			</measure:accidentEmissionSubst>
+			<measure:accidentEmissionSubst xmlns:measure="measure">
+				<invent:pollutanTCode xsi:nil="false" xmlns:invent="invent">07001</invent:pollutanTCode>
+				<invent:subsTCode xsi:nil="false" xmlns:invent="invent">337</invent:subsTCode>
+				<invent:pollSubstName xmlns:invent="invent">Вуглецю оксид</invent:pollSubstName>
+			</measure:accidentEmissionSubst>
+			<measure:envProtectMeasures>Профілактика пожарів</measure:envProtectMeasures>
+			<measure:accidentLiquidMeasures>Пожарогасіння</measure:accidentLiquidMeasures>
+		</bases:accidentMeasures>
+		<bases:permissionInfo>
+			<TTPAir:permissionDate>2003-10-01</TTPAir:permissionDate>
+			<TTPAir:permissionNumber>8</TTPAir:permissionNumber>
+			<TTPAir:permissionTerm>5</TTPAir:permissionTerm>
+		</bases:permissionInfo>
+		<bases:resumE>
+			<invcargo:comment>ВАТ "Склоприлад" - єдине підприємство в Україні по виготовленню термометрів побутових типу "Сувенір". Підприємство, маючи сучасні виробничі потужності та високотехнічні технології, унікальне обладнання, майстерність та високу кваліфікацію працівників, випускає більше 30 видів термометрів побутових, які користуються широким попитом не тільки в Україні, а й за її межами. На ВАТ "Склоприлад" впроваджується система управління якістю, яка відповідає міжнародному стандарту ISO 9001 : 2000.
+
+Відійшовши від шкідливого ртутного виробництва, ВАТ "Склопри-лад" виготовляє термометри побутові з органічним наповнювачем. Основи термометра пластмасові, металеві, дерев'яні. Екологічно чисті, зручні в користуванні, вишуканий дизайн, низькі ціни.висока якість, широкий спектр використання термометрів знайшли схвальний відгук покупців не лише в Україні, а й за кордоном.
+</invcargo:comment>
+			<invcargo:richInfo/>
+		</bases:resumE>
+		<bases:infoResources xmlns:bases="bases">
+			<infores:infoRefID>1</infores:infoRefID>
+			<infores:infoTitle>ІНСТРУКЦІЯ про загальні вимоги до оформлення документів, у яких обґрунтовуються обсяги викидів, для отримання дозволу на викиди забруднюючих речовин в атмосферне повітря стаціонарними джерелами для підприємств, установ, організацій та громадян-підприємців</infores:infoTitle>
+		</bases:infoResources>
+		<bases:infoResources xmlns:bases="bases">
+			<infores:infoRefID>2</infores:infoRefID>
+			<infores:infoTitle xmlns:infores="infores">Про затвердження нормативів граничнодопустимих викидів забруднюючих речовин із стаціонарних джерел</infores:infoTitle>
+		</bases:infoResources>
+	</bases:ReportContent>
+</Report>

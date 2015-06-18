@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!-- XML схеми розділу виробнича програма
+	   "Обгрунтуючих матеріалів для отримання дозволу на викиди". базові типи
+     Версія 3.1.1.3. Редакція 2.
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+
+     12.01.2010 
+		  ProductionFactorChanges - Changes to support proper reasoN type
+		  EquipRegime - support of zero durations
+
+-->
+<xsd:schema targetNamespace="bases" xmlns="bases" xmlns:bases="bases" xmlns:assets="assets"
+			xmlns:mime="mime" xmlns:poll="poll" xmlns:mater="mater" xmlns:measure="measure"
+			xmlns:fuel="fuel" xmlns:TTPAir="TTPAir" xmlns:invent="invent" xmlns:equip="equip" xmlns:cargo="cargo" 
+			xmlns:ovnsdisp="ovnsdisp" xmlns:besttech="besttech" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        elementFormDefault="qualified" version="3.1.1.2.">
+        <xsd:include schemaLocation="basescargo.xsd"/>
+        <xsd:import namespace="besttech" schemaLocation="besttech.xsd"/>
+        <xsd:import namespace="fuel" schemaLocation="fuel.xsd"/>
+        <xsd:import namespace="mater" schemaLocation="material.xsd"/>
+        <xsd:import namespace="invent" schemaLocation="invtype.xsd"/>
+        <xsd:import namespace="poll" schemaLocation="pollutant.xsd"/>
+        <xsd:import namespace="measure" schemaLocation="measure.xsd"/>
+        <xsd:import namespace="equip" schemaLocation="equipment.xsd"/>
+        <xsd:import namespace="mime" schemaLocation="mime.xsd"/>
+        <xsd:import namespace="assets" schemaLocation="assets.xsd"/>
+        <xsd:import namespace="cargo" schemaLocation="cargo.xsd"/>
+        <xsd:import namespace="TTPAir" schemaLocation="twoTpAir.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>Розділ виробнича програма "Обгрунтуючих матеріалів для отримання дозволу на викиди"</xsd:documentation>
+    </xsd:annotation>
+	<xsd:complexType name="aProductioN">
+	    <xsd:annotation>
+			<xsd:documentation>Продукція</xsd:documentation>
+	    </xsd:annotation>
+	    <xsd:sequence>
+		<xsd:element name="prodCode" type="xsd:positiveInteger" nillable="true">
+			<xsd:annotation>
+				<xsd:documentation>Код продукції</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		<xsd:element name="prodName" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Найменування продукції</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+	    </xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="theProductioN">
+		<xsd:annotation>
+			<xsd:documentation>Вид продукції, що випускається на об’єкті</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="productioN" type="aProductioN">
+				<xsd:annotation>
+					<xsd:documentation>Продукцiя</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Output" type="TTPAir:RichFactor">
+				<xsd:annotation>
+					<xsd:documentation>Рiчний випуск</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="balanсeElement">
+		<xsd:annotation>
+			<xsd:documentation>Елемент матеріального балансу</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="material" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Матеріал</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Value" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>Значення</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="balanсeItem">
+		<xsd:annotation>
+			<xsd:documentation>Строка матеріального балансу</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Input" type="bases:balanсeElement">
+				<xsd:annotation>
+					<xsd:documentation>Вход</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Output" type="bases:balanсeElement">
+				<xsd:annotation>
+					<xsd:documentation>Вихід</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="materialBalance">
+		<xsd:annotation>
+			<xsd:documentation>Матеріальний баланс</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="pointOfView" type="bases:industryProcess">
+				<xsd:annotation>
+					<xsd:documentation>Виробничий процес чи окрема операція у розрізі у яких складений матеріальний баланс</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="balanceItem" type="bases:balanсeItem" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Рядок балансу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="balanceMeasure" type="cargo:MeasureType">
+				<xsd:annotation>
+					<xsd:documentation>Одиниця вимiру балансу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="industryProcess">
+		<xsd:annotation>
+			<xsd:documentation>Виробничий процес чи його окрема операція</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="equip:industrY">
+				<xsd:sequence>
+					<xsd:element name="operatioN" type="xsd:string" nillable="true">
+						<xsd:annotation>
+							<xsd:documentation>Операція</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="industryProcType">
+		<xsd:annotation>
+			<xsd:documentation>тип виробничого процесу</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="основний"/>
+			<xsd:enumeration value="допоміжний"/>
+			<xsd:enumeration value="підсобний"/>
+			<xsd:enumeration value="побічний"/>
+			<xsd:enumeration value="циклічний"/>
+			<xsd:enumeration value="нециклічний"/>
+			<xsd:enumeration value="безперервний"/>
+			<xsd:enumeration value="напівбезперервний"/>
+			<xsd:enumeration value="дискретний"/>
+			<xsd:enumeration value="закритий"/>
+			<xsd:enumeration value="відкритий"/>
+			<xsd:enumeration value="напівзакритий"/>
+			<xsd:enumeration value="інший"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ProductionFactorType">
+		<xsd:annotation>
+			<xsd:documentation>тип потужності</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="проектна"/>
+			<xsd:enumeration value="фактична"/>
+			<xsd:enumeration value="резервна"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="EquipRegime">
+		<xsd:annotation>
+			<xsd:documentation>режим роботи устаткування</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="regimeDesc" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>опис режиму</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="regimeType" type="invent:RegimeType">
+				<xsd:annotation>
+					<xsd:documentation>тип режиму</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="duratioN" type="xsd:nonNegativeInteger">
+				<xsd:annotation>
+					<xsd:documentation>кількість календарних днів за період</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="workingHours" type="xsd:nonNegativeInteger">
+				<xsd:annotation>
+					<xsd:documentation>кількість годин роботи за період</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="stopHours" type="xsd:nonNegativeInteger">
+				<xsd:annotation>
+					<xsd:documentation>кількість годин простою за період</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="bestTechnoTarget">
+		<xsd:annotation>
+			<xsd:documentation>технологічне устаткування, на якому повинні впроваджуватися найкращі доступні технології та методи керування</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="equipmenTDesc" type="xsd:string" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>опис устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="equipmenT" type="besttech:equipmenT">
+				<xsd:annotation>
+					<xsd:documentation>технологічне устаткування, на яких повинне впроваджуватися найкраща доступна технологія та методи керування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EquipDeterioration">
+		<xsd:annotation>
+			<xsd:documentation>ізнос устаткування</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="inputDate" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>термін введення в експлуатацію</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="amortizationTerm" type="xsd:decimal" default="1">
+				<xsd:annotation>
+					<xsd:documentation>нормативний строк амортизації (рік)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="reconstructionDate" type="xsd:date" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>дата проведення останньої реконструкції або модернізації технологічного устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="equipmentDesc">
+		<xsd:annotation>
+			<xsd:documentation>опис группи технологічного устаткування</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="equipmenTGroup" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>найменування групи</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="equipmenT" type="equip:equipmenT" minOccurs="1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Перелік технологічного устаткування у складі групи</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProductionPower" type="bases:ProductionFactor" minOccurs="2" maxOccurs="3">
+				<xsd:annotation>
+					<xsd:documentation>Показники потужності устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Regime" type="bases:EquipRegime" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>режим роботи устаткування, баланс часу роботи устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Deterioration" type="bases:EquipDeterioration" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>ізнос устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProductionFactorChanges" type="bases:ProductionFactorChanges" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>зміни показників продуктивності устаткування у порівнянні з проектними показниками</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProductionFactor">
+		<xsd:annotation>
+			<xsd:documentation>фактор потужності виробництва</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="TTPAir:Factor">
+				<xsd:sequence>
+					<xsd:element name="ProductionFactorType" type="bases:ProductionFactorType">
+						<xsd:annotation>
+							<xsd:documentation>Тип потужності виробництва</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ProductionFactorChanges">
+		<xsd:annotation>
+			<xsd:documentation>зміни показників продуктивності устаткування у порівнянні з проектними показниками</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="termiN" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>термін зміни</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="reasoN" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>причина зміни</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="changeSign" type="assets:sigN">
+				<xsd:annotation>
+					<xsd:documentation>знак зміни показників продуктивності устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProductionFactor" type="bases:ProductionFactor">
+				<xsd:annotation>
+					<xsd:documentation>модуль зміни показників продуктивності устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

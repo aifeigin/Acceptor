@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<econf:eisSettings xmlns="econf" xmlns:econf="econf" xmlns:root="root" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="econf eisconf.xsd">
+    <econf:RegisteredHost>Міністерство охорони навколишнього природного середовища України</econf:RegisteredHost>
+    <econf:SequenceNumber>4</econf:SequenceNumber>
+    <econf:OutputDir>c:\eis\out</econf:OutputDir>
+</econf:eisSettings>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="Windows-1251" ?>
+<!-- Базові типи електронної типовової форми XML схеми "Обгрунтуючих матеріалів для отримання дозволу на викиди"
+     Версія 3.1.1.3. Редакція 2
+
+     Copyright(С) 2003-2010 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+
+     Changes :
+            12.01.2010 : type contactPerson - contactFax element was added 
+	    04.03.2010 : type orgAddress - legal and real address are allowed
+-->
+<xsd:schema targetNamespace="bases" xmlns="bases" xmlns:bases="bases" xmlns:cargo="cargo" xmlns:root="root"
+	xmlns:TTPAir="TTPAir" xmlns:mime="mime" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+        version="3.1.1.2">
+        <xsd:import namespace="root" schemaLocation="root.xsd" />
+        <xsd:import namespace="TTPAir" schemaLocation="twoTpAir.xsd" />
+        <xsd:import namespace="mime" schemaLocation="mime.xsd" />
+        <xsd:import namespace="cargo" schemaLocation="cargo.xsd" />
+	<xsd:simpleType name="applyTarget">
+		<xsd:annotation>
+			<xsd:documentation>Мета надання документів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="0">
+				<xsd:annotation>
+					<xsd:documentation>отримання дозволу на викиди для новоствореного об’єкта</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="2">
+				<xsd:annotation>
+					<xsd:documentation>отримання дозволу на викиди для існуючого об’єкта</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="4">
+				<xsd:annotation>
+					<xsd:documentation>внесення змін до існуючого дозволу на викиди</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="contactPerson">
+		<xsd:annotation>
+			<xsd:documentation>Контактна персона</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="contactInfo" type="TTPAir:personInfo">
+				<xsd:annotation>
+					<xsd:documentation>Відповідальна персона</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="contactPhone" type="xsd:string" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Контактний телефон, якщо є</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="contactFax" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Љ®­в Єв­Ё© д Єб</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="EMail" type="cargo:EMail" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Адреса електронної пошти, якщо є</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="contactInfo">
+		<xsd:annotation>
+			<xsd:documentation>Контактна інформація</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="contactPerson" type="contactPerson" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Контактна персона</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="contactPhone" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Контактний телефон</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="contactFax" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Контактний факс</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EMail" type="cargo:EMail">
+				<xsd:annotation>
+					<xsd:documentation>Адреса електронної пошти</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="objectDisplacement">
+		<xsd:sequence>
+			<xsd:element name="objectAddress" type="root:PostAddress" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Адреса об'єкту</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="objectPlace" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Місцезнаходження об'єкту у довільній формі</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="objectInfo">
+		<xsd:sequence>
+			<xsd:element name="objectName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування об'єкту</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="objectAddress" type="objectDisplacement" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Місцезнаходження об'єкту</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="industrialArea">
+		<xsd:annotation>
+			<xsd:documentation>Відомості щодо виробничіх майданчиків</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="bases:objectInfo">
+				<xsd:sequence>
+					<xsd:element name="industrialAreaCode" type="xsd:positiveInteger">
+						<xsd:annotation>
+							<xsd:documentation>Код виробничого майданчику</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="contactPerson" type="bases:contactPerson">
+						<xsd:annotation>
+							<xsd:documentation>контактні координати</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="orgInfo">
+		<xsd:annotation>
+			<xsd:documentation>Відомості щодо суб’єкта господарювання</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="orgProvider" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>назва об’єкта</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="orgAddress" type="root:TypifiedPostAddress" minOccurs="1" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>адреса місцезнаходження  об’єкта</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="approvedPerson" type="TTPAir:personInfo">
+				<xsd:annotation>
+					<xsd:documentation>керівник організації</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="industrialArea" type="bases:industrialArea" minOccurs="1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>адреса місцезнаходження виробничіх майданчиків</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="orgCodes">
+				<xsd:annotation>
+					<xsd:documentation>Ідентифікаційні та класифікаційні атрибутивні коди складача</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="EDRPOU" type="cargo:edrpoU">
+							<xsd:annotation>
+								<xsd:documentation>ЄДРПОУ</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="KVED" type="cargo:kvedCode" minOccurs="1" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>КВЕД</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="KOATUU" type="cargo:coatUUCode">
+							<xsd:annotation>
+								<xsd:documentation>КОАТУУ</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="qualInfo">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string" />
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="execPersonInfo">
+		<xsd:sequence>
+			<xsd:element name="execPerson" type="contactPerson">
+				<xsd:annotation>
+					<xsd:documentation>Відповідальна персона</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="qualInfo" type="qualInfo" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Реквизити посвідчення курсів підвищення кваліфікації Мінприроди України, якщо є</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="permissionInfo">
+		<xsd:annotation>
+			<xsd:documentation>Реєстраційні дані</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="TTPAir:permissionInfo"></xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="developerInfo">
+		<xsd:annotation>
+			<xsd:documentation>Відомості щодо організації, установи, закладу – розробника документів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="orgDeveloper" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>назва</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="orgAddress" type="root:PostAddress">
+				<xsd:annotation>
+					<xsd:documentation>місцезнаходження</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="approvedPerson" type="TTPAir:personInfo">
+				<xsd:annotation>
+					<xsd:documentation>керівник організації</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="responsiblePersons" type="execPersonInfo" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>відповідальні особи</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="permissionInfo" type="permissionInfo">
+				<xsd:annotation>
+					<xsd:documentation>номер та дата реєстраційного свідоцтва,  яким надано право організації на розробку цих документів</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>	                               
+</xsd:schema>

@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема "Гранично допустимі вкикиди та нормативи викидів" Версія 3.1.1
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="emisrang" xmlns:technorm="technorm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:invent="invent" xmlns:equip="equip" xmlns:subst="subst" xmlns:poll="poll" xmlns:req="req" xmlns:method="method" xmlns:invcargo="invcargo" xmlns:disp="disp" xmlns:mime="mime" xmlns:TTPAir="TTPAir" xmlns="emisrang" xmlns:emisposs="emisposs" xmlns:emisrang="emisrang" elementFormDefault="qualified" version="3.1.1" xml:lang="uk">
+	<xsd:import namespace="TTPAir" schemaLocation="twoTpAir.xsd"/>
+	<xsd:import namespace="subst" schemaLocation="substance.xsd"/>
+	<xsd:import namespace="mime" schemaLocation="mime.xsd"/>
+	<xsd:import namespace="equip" schemaLocation="equipment.xsd"/>
+	<xsd:import namespace="poll" schemaLocation="pollutant.xsd"/>
+	<xsd:import namespace="invcargo" schemaLocation="invbase.xsd"/>
+	<xsd:import namespace="invent" schemaLocation="invtype.xsd"/>
+	<xsd:import namespace="method" schemaLocation="method.xsd"/>
+	<xsd:import namespace="disp" schemaLocation="dispersion.xsd"/>
+	<xsd:import namespace="req" schemaLocation="requir.xsd"/>
+	<xsd:import namespace="emisposs" schemaLocation="emisposs.xsd"/>
+        <xsd:import namespace="technorm" schemaLocation="tnormbase.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>Гранично допустимі викиди та нормативи викидів</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="pollutanTVolume">
+		<xsd:annotation>
+			<xsd:documentation>вид та обсяг викиду забруднюючої речовини</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="pollSubsT" type="invent:pollSubsT">
+				<xsd:annotation>
+					<xsd:documentation>забруднююча речовина</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="pollutanTCategory" type="poll:pollutanTCategory" minOccurs="1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>категорія забруднюючої речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="dangClass" type="dangClass" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>клас небезпечності</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="pollutanTGroup" type="normGdvGroup" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>група нормування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="factVolume" type="TTPAir:emissionVolume">
+				<xsd:annotation>
+					<xsd:documentation>фактичний обсяг викидів (т/рік)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="volumeLimit" type="TTPAir:emissionVolume" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Порогові значення потенційних викидів для взяття на державний облік(т/рік)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="potentialVolume" type="emisposs:potentiaL" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>потенційний обсяг викидів (т/рік)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="pollutionVolume">
+		<xsd:annotation>
+			<xsd:documentation>перелік видів та обсягів забруднюючих речовин, які викидаються в атмосферне повітря стаціонарними джерелами</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="pollutanTVolume" type="pollutanTVolume" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Вид та обсяг викиди забруднюючої речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="allowedEmission">
+		<xsd:annotation>
+			<xsd:documentation>затверджені ГДВ та заходи щодо здійснення контролю за дотриманням затверджених нормативів граничнодопустимих викидів забруднюючих речовин (крім об'єктів 3-ї групи)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="pollSubsT" type="invent:pollSubsT" minOccurs="1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Забруднююча речовина</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="emissionRangeControl" type="emisrang:emissionRangeControlPoint" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Заходи щодо здійснення контролю за дотриманням затверджених нормативів граничнодопустимих викидів забруднюючих речовин по строках</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="allowedEmissionRange" type="emisrang:allowedEmissionRange" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Дозволені обсяги викидів по строках</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comment" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>коментар</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="normEmission">
+		<xsd:annotation>
+			<xsd:documentation>заcтосовані нормативи ГДВ по речовинах</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="pollSubsT" type="invent:pollSubsT" minOccurs="1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Забруднююча(i) речовина(и)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="normEmissionFactor" type="emisrang:emissionFactor" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Застосований(i) норматив(и) викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comment" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>коментар</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+<xsd:complexType name="techNormEmission">
+    <xsd:annotation>
+      <xsd:documentation>заcтосован_ технолог_чн_ нормативи ГДВ по речовинах</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="emisrang:normEmission">
+        <xsd:sequence>
+          <xsd:element name="pollMarker" type="technorm:pollMarker" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Марк_ровка забруднюючої речовини для застосування технолог_чних норматв_в</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <xsd:complexType name="techAllowedEmission">
+    <xsd:annotation>
+      <xsd:documentation>дозволен_ на п_дстав_ технолог_чних норматив_в викиди по речовинах</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="emisrang:allowedEmission">
+        <xsd:sequence>
+          <xsd:element name="pollMarker" type="technorm:pollMarker" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Марк_ровка забруднюючої речовини для застосування технолог_чних норматв_в</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+	<xsd:complexType name="emissionRange">
+		<xsd:annotation>
+			<xsd:documentation>Нормативи ГДВ</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="allowedEmission" type="emisrang:allowedEmission" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Дозволені обсяги викидів по забруднюючим речовинам</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="normEmission" type="emisrang:normEmission" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Застосований(і) норматив(и) граничнодопустимого викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+   <xsd:simpleType name="SrcKind">
+    <xsd:annotation>
+      <xsd:documentation>Тип джерела</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="evolvingSrc">
+        <xsd:annotation>
+          <xsd:documentation>Джерело вид_лення</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="gasCleanEquipment">
+        <xsd:annotation>
+          <xsd:documentation>ГОУ</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="SetPoint">
+    <xsd:annotation>
+      <xsd:documentation>Точка установки нормативу</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="srcKind" type="emisrang:SrcKind">
+        <xsd:annotation>
+          <xsd:documentation>тип джерела</xsd:documentation>
+        </xsd:annotation>        
+      </xsd:element>
+      <xsd:element name="srcCode" type="xsd:string"  minOccurs="1"  maxOccurs="2" >
+        <xsd:annotation>
+          <xsd:documentation>код джерела</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>  
+  </xsd:complexType>
+
+  <xsd:complexType name="techEmissionRange">
+    <xsd:annotation>
+      <xsd:documentation>Технолог_чн_ Нормативи</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="allowedEmission" type="emisrang:techAllowedEmission" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>Дозволен_ обсяги викид_в по забруднюючим речовинам</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="normEmission" type="emisrang:techNormEmission" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>Застосований(_) норматив(и) граничнодопустимого викиду</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+	<xsd:complexType name="allowedEmissionRange">
+		<xsd:annotation>
+			<xsd:documentation>Дозволені обсяги викидів викидів по забруднюючим речовинам</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="termiN" type="xsd:date" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Термін досягнення затвердженого значення</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="allowedEmissionConc" type="invcargo:emissionConc" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Затверджений гранично-припустимий викид (мг/м.куб)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="allowedEmissionG" type="invcargo:emissionValue" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Затверджений гранично-припустимий викид (г/c)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="allowedEmissionPower" type="invcargo:emissionPower">
+				<xsd:annotation>
+					<xsd:documentation>Застосована масова потужнicть</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="basicSrcEmissionRange">
+		<xsd:annotation>
+			<xsd:documentation>Пропозиції щодо дозволених обсягів викидів забруднюючих речовин, які віднесені до основних джерел викидів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="srcCode" type="invcargo:srcCode">
+				<xsd:annotation>
+					<xsd:documentation>Номер джерела викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcHeight" type="invcargo:srcHeight">
+				<xsd:annotation>
+					<xsd:documentation>Висота джерела забруднення (м)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcEmissionDisplacement" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Місцезнаходження джерела в довільній формі</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="gasDepletion" type="invcargo:gasDepletion">
+				<xsd:annotation>
+					<xsd:documentation>Об’ємна фізична витрата газу м3/с</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="emissionRange" type="emissionRange">
+				<xsd:annotation>
+					<xsd:documentation>Дозволені викиди та нормативи викидів джерела</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="srcEmissionRange">
+		<xsd:annotation>
+			<xsd:documentation>Пропозиції щодо дозволених обсягів викидів забруднюючих речовин, які віднесені до інших джерел викидів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="srcCode" type="invcargo:srcCode" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Номер джерела викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="emissionRange" type="emissionRange">
+				<xsd:annotation>
+					<xsd:documentation>Дозволені викиди та нормативи викидів джерела</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comment" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>коментар</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="unorganizedSrcEmissionRange">
+		<xsd:annotation>
+			<xsd:documentation>Пропозиції щодо дозволених обсягів викидів забруднюючих речовин, які віднесені до неорганізованих джерел викидів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="srcCode" type="invcargo:srcCode" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Номер джерела викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="requirmenTRefs" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>вимоги</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comment" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>коментар</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+<xsd:complexType name="techSrcEmissionRange">
+    <xsd:annotation>
+      <xsd:documentation>Пропозиц_ї щодо дозволених обсяг_в викид_в забруднюючих речовин, встановлен_ на п_дстав_ технолог_чних норматив_в</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="srcCode" type="invcargo:srcCode" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>Номер джерела викиду</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>      
+      <xsd:element name="techNormMarker" type="technorm:scopE" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>_дентиф_катор технолог_чного норматива до застосування</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="setPoint" type="SetPoint" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Дозволен_ обсяги викид_в по забруднюючим речовинам</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>      
+      <xsd:element name="emissionRange" type="techEmissionRange">
+        <xsd:annotation>
+          <xsd:documentation>Дозволен_ викиди та нормативи викид_в джерела</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Comment" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>коментар</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="ID" type="xsd:string"/>
+  </xsd:complexType>
+
+
+	<xsd:complexType name="srcEmissionReg">
+		<xsd:annotation>
+			<xsd:documentation>Пропозиції щодо дозволених обсягів викидів забруднюючих речовин</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="conditioN" type="req:conditioN" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>пропозиції щодо умов та вимог, які встановлюються в дозволі на викиди</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="basicSrcEmissionRange" type="basicSrcEmissionRange" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Пропозиції щодо дозволених обсягів викидів забруднюючих речовин, які віднесені до основних джерел викидів</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcEmissionRange" type="srcEmissionRange" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Пропозиції щодо дозволених обсягів викидів забруднюючих речовин, які віднесені до інших джерел викидів</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="unorganizedSrcEmissionRange" type="unorganizedSrcEmissionRange" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Пропозиції щодо неорганізованих обсягів викидів забруднюючих речовин</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="salvoSrcEmissionRange" type="srcEmissionRange" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Пропозиції щодо дозволених залпових обсягів викидів забруднюючих речовин</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+      <!-- to comment on export !! -->
+      <xsd:element name="techEmissionRange" type="techSrcEmissionRange" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>Пропозиц_ї щодо дозволених обсяг_в викид_в забруднюючих речовин, встановлен_ на п_дстав_ технолог_чних норматив_в</xsd:documentation>
+        </xsd:annotation>
+			<xsd:key name="techCondRefKey">
+				<xsd:selector xpath="emisrang:techEmissionRange"/>
+				<xsd:field xpath="@ID"/>
+			</xsd:key>
+			<xsd:keyref name="techCondRef" refer="techCondRefKey">
+				<xsd:selector xpath="req:conditioN/req:requiremenT"/>
+				<xsd:field xpath="@REF"/>
+			</xsd:keyref>	
+
+      </xsd:element>
+      <!-- to comment on export !! -->
+      <xsd:element name="Comment" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>внтурiшнi коментарi до аналiзу вiдповiдностi викидiв нормативам</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="emissionRangeControlPoint">
+		<xsd:annotation>
+			<xsd:documentation>Заход щодо здійснення контролю за дотриманням затверджених нормативів граничнодопустимих викидів забруднюючих речовин</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="termiN" type="xsd:date" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Початкова дата (графік) вимірювань</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="periodicitY" type="disp:periodicitY">
+				<xsd:annotation>
+					<xsd:documentation>Періодичність вимірювань</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measureMethod" type="method:measureMethod">
+				<xsd:annotation>
+					<xsd:documentation>Методика виконання вимірювань</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="measurePoint" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Місце відбору проб</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="cmpSign">
+		<xsd:annotation>
+			<xsd:documentation>знак</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="більше"/>
+			<xsd:enumeration value="менше"/>
+			<xsd:enumeration value="більше або дорівнює"/>
+			<xsd:enumeration value="менше або дорівнює"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="emissionPowerRange">
+		<xsd:annotation>
+			<xsd:documentation>Дiапазон потужностей викиду (кг/год)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="emissionCmp" type="cmpSign">
+				<xsd:annotation>
+					<xsd:documentation>д_апазон значення</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="emissionPower" type="invcargo:emissionPower">
+				<xsd:annotation>
+					<xsd:documentation>Порогове значення потужност_ викиду забруднюючоъ речовини кг/год</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="emissionFactor">
+		<xsd:annotation>
+			<xsd:documentation>Показник викиду</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="emissionConc" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>Максимальна масова концентрація забруднюючої речовини мг/м3 при н.у.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="emissionConcCondition" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Умови встановлення нормативу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="infoRefID" type="xsd:positiveInteger" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Посилка на застосований нормативний документ</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="dangClass">
+		<xsd:annotation>
+			<xsd:documentation>Клас небезпеки речовини</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:enumeration value="1">
+				<xsd:annotation>
+					<xsd:appinfo>I</xsd:appinfo>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="2">
+				<xsd:annotation>
+					<xsd:appinfo>II</xsd:appinfo>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="3">
+				<xsd:annotation>
+					<xsd:appinfo>III</xsd:appinfo>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="4">
+				<xsd:annotation>
+					<xsd:appinfo>IV</xsd:appinfo>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="normGdvGroup">
+		<xsd:annotation>
+			<xsd:documentation>Група нормативiв ГДВ</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:enumeration value="1">
+				<xsd:annotation>
+					<xsd:documentation>Cуспендовані тверді частинки недиференційовані за складом </xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="2">
+				<xsd:annotation>
+					<xsd:documentation>Суспендовані тверді частинки ( мікрочастинки та волокна)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="3">
+				<xsd:annotation>
+					<xsd:documentation>Канцерогенні речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="4">
+				<xsd:annotation>
+					<xsd:documentation>Пароподібні  та газоподібні неорганічні сполуки</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="5">
+				<xsd:annotation>
+					<xsd:documentation>Органічні сполуки</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

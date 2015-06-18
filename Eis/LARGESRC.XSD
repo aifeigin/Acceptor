@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема "Стаціонарні процеси , які розглядаються як крупні точкові джерела"
+     Версія 3.1.1.2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="largeSrc" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:equip="equip" xmlns:poll="poll" xmlns:largeSrc="largeSrc" xmlns="largeSrc" elementFormDefault="qualified" version="3.1.1.2" xml:lang="uk">
+    <xsd:annotation>
+        <xsd:documentation>XML схема "Стаціонарні процеси , які розглядаються як крупні точкові джерела"</xsd:documentation>
+    </xsd:annotation>
+    <xsd:import namespace="poll" schemaLocation="pollutant.xsd"/>
+    <xsd:import namespace="equip" schemaLocation="equipment.xsd"/>
+    <xsd:complexType name="pollutanT">
+        <xsd:annotation>
+            <xsd:documentation>Забруднювач за класіфікатором «Стаціонарні процеси , які розглядаються як крупні точкові джерела»</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="pollutanTName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Найменування за класіфікатором «Стаціонарні процеси , які розглядаються як крупні точкові джерела»</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="pollutanT" type="poll:pollutanT" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Відповідні забруднювачі з «Переліку забруднюючих речовин та груп речовин»</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="equipmenT">
+        <xsd:annotation>
+            <xsd:documentation>Виробничий та технологічний процес, технологічне устаткування за класіфікатором «Стаціонарні процеси , які розглядаються як крупні точкові джерела»</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="equipmenTName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Найменування виробничого та технологічного процесу, технологічного устаткування за класіфікатором «Стаціонарні процеси , які розглядаються як крупні точкові джерела»</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="equipmenT" type="equip:equipmenT" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Відповідні виробничі та технологічні процеси, технологічне устаткування за класіфікатором «Стаціонарні процеси , які розглядаються як крупні точкові джерела»</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="largeSrcFixedPoint">
+        <xsd:annotation>
+            <xsd:documentation>Базові ознаки КТД</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="pollutanTName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Забруднююча речовина</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="equipmenTName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Найменування виробничого та технологічного процесу, технологічного устаткування</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="largeSrcMetPoint">
+        <xsd:annotation>
+            <xsd:documentation>Ознаки КТД</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="largeSrcFixedPoint" type="largeSrc:largeSrcFixedPoint">
+                <xsd:annotation>
+                    <xsd:documentation>Базові ознаки КТД</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conditioN" type="xsd:string" nillable="true">
+                <xsd:annotation>
+                    <xsd:documentation>Потужності для обліку</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

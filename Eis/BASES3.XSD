@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!-- Електронна типова форма XML схеми
+     "Обгрунтуючих матеріалів для отримання дозволу на викиди"
+     Версія 3.1.1.3. Редакція 2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+     Changes :
+            04.03.2010 : meteoInfo could be absent
+
+-->
+<xsd:schema targetNamespace="bases" xmlns="bases" xmlns:bases="bases" xmlns:assets="assets"
+	xmlns:omeasure="omeasure" xmlns:geo="geo" xmlns:mime="mime" xmlns:equip="equip"
+	xmlns:poll="poll" xmlns:sdzone="sdzone" xmlns:fuel="fuel" xmlns:mater="mater"
+	xmlns:measure="measure" xmlns:root="root" xmlns:invent="invent"
+	xmlns:invcargo="invcargo" xmlns:emisrang="emisrang" xmlns:emisposs="emisposs"
+	xmlns:cargo="cargo" xmlns:infores="infores" xmlns:disp="disp" xmlns:ovnsdisp="ovnsdisp"
+        xmlns:TTPAir="TTPAir" xmlns:besttech="besttech" xmlns:req="req" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="3.1.1.2">
+        <xsd:include schemaLocation="production3.xsd"/>
+        <xsd:include schemaLocation="basescargo.xsd"/>
+        <xsd:import namespace="emisposs" schemaLocation="emisposs.xsd"/>
+        <xsd:import namespace="sdzone" schemaLocation="sdzone.xsd"/>
+        <xsd:import namespace="emisrang" schemaLocation="emisrang.xsd"/>
+        <xsd:import namespace="assets" schemaLocation="assets.xsd"/>
+        <xsd:import namespace="ovnsdisp" schemaLocation="ovnsdisp.xsd"/>
+        <xsd:import namespace="disp" schemaLocation="dispersion.xsd"/>
+        <xsd:import namespace="infores" schemaLocation="infores.xsd"/>
+        <xsd:import namespace="mater" schemaLocation="material.xsd"/>
+        <xsd:import namespace="fuel" schemaLocation="fuel.xsd"/>
+        <xsd:import namespace="root" schemaLocation="root.xsd"/>
+        <xsd:import namespace="equip" schemaLocation="equipment.xsd"/>
+        <xsd:import namespace="cargo" schemaLocation="cargo.xsd"/>
+        <xsd:import namespace="poll" schemaLocation="pollutant.xsd"/>
+        <xsd:import namespace="omeasure" schemaLocation="omeasure.xsd"/>
+        <xsd:import namespace="geo" schemaLocation="geo.xsd"/>
+        <xsd:import namespace="mime" schemaLocation="mime.xsd"/>
+        <xsd:import namespace="measure" schemaLocation="basesmeasure.xsd"/>
+        <xsd:import namespace="invent" schemaLocation="invtype.xsd"/>
+        <xsd:import namespace="invcargo" schemaLocation="invbase.xsd"/>
+        <xsd:import namespace="TTPAir" schemaLocation="twoTpAir.xsd"/>
+        <xsd:import namespace="req" schemaLocation="requir.xsd"/>
+	<xsd:simpleType name="basesCargoType">
+		<xsd:annotation>
+			<xsd:documentation>Типовий елемент форми обгрунтування обсягів викидів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="root:CargoType">
+			<xsd:enumeration value="Обґрунтування обсягів викидів(об'єкт 3-ї групи)"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="CargoType" type="basesCargoType" fixed="Обґрунтування обсягів викидів(об'єкт 3-ї групи)">
+		<xsd:annotation>
+			<xsd:documentation>Обрунтування обсягів викидів для отримання дозволу на викиди</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ReportHeader">
+		<xsd:annotation>
+			<xsd:documentation>Типовий заголовок</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="root:UnInEnHeader">
+				<xsd:sequence>
+					<xsd:element ref="CargoType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ReportHeader" type="bases:ReportHeader">
+		<xsd:annotation>
+			<xsd:documentation>Типовий заголовок</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="reportedPeriod" type="xsd:date">
+		<xsd:annotation>
+			<xsd:documentation>Звiт на</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="basesBody">
+		<xsd:annotation>
+			<xsd:documentation>Зміст обгрунтуючих матеріалів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="root:UnInEnBody">
+				<xsd:sequence>
+					<xsd:element ref="reportedPeriod"/>
+					<xsd:element name="applyTarget" type="bases:applyTarget">
+						<xsd:annotation>
+							<xsd:documentation>Мета надання документів</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="orgInfo" type="bases:orgInfo">
+						<xsd:annotation>
+							<xsd:documentation>Організація – звітувач</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="developerInfo" type="bases:developerInfo">
+						<xsd:annotation>
+							<xsd:documentation>Відомості щодо організації, установи, закладу – розробника документів</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="nostraObjects" type="bases:objectInfo" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Об’єкти інших суб’єктів господарювання, що розміщуються на території об’єкта</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="neighbourObjects" type="bases:objectInfo" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Об’єкти інших суб’єктів господарювання, які граничать із об’єктом</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="productionInfo" type="bases:productionInfo" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Відомості щодо виробничої програми, виробничої потужності, тощо</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="enterpriseMap" type="mime:humanReadable" nillable="true">
+						<xsd:annotation>
+							<xsd:documentation>Графічне зображення генерального плану підприємства,
+										включаючи санітарно-захисну зону; координатна сітку;
+										джерела викидів забруднюючих речовин в атмосферне повітря;
+										місце розташування (будівлі, споруди, майданчики) виробничих процесів
+										з позначенням технологічного устаткування; об’єкти житлового, громадського
+										призначення та інші прирівняні до них об`єкти, що розміщені в межах нормативної СЗЗ.
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="sanitaryDefenceZone" type="sdzone:sanitaryDefenceZone">
+						<xsd:annotation>
+							<xsd:documentation>обгрунтування СЗЗ</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Material" type="mater:CMaterial" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Сировина,допоміжні матеріали, які необхідні для випуску продукції</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Fuel" type="fuel:CFuel" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Використання палива для технологічних потреб, вироблення тепла, пари та електричної енергії,
+								а також транспортних потреб на території підприємства
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="uaGeoCoordinates" type="geo:uaGeoCoordinates">
+						<xsd:annotation>
+							<xsd:documentation>Географічні координати центроїду</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="meteoInfo" type="disp:meteoInfo" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>метеорологічні характеристики і коефіцієнти, що визначають умови розсіювання забруднюючих речовин в атмосферному повітрі</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="enterprisePlan" type="mime:humanReadable" nillable="true">
+						<xsd:annotation>
+							<xsd:documentation>Cитуаційна карта-схема</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="pollutionVolume" type="emisrang:pollutionVolume">
+						<xsd:annotation>
+							<xsd:documentation>Перелік забруднюючих речовин для регулюванння</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="srcEmission" type="disp:srcEmission">
+						<xsd:annotation>
+							<xsd:documentation>Характеристика джерел викидів забруднюючих речовин в атмосферне повітря та їх параметрів</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="srcEmissionReg" type="emisrang:srcEmissionReg">
+						<xsd:annotation>
+							<xsd:documentation>Пропозиції щодо дозволених обсягів викидів забруднюючих речовин</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="accidentMeasures" type="measure:accidentMeasures" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Перелік заходів щодо охорони атмосферного повітря на випадок виникнення надзвичайних ситуацій техногенного та природного характеру, ліквідації наслідків забруднення атмосферного повітря</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="permissionInfo" type="TTPAir:permissionInfo" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Дані по дозволу на викид</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="resumE" type="invcargo:richInfo">
+						<xsd:annotation>
+							<xsd:documentation>популярне резюме для ознайомлення з ним громадськості</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="infoResources" type="infores:infoRes" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Джерела, що були використані при підготовці документів, які обґрунтовують обсяги викидів</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="basesCargo">
+		<xsd:annotation>
+			<xsd:documentation>Тип звіту по обгрунтуючим матеріалам</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="ReportHeader"/>
+			<xsd:element name="ReportContent" type="basesBody">
+				<xsd:annotation>
+					<xsd:documentation>Зміст звіту</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Report" type="basesCargo" id="root">
+		<xsd:annotation>
+			<xsd:documentation>Звіт</xsd:documentation>
+		</xsd:annotation>
+		<xsd:key name="industrialAreaKey">
+			<xsd:selector xpath="bases:industrialArea"/>
+			<xsd:field xpath="@industrialAreaCode"/>
+		</xsd:key>
+		<xsd:key name="pollutantFullKey">
+			<xsd:selector xpath="disp:pollutanTState/disp:pollutanT"/>
+			<xsd:field xpath="@invent:pollutanTCode"/>
+			<xsd:field xpath="@invent:subsTCode"/>
+		</xsd:key>
+		<xsd:key name="pollutantStatKey">
+			<xsd:selector xpath="disp:pollutanTState/disp:pollutanT"/>
+			<xsd:field xpath="@invent:pollutanTCode"/>
+		</xsd:key>
+		<xsd:key name="pollutantHealthKey">
+			<xsd:selector xpath="disp:pollutanTState/disp:pollutanT"/>
+			<xsd:field xpath="@invent:subsTCode"/>
+		</xsd:key>
+		<xsd:key name="srcKey">
+			<xsd:selector xpath="bases:srcEmission/disp:srcEmission | bases:srcEmission/disp:salvoSrc | bases:srcEmission/disp:unorganizedSrc"/>
+			<xsd:field xpath="@disp:srcCode"/>
+		</xsd:key>
+		<xsd:key name="equipmentKey">
+			<xsd:selector xpath="bases:industryDesc/equip:industrY/equip:technologY/equip:equipmenT"/>
+			<xsd:field xpath="@equipmenTCode"/>
+		</xsd:key>
+		<xsd:keyref name="equimentDescKey" refer="equipmentKey">
+			<xsd:selector xpath="bases:equipmenTDesc/equipmenT"/>
+			<xsd:field xpath="@equip:equipmenTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="bestTechAreaKey" refer="industrialAreaKey">
+			<xsd:selector xpath="bases:bestTechnologyTarget"/>
+			<xsd:field xpath="@industrialAreaCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="pollutanTStateKey" refer="pollutantFullKey">
+			<xsd:selector xpath="disp:pollutanTState/disp:pollutanT"/>
+			<xsd:field xpath="@invent:pollutanTCode"/>
+			<xsd:field xpath="@invent:subsTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="srcEquimentKey" refer="equipmentKey">
+			<xsd:selector xpath="disp:srcEmission/equip:equipmenT"/>
+			<xsd:field xpath="@equip:equipmenTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="gasCleanSrcKey" refer="srcKey">
+			<xsd:selector xpath="disp:gasCleanEquipProps"/>
+			<xsd:field xpath="@disp:srcCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="gasCleanEmissionKey" refer="pollutantFullKey">
+			<xsd:selector xpath="invent:pollCleanProps/invent:pollSubsT"/>
+			<xsd:field xpath="@invent:pollutanTCode"/>
+			<xsd:field xpath="@invent:subsTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="srcEmissionsKey" refer="pollutantFullKey">
+			<xsd:selector xpath="disp:srcEmissions/disp:pollSubsT"/>
+			<xsd:field xpath="@invent:pollutanTCode"/>
+			<xsd:field xpath="@invent:subsTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="estimatedConcSubstKey" refer="pollutantHealthKey">
+			<xsd:selector xpath="estimateConcentration/ovnsdisp:СalcConcentration/ovnsdisp:СoncPeriod/ovnsdisp:СoncRegime/ovnsdisp:СoncBySubst"/>
+			<xsd:field xpath="@ovnsdisp:subsTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="srcEvolvingKey" refer="srcKey">
+			<xsd:selector xpath="disp:srcEvolving"/>
+			<xsd:field xpath="@disp:srcCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="techMeasureEquimentKey" refer="equipmentKey">
+			<xsd:selector xpath="technologyMeasures/measure:equipmenT"/>
+			<xsd:field xpath="@equip:equipmenTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="emissionRangeSrc" refer="srcKey">
+			<xsd:selector xpath="srcEmissionReg/emisrang:srcEmissionRange | srcEmissionReg/emisrang:basicSrcEmissionRange"/>
+			<xsd:field xpath="@emisrang:srcCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="otherMeasureEquimentKey" refer="equipmentKey">
+			<xsd:selector xpath="otherMeasures/equip:equipmenT"/>
+			<xsd:field xpath="@equipmenTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="otherMeasureSrc" refer="srcKey">
+			<xsd:selector xpath="otherMeasures"/>
+			<xsd:field xpath="@srcCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="accidentStatSubst" refer="pollutantStatKey">
+			<xsd:selector xpath="accidentMeasures/child::*/invent:pollutanTCode"/>
+			<xsd:field xpath="@invent:pollutanTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="accidentHealthSubst" refer="pollutantHealthKey">
+			<xsd:selector xpath="accidentMeasures/child::*/invent:subsTCode"/>
+			<xsd:field xpath="@invent:subsTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="emissionRangeControlKey" refer="pollutantStatKey">
+			<xsd:selector xpath="emissionRangeControl/emisrang:pollutanT"/>
+			<xsd:field xpath="@poll:pollutanTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="potentialEmissEquip" refer="equipmentKey">
+			<xsd:selector xpath="potentialEmission/emisposs:equipmenT"/>
+			<xsd:field xpath="@equip:equipmenTCode"/>
+		</xsd:keyref>
+		<xsd:keyref name="potentialEmissPollutant" refer="pollutantStatKey">
+			<xsd:selector xpath="potentialEmission/TTPAir:pollEmissionN/poll:pollutanT"/>
+			<xsd:field xpath="@poll:pollutanTCode"/>
+		</xsd:keyref>
+	</xsd:element>
+</xsd:schema>

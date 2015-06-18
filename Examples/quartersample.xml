@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<Report xmlns="TTPA_Quater" xmlns:TTPA_Quater="TTPA_Quater" xmlns:TTPAir="TTPAir" xmlns:root="root" xmlns:geo="geo" xmlns:poll="poll" xmlns:measure="measure" xmlns:equip="equip" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="TTPA_Quater	twoTpAirQuater.xsd
+                            root  	root.xsd
+			    geo   	geo.xsd  
+			    poll  	pollutant.xsd  
+		            measure 	measure.xsd  
+			    equip 	equipment.xsd
+                            TTPAir      twoTpAir.xsd">
+	<ReportHeader>
+		<root:CreationDate>2004-10-08</root:CreationDate>
+		<root:GeneratedBy>Reporter</root:GeneratedBy>
+		<root:RegistrationDate xsi:nil="true"></root:RegistrationDate>
+		<root:RegisteredHosts xsi:nil="true"/>
+		<root:SequenceNumber/>
+		<root:Remark>2ТП</root:Remark>
+		<CargoType>2ТП(повітря) - квартальна</CargoType>
+	</ReportHeader>
+	<ReportContent>
+		<reportedPeriod>
+			<reportedYear>2004</reportedYear>
+			<reportedQuater>3</reportedQuater>
+		</reportedPeriod>
+		<orgInfo>
+			<TTPAir:orgProvider>МАЛОВИСКІВСЬКИЙ СПИРТОВИЙ ЗАВОД </TTPAir:orgProvider>
+			<TTPAir:orgPostAddress>
+				<root:Zip>26200</root:Zip>
+				<root:Country>Україна</root:Country>
+				<root:Region>Кіровоградська область</root:Region>
+				<root:Town>м.Мала Виска</root:Town>
+				<root:Street>Промислова</root:Street>
+				<root:Number>1</root:Number>
+				<root:Office/>
+			</TTPAir:orgPostAddress>
+			<TTPAir:orgCodes>
+				<TTPAir:EDRPOU>00374982</TTPAir:EDRPOU>
+				<TTPAir:KOATUU>022235000</TTPAir:KOATUU>
+				<TTPAir:KVED>15.92.0</TTPAir:KVED>
+				<TTPAir:KFV>31</TTPAir:KFV>
+				<TTPAir:KOFPG>140</TTPAir:KOFPG>
+				<TTPAir:CODU>01064</TTPAir:CODU>
+			</TTPAir:orgCodes>
+			<TTPAir:approvedPerson>
+				<TTPAir:positioN>директор</TTPAir:positioN>
+				<TTPAir:theName>Альба Віктор Якович</TTPAir:theName>
+			</TTPAir:approvedPerson>
+			<TTPAir:responsiblePerson>
+				<TTPAir:positioN>Начальник інформаційного відділу</TTPAir:positioN>
+				<TTPAir:theName>Пономарьов Ігор Олександрович </TTPAir:theName>
+			</TTPAir:responsiblePerson>
+			<TTPAir:contactPhone>+38 (05258) 51198 </TTPAir:contactPhone>
+			<TTPAir:EMail>spirt@mviska.kw.ukrtel.net</TTPAir:EMail>
+		</orgInfo>
+		<permissionInfo>
+			<TTPAir:permissionDate>2003-10-10</TTPAir:permissionDate>
+			<TTPAir:permissionNumber>234</TTPAir:permissionNumber>
+			<TTPAir:permissionTerm>2004-10-10</TTPAir:permissionTerm>
+		</permissionInfo>
+		<stateReg>
+			<TTPAir:regDate>2004-01-05</TTPAir:regDate>
+			<TTPAir:regNum>12</TTPAir:regNum>
+		</stateReg>
+		<basicFactors>
+			<pollEmissionN>
+				<TTPAir:pollutanT>
+					<poll:pollutanTCode>07002</poll:pollutanTCode>
+					<poll:pollutanTName>Вуглецю діоксид</poll:pollutanTName>
+				</TTPAir:pollutanT>
+				<TTPAir:emissioN>700.201</TTPAir:emissioN>
+			</pollEmissionN>
+			<pollEmissionN>
+				<TTPAir:pollutanT>
+					<poll:pollutanTCode>10000</poll:pollutanTCode>
+					<poll:pollutanTName>Органічні аміни</poll:pollutanTName>
+				</TTPAir:pollutanT>
+				<TTPAir:emissioN>130.178</TTPAir:emissioN>
+			</pollEmissionN>
+			<pollEmissionN>
+				<TTPAir:pollutanT>
+					<poll:pollutanTCode>08000</poll:pollutanTCode>
+					<poll:pollutanTName>Озон</poll:pollutanTName>
+				</TTPAir:pollutanT>
+				<TTPAir:emissioN>230.225</TTPAir:emissioN>
+			</pollEmissionN>
+		</basicFactors>
+	</ReportContent>
+</Report>

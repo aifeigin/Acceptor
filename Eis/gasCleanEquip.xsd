@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема ГОУ - базові типи
+     Версія 2.1.
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="gasCleanEquip" xmlns="gasCleanEquip" xmlns:gasCleanEquip="gasCleanEquip" xmlns:invcargo="invcargo" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="3.1.1.2" xml:lang="uk">
+    <xsd:annotation>
+        <xsd:documentation>XML схема ГОУ - базові типи</xsd:documentation>
+    </xsd:annotation>
+    <xsd:import namespace="invcargo" schemaLocation="invbase.xsd"/>
+    <xsd:complexType name="gasCleanEquip">
+        <xsd:annotation>
+            <xsd:documentation>ГОУ</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="gasCleanEquipCode" type="invcargo:gasCleanEquipCode">
+                <xsd:annotation>
+                    <xsd:documentation>Класс(код) ГОУ</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gasCleanEquipName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Найменування ГОУ</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="gasCleanEquips">
+        <xsd:annotation>
+            <xsd:documentation>Тип класіфікатор ГОУ</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="gasCleanEquip" type="gasCleanEquip" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Класіфікатор ГОУ</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="gasCleanEquips"  type="gasCleanEquips">
+        <xsd:annotation>
+            <xsd:documentation>Класіфікатор ГОУ</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+</xsd:schema>

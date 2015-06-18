@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by SILVESTR (SF) -->
+<Report xmlns="TTPA_Year" xmlns:TTPA_Year="TTPA_Year" xmlns:TTPAir="TTPAir" xmlns:root="root" xmlns:geo="geo" xmlns:poll="poll" xmlns:measure="measure" xmlns:equip="equip" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="TTPA_Year 	twoTpAirYear.xsd
+                            root  	root.xsd
+			    geo   	geo.xsd  
+			    poll  	pollutant.xsd  
+		            measure 	measure.xsd  
+			    equip 	equipment.xsd
+                            TTPAir      twoTpAir.xsd">
+	<ReportHeader>
+		<root:CreationDate>2004-12-08</root:CreationDate>
+		<root:GeneratedBy>Reporter</root:GeneratedBy>
+		<root:RegistrationDate>2004-12-18</root:RegistrationDate>
+		<root:RegisteredHosts>Міністерство охорони навколишнього природного середовища України</root:RegisteredHosts>
+		<root:SequenceNumber>1</root:SequenceNumber>
+		<root:Remark>2ТП</root:Remark>
+		<CargoType>2ТП(повітря) - річна</CargoType>
+	</ReportHeader>
+	<ReportContent>
+		<reportedPeriod>2004</reportedPeriod>
+		<orgInfo>
+			<TTPAir:orgProvider>МАЛОВИСКІВСЬКИЙ СПИРТОВИЙ ЗАВОД </TTPAir:orgProvider>
+			<TTPAir:orgPostAddress>
+				<root:Zip>26200</root:Zip>
+				<root:Country>Україна</root:Country>
+				<root:Region>Кіровоградська область</root:Region>
+				<root:Town>м.Мала Виска</root:Town>
+				<root:Street>Промислова</root:Street>
+				<root:Number>1</root:Number>
+				<root:Office/>
+			</TTPAir:orgPostAddress>
+			<TTPAir:orgCodes>
+				<TTPAir:EDRPOU>00374982</TTPAir:EDRPOU>
+				<TTPAir:KOATUU>322335000</TTPAir:KOATUU>
+				<TTPAir:KVED>15.92.0</TTPAir:KVED>
+				<TTPAir:KFV>31</TTPAir:KFV>
+				<TTPAir:KOFPG>140</TTPAir:KOFPG>
+				<TTPAir:CODU xsi:nil="true"/>
+			</TTPAir:orgCodes>
+			<TTPAir:approvedPerson>
+				<TTPAir:positioN>директор</TTPAir:positioN>
+				<TTPAir:theName>Альба Віктор Якович</TTPAir:theName>
+			</TTPAir:approvedPerson>
+			<TTPAir:responsiblePerson>
+				<TTPAir:positioN>Начальник інформаційного відділу</TTPAir:positioN>
+				<TTPAir:theName>Пономарьов Ігор Олександрович </TTPAir:theName>
+			</TTPAir:responsiblePerson>
+			<TTPAir:contactPhone>+38 (05258) 51198 </TTPAir:contactPhone>
+			<TTPAir:EMail>spirt@mviska.kw.ukrtel.net</TTPAir:EMail>
+		</orgInfo>
+		<permissionInfo>
+			<TTPAir:permissionDate>2003-10-10</TTPAir:permissionDate>
+			<TTPAir:permissionNumber>234</TTPAir:permissionNumber>
+			<TTPAir:permissionTerm>2004-10-10</TTPAir:permissionTerm>
+		</permissionInfo>
+		<stateReg>
+			<TTPAir:regDate>2004-01-05</TTPAir:regDate>
+			<TTPAir:regNum>12</TTPAir:regNum>
+		</stateReg>
+		<uaGeoCoordinates>
+			<geo:Longitude>
+				<geo:Gradus>32</geo:Gradus>
+				<geo:Minute>15</geo:Minute>
+				<geo:Second>30</geo:Second>
+				<geo:LongitudeHemisphere>сд</geo:LongitudeHemisphere>
+			</geo:Longitude>
+			<geo:Latitude>
+				<geo:Gradus>48</geo:Gradus>
+				<geo:Minute>31</geo:Minute>
+				<geo:Second>30</geo:Second>
+				<geo:LatitudeHemisphere>пш</geo:LatitudeHemisphere>
+			</geo:Latitude>
+		</uaGeoCoordinates>
+		<basicFactors>
+			<equipmenT>
+				<equip:equipmenTCode>040608</equip:equipmenTCode>
+				<equip:equipmenTName>Виробничі процеси в деревообробній, целюлозно-паперовій та харчовій промисловості, промисловості з  виробництва напоїв та в інших секторах : міцні спиртні напої</equip:equipmenTName>
+			</equipmenT>
+			<pollEmissionN>
+				<TTPAir:pollutanT>
+					<poll:pollutanTCode>07002</poll:pollutanTCode>
+					<poll:pollutanTName>Вуглецю діоксид</poll:pollutanTName>
+				</TTPAir:pollutanT>
+				<TTPAir:emissioN>500.345</TTPAir:emissioN>
+			</pollEmissionN>
+			<pollEmissionN>
+				<TTPAir:pollutanT>
+					<poll:pollutanTCode>10000</poll:pollutanTCode>
+					<poll:pollutanTName>Органічні аміни</poll:pollutanTName>
+				</TTPAir:pollutanT>
+				<TTPAir:emissioN>500.678</TTPAir:emissioN>
+			</pollEmissionN>
+			<pollEmissionN>
+				<TTPAir:pollutanT>
+					<poll:pollutanTCode>08000</poll:pollutanTCode>
+					<poll:pollutanTName>Озон</poll:pollutanTName>
+				</TTPAir:pollutanT>
+				<TTPAir:emissioN>500.145</TTPAir:emissioN>
+			</pollEmissionN>
+			<ProductionPower>
+				<MeasureType>л</MeasureType>
+				<FactorValue>10000</FactorValue>
+			</ProductionPower>
+			<ProductionVolume>
+				<MeasureType>л</MeasureType>
+				<FactorValue>8000</FactorValue>
+			</ProductionVolume>
+			<technologyMeasures>
+				<measure>
+					<measure:measureCode>3</measure:measureCode>
+					<measure:measureName>Пiдвищення ефективностi iснуючих очисних установок ( включаючи їх модернiзацiю,реконструкцiю i ремонт)</measure:measureName>
+				</measure>
+				<measureState>1</measureState>
+				<estimatedExpenditures>234567.6</estimatedExpenditures>
+				<actualExpenditures>23600.5</actualExpenditures>
+				<measureProgress>
+					<TTPAir:ProgressExpected>578.567</TTPAir:ProgressExpected>
+					<TTPAir:ProgressAchieved>345.789</TTPAir:ProgressAchieved>
+				</measureProgress>
+			</technologyMeasures>
+		</basicFactors>
+		<basicFactors>
+			<equipmenT>
+				<equip:equipmenTCode>040609</equip:equipmenTCode>
+				<equip:equipmenTName>інші галузі харчової промисловості</equip:equipmenTName>
+			</equipmenT>
+			<pollEmissionN>
+				<TTPAir:pollutanT>
+					<poll:pollutanTCode>07002</poll:pollutanTCode>
+					<poll:pollutanTName>Вуглецю діоксид</poll:pollutanTName>
+				</TTPAir:pollutanT>
+				<TTPAir:emissioN>600.456</TTPAir:emissioN>
+			</pollEmissionN>
+			<ProductionPower>
+				<MeasureType>л</MeasureType>
+				<FactorValue>3000</FactorValue>
+			</ProductionPower>
+			<ProductionVolume>
+				<MeasureType>л</MeasureType>
+				<FactorValue>400</FactorValue>
+			</ProductionVolume>
+		</basicFactors>
+		<isConfidential>false</isConfidential>
+	</ReportContent>
+</Report>

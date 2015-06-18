@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!--  Електронна типова форма XML схеми. 
+      Розрахунок забруднення атмосферного повітря за ОНД-86. Базові типи. 
+      Версія 3.1.1.3. Редакція 2a
+
+      Copyright(С) 2003-2010 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+      http://www.sfund.kiev.ua
+
+      Original copyright:
+
+      Copyright 2001 W3C (Massachusetts Institute of Technology,
+      Institut National de Recherche en Informatique et en Automatique,
+      Keio University). All Rights Reserved.
+      http://www.w3.org/Consortium/Legal/
+
+      This document is governed by the W3C Software License [1] as
+      described in the FAQ [2].
+
+      [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+      [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+
+      Changes history :	
+        TimeMeasure in seconds allowed
+	periodicitY in quarter added 
+-->
+<xsd:schema targetNamespace="disp" xmlns:disp="disp" xmlns:technorm="technorm" xmlns:equip="equip" xmlns:sdzone="sdzone" xmlns:geo="geo" xmlns:subst="subst" xmlns:invent="invent" xmlns:invcargo="invcargo" xmlns:cargo="cargo" xmlns="disp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="3.1.1.2">
+	<xsd:import namespace="invent" schemaLocation="invtype.xsd"/>
+	<xsd:import namespace="invcargo" schemaLocation="invbase.xsd"/>
+	<xsd:import namespace="cargo" schemaLocation="cargo.xsd"/>
+        <xsd:import namespace="technorm" schemaLocation="tnormbase.xsd"/>
+	<xsd:complexType name="salvoSrc">
+		<xsd:annotation>
+			<xsd:documentation>Характеристика джерел залпових викидів</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="srcCode" type="invcargo:srcCode">
+				<xsd:annotation>
+					<xsd:documentation>Код джерела викиду</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="srcEmissions" type="pollEmissioNSalvo" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Характеристика викидів забруднюючих речовин</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="pollEmissioNBase">
+		<xsd:annotation>
+			<xsd:documentation>Параметри викидів забруднюючої речовини</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="pollSubsT" type="invent:pollSubsT">
+				<xsd:annotation>
+					<xsd:documentation>забруднююча речовина</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="emissionG" type="invcargo:emissionValue" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Величина викиду г/c</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="emissionPower" type="invcargo:emissionPower">
+				<xsd:annotation>
+					<xsd:documentation>Потужність викиду забруднюючоъ речовини кг/год</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="pollEmissioN">
+		<xsd:annotation>
+			<xsd:documentation>Параметри викидів забруднюючої речовини за н.у.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+		 <xsd:extension base="pollEmissioNBase">
+			<xsd:sequence>
+					<xsd:element name="emissionConc" type="invcargo:emissionConc">
+						<xsd:annotation>
+							<xsd:documentation>Максимальна масова концентрація забруднюючої речовини мг/м3 при н.у.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+			</xsd:sequence>
+		 </xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="periodicitY">
+		<xsd:annotation>
+			<xsd:documentation>Періодичність, раз/доба, місяць, рік</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="раз"/>
+			<xsd:enumeration value="доба"/>
+			<xsd:enumeration value="місяць"/>
+			<xsd:enumeration value="квартал"/>
+			<xsd:enumeration value="рік"/>
+			<xsd:enumeration value="інше"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TimeMeasure">
+		<xsd:annotation>
+			<xsd:documentation>Періодичність, раз/доба, місяць, рік</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="cargo:MeasureType">
+			<xsd:enumeration value="секунд"/>
+			<xsd:enumeration value="хвилин"/>
+			<xsd:enumeration value="годин"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="duratioN">
+		<xsd:annotation>
+			<xsd:documentation>Тривалість</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="duratioN" type="xsd:positiveInteger"/>
+			<xsd:element name="TimeMeasure" type="TimeMeasure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="pollEmissioNSalvo">
+		<xsd:annotation>
+			<xsd:documentation>Параметри залпових викидів забруднюючої речовини</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="pollEmissioN">
+				<xsd:sequence>
+					<xsd:element name="salvoSchedule">
+						<xsd:complexType>
+							<xsd:annotation>
+								<xsd:documentation>Періодичність - раз, доба, місяць, рік, інша</xsd:documentation>
+							</xsd:annotation>
+							<xsd:sequence>
+								<xsd:element name="periodicitY" type="periodicitY"/>
+								<xsd:element name="comment" type="xsd:string"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="duratioN" type="duratioN">
+						<xsd:annotation>
+							<xsd:documentation>тривалість викиду</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="emissionVolume" type="invcargo:emissionVolume">
+						<xsd:annotation>
+							<xsd:documentation>Величина викиду т/рік</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="pollCleanProps">
+         <xsd:annotation>
+         <xsd:documentation>Характеристика очистки викидів забруднюючих речовин</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexContent>
+			<xsd:extension base="invent:pollCleanProps">
+				<xsd:sequence>
+					<xsd:element name="emissionInConc" type="invcargo:emissionConc">
+						<xsd:annotation>
+							<xsd:documentation>Концентрація  забруднюючої речовини, мг/м3, на вході в ГОУ</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>					
+	  <!-- to comment on export !! -->
+          <xsd:element name="pollMarker" type="technorm:pollMarker" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Марк_ровка забруднюючої речовини для застосування технолог_чних норматв_в</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <!-- to comment on export !! -->
+	
+				</xsd:sequence>
+			</xsd:extension>
+        </xsd:complexContent>
+    	</xsd:complexType>
+	<xsd:complexType name="gasCleanEquipUnitBase">
+        <xsd:annotation>
+            <xsd:documentation>Характеристика установок очищення газу (УОГ)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="gasCleanEquipStage" type="xsd:positiveInteger" default="1">
+                <xsd:annotation>
+                    <xsd:documentation>Ступінь очистки</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gasCleanEquipCode" type="invcargo:gasCleanEquipCode">
+                <xsd:annotation>
+                    <xsd:documentation>Код  ГОУ  по ступенях</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gasCleanEquipName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Найменування ГОУ</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gasInDepletion" type="invcargo:gasDepletion">
+                <xsd:annotation>
+                    <xsd:documentation>Об’ємна фізична витрата газу м3/с на вході в УОГ</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gasOutDepletion" type="invcargo:gasDepletion">
+                <xsd:annotation>
+                    <xsd:documentation>Об’ємна фізична витрата газу м3/с на виході із УОГ</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

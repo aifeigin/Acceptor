@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема "Графічні формати"
+     Версія 3.1.1.2.
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="graphics" xmlns:graphics="graphics" xmlns="graphics" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.1.1.">
+    <xsd:annotation>
+        <xsd:documentation>Графічні формати</xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:simpleType name="graphicalFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="jpeg"/>
+            <xsd:enumeration value="gif"/>
+            <xsd:enumeration value="png"/>
+            <xsd:enumeration value="svg"/>
+            <xsd:enumeration value="pdf"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="svgFormat">
+        <xsd:restriction base="graphicalFormat">
+            <xsd:enumeration value="svg"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="graphicS">
+        <xsd:annotation>
+            <xsd:documentation>Графічне зображення</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:base64Binary">
+                <xsd:attribute name="type" type="graphicalFormat"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:complexType name="mapSchema">
+        <xsd:annotation>
+            <xsd:documentation>Карта-схема</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:base64Binary">
+                <xsd:attribute name="type" type="svgFormat"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+</xsd:schema>

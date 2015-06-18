@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема "Потенційні обсяги викидів забруднюючих речовин від виробничих та технологічних процесів, технологічного устаткування (установок)"      
+     Версія 3.1.1.3. Редакція 2.
+
+     Copyright(С) 2003-2010 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+
+     Changes 
+	   12.01.2010 - type potentiaL : removed misplaced 3 fraction digits restriction for factVolume and emissionVolume elements
+
+-->
+<xsd:schema targetNamespace="emisposs" xmlns:emisposs="emisposs" xmlns:invcargo="invcargo"
+			xmlns="emisposs" xmlns:TTPAir="TTPAir" xmlns:equip="equip"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        elementFormDefault="qualified" version="3.1.1.2" xml:lang="uk">
+        <xsd:import namespace="TTPAir" schemaLocation="twoTpAir.xsd"/>
+        <xsd:import namespace="equip" schemaLocation="equipment.xsd"/>
+        <xsd:import namespace="invcargo" schemaLocation="invbase.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>Потенційні обсяги викидів забруднюючих речовин від виробничих та технологічних процесів, технологічного устаткування (установок)</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="potentialEmission">
+		<xsd:annotation>
+			<xsd:documentation>Потенційні обсяги викидів забруднюючих речовин</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="equipmenT" type="equip:equipmenT">
+				<xsd:annotation>
+					<xsd:documentation>Технологічне устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="pollEmissionN" type="TTPAir:pollEmissionN" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Потенційні обсяги викидів забруднюючих речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="potentiaL">
+		<xsd:annotation>
+			<xsd:documentation>Потенц_йн_ обсяги викид_в забруднюючих речовин у розрiзi технологiй</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="equipmenT" type="equip:equipmenT">
+				<xsd:annotation>
+					<xsd:documentation>Технолог_чне устаткування</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="emissionVolume" type="invcargo:emissionVolume">
+				<xsd:annotation>
+					<xsd:documentation>Потенц_йн_ обсяги викид_в забруднюючих речовини</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

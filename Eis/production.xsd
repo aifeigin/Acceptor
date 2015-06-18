@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!-- XML схеми розділу виробнича програма для об'єкту 1,2-ї групи
+	   "Обгрунтуючих матеріалів для отримання дозволу на викиди"
+     Версія 3.1.1.3. Редакція 2.
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+
+     Changes history :
+      11.01.2010 : multiple equipmentDesc elements allowed		
+-->
+<xsd:schema targetNamespace="bases" xmlns="bases" xmlns:bases="bases" xmlns:assets="assets"
+			xmlns:mime="mime" xmlns:poll="poll" xmlns:mater="mater" xmlns:measure="measure"
+			xmlns:fuel="fuel" xmlns:TTPAir="TTPAir" xmlns:invent="invent" xmlns:equip="equip" xmlns:cargo="cargo" 
+			xmlns:ovnsdisp="ovnsdisp" xmlns:besttech="besttech" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        elementFormDefault="qualified" version="3.1.1.2">
+        <xsd:include schemaLocation="productcargo.xsd"/>
+        <xsd:import namespace="besttech" schemaLocation="besttech.xsd"/>
+        <xsd:import namespace="fuel" schemaLocation="fuel.xsd"/>
+        <xsd:import namespace="mater" schemaLocation="material.xsd"/>
+        <xsd:import namespace="poll" schemaLocation="pollutant.xsd"/>
+        <xsd:import namespace="measure" schemaLocation="measure.xsd"/>
+        <xsd:import namespace="equip" schemaLocation="equipment.xsd"/>
+        <xsd:import namespace="mime" schemaLocation="mime.xsd"/>
+        <xsd:import namespace="assets" schemaLocation="assets.xsd"/>
+        <xsd:import namespace="cargo" schemaLocation="cargo.xsd"/>
+        <xsd:import namespace="ovnsdisp" schemaLocation="ovnsdisp.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>Розділ виробнича програма "Обгрунтуючих матеріалів для отримання дозволу на викиди для об'єкту 1,2-ї групи"</xsd:documentation>
+    </xsd:annotation>
+	<xsd:complexType name="industryDesc">
+		<xsd:annotation>
+			<xsd:documentation>опис виробництва</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="equip:industrY">
+				<xsd:sequence>
+					<xsd:element name="industryProcType" type="bases:industryProcType">
+						<xsd:annotation>
+							<xsd:documentation>тип процесу</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="industryProcDesc">
+						<xsd:complexType>
+							<xsd:annotation>
+								<xsd:documentation>опис процесу</xsd:documentation>
+							</xsd:annotation>
+							<xsd:sequence>
+								<xsd:element name="textProcDesc" type="xsd:string" nillable="true"/>
+								<xsd:element name="visualProcDesc" minOccurs="0" maxOccurs="unbounded">
+									<xsd:annotation>
+										<xsd:documentation>блок-схема виробничого процесу, відповідні технологічні схеми, режимні карти процесу</xsd:documentation>
+									</xsd:annotation>
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element name="titlE" type="xsd:string"/>
+											<xsd:element name="illustratioN" type="mime:humanReadable"/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="bestTechnologyTarget" type="bases:bestTechnoTarget" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Опис технологічного устаткування, на яких повинні впроваджуватися найкращі доступні технології та методи керування</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="equipmentDesc" type="bases:equipmentDesc" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>опис групи технологічного устаткування</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="industrialAreaCode" type="xsd:positiveInteger" minOccurs="1" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>код виробничого майданчику</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="productionInfo">
+		<xsd:annotation>
+			<xsd:documentation>Відомості щодо виробничої програми, виробничої потужності, тощо</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TechnoLinks" type="bases:objectInfo" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>технологічні зв’язки</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="productioNList" type="bases:theProductioN" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Перелік видів продукції, що випускається на об’єкті, у тому числі продукції переділів, що використовується у власному виробництві.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="materialBalance" type="bases:materialBalance" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Матеріальні баланси</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="industryDesc" type="bases:industryDesc" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Опис виробництв</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

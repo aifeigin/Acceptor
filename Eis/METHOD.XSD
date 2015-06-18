@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема "Методика визначення показників"
+     Версія 3.1.1.2.
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="method" xmlns:method="method" xmlns="method" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="3.1.1.2.">
+	<xsd:annotation>
+		<xsd:documentation>XML схема. Методики</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="factorDefMethod">
+		<xsd:annotation>
+			<xsd:documentation>Найменування методики визначення показників</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="measureMethod">
+		<xsd:annotation>
+			<xsd:documentation>Найменування методики вимiрювань</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

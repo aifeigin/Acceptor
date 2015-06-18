@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!--  Електронна типова форма XML схеми. "Оцінка впливу викидів забруднюючих речовин
+	  на стан забруднення атмосферного повітря за даними результатів розрахунків
+	  розсіювання та даними, що одержані при проведенні інструментальних методів
+	  досліджень"
+    Версія 3.1.1.3. Редакція 2.
+    
+
+     Copyright(С) 2003-2010 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+
+     Changes :
+      12.01.2010 CConcByGroup type proper spelling
+-->
+<xsd:schema targetNamespace="ovnsdisp" xmlns:ovnsdisp="ovnsdisp" xmlns="ovnsdisp" xmlns:disp="disp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:subst="subst" xmlns:cargo="cargo" xmlns:invent="invent" xmlns:mime="mime" xmlns:invcargo="invcargo" elementFormDefault="qualified" version="3.1.1.2">
+	<xsd:import namespace="invcargo" schemaLocation="invbase.xsd"/>
+	<xsd:import namespace="invent" schemaLocation="invtype.xsd"/>
+	<xsd:import namespace="mime" schemaLocation="mime.xsd"/>
+	<xsd:import namespace="disp" schemaLocation="dispersion.xsd"/>
+	<xsd:import namespace="cargo" schemaLocation="cargo.xsd"/>
+	<xsd:import namespace="subst" schemaLocation="substance.xsd"/>
+	<xsd:complexType name="CCalcSquare">
+		<xsd:annotation>
+			<xsd:documentation>Розрахунковий прямокутник</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="L" type="invcargo:srcMetric">
+				<xsd:annotation>
+					<xsd:documentation>довжина розрахункового прямокутника</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="B" type="invcargo:srcMetric">
+				<xsd:annotation>
+					<xsd:documentation>ширина розрахункового прямокутника</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="X" type="invcargo:srcMetric">
+				<xsd:annotation>
+					<xsd:documentation>координата Х центра сіметрії розрахункового прямокутника</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Y" type="invcargo:srcMetric">
+				<xsd:annotation>
+					<xsd:documentation>координата Y центра сіметрії розрахункового прямокутника</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="step_X" type="invcargo:srcMetric">
+				<xsd:annotation>
+					<xsd:documentation>крок по Х розрахункового прямокутника</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="step_Y" type="invcargo:srcMetric">
+				<xsd:annotation>
+					<xsd:documentation>крок по Y розрахункового прямокутника</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Angle" type="invcargo:Angle" default="0">
+				<xsd:annotation>
+					<xsd:documentation>кут повороту розрахункового прямокутника в основній системі координат</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="CPeriodNum">
+		<xsd:annotation>
+			<xsd:documentation>Номер етапу (0-існуючий стан)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CPeriod">
+		<xsd:annotation>
+			<xsd:documentation>Етап розвитку</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PeriodNum" type="CPeriodNum">
+				<xsd:annotation>
+					<xsd:documentation>Номер етапу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PeriodName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування етапу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CConcPeriod">
+		<xsd:annotation>
+			<xsd:documentation>Концентрації по етапах розвитку (мг/м.куб)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PeriodNum" type="CPeriodNum">
+				<xsd:annotation>
+					<xsd:documentation>Номер етапу</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConcRegime" type="CConcByRegime" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>концентрації по режимах</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="BasicMaterials" type="mime:humanReadable" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>звіт по результатах розрахунків за узгодженими програмами (дані замірів на офіційному бланку)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Comment" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Вільний текст</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CConcByGroup">
+		<xsd:annotation>
+			<xsd:documentation>максимально разові концентрації по групах сумації</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="grouPCode" type="xsd:positiveInteger">
+				<xsd:annotation>
+					<xsd:documentation>код групи сумації</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="СalcResults" type="CCalcResults">
+				<xsd:annotation>
+					<xsd:documentation>результати розрахунків</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CConcBySubst">
+		<xsd:annotation>
+			<xsd:documentation>максимально разові концентрації по речовинах</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="subsTCode" type="subst:pollutanTCode">
+				<xsd:annotation>
+					<xsd:documentation>код забруднюючої речовини за санітарними нормативами</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConcFactor" type="CCalcResults">
+				<xsd:annotation>
+					<xsd:documentation>результати розрахунків (замірів)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="CPointType">
+		<xsd:annotation>
+			<xsd:documentation>тип розрахукнкової точки</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="workingArea">
+				<xsd:annotation>
+					<xsd:documentation>робоча зона</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SDBorderArea">
+				<xsd:annotation>
+					<xsd:documentation>межа СЗЗ</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="livingArea">
+				<xsd:annotation>
+					<xsd:documentation>сельбищна зона</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="holidayArea">
+				<xsd:annotation>
+					<xsd:documentation>зона відпочнику</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CCalcResults">
+		<xsd:annotation>
+			<xsd:documentation>результати розрахунків</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PointType" type="CPointType">
+				<xsd:annotation>
+					<xsd:documentation>тип розрахункової точки</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Conc" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>максимальна розрахункова концентрація - частки ГДК</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CalcBackground" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>фонова концентрація - частки ГДК</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GDK" type="invcargo:emissionConc">
+				<xsd:annotation>
+					<xsd:documentation>норматив концентрації мг/м.куб</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="BaseRegimeType">
+		<xsd:annotation>
+			<xsd:documentation>Режим роботи підприємства з максимально можливою розрахунковою потужністю</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="invent:RegimeType">
+			<xsd:enumeration value="base"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CConcByRegime">
+		<xsd:annotation>
+			<xsd:documentation>Розрахунки по режимах</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="RegimeType" type="BaseRegimeType" default="base">
+				<xsd:annotation>
+					<xsd:documentation>тип режиму роботи</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConcByGroup" type="ovnsdisp:CConcByGroup" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>максимально разові концентрації по групах сумації</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConcBySubst" type="ovnsdisp:CConcBySubst" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>максимально разові концентрації по шкідливих речовинах</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CConcentration">
+		<xsd:annotation>
+			<xsd:documentation>фактор відповідності розрахункових приземних концентрацій санітанрно-гігієничним нормативам</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ConcPeriod" type="CConcPeriod" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>фактор по етапах</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CCalcConcentration">
+		<xsd:annotation>
+			<xsd:documentation>Розрахунки приземних концентрацій</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="CConcentration">
+				<xsd:sequence>
+					<xsd:element name="CalcSquare" type="ovnsdisp:CCalcSquare" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Розрахунковий майданчики (и)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CMeasuredConcentration">
+		<xsd:annotation>
+			<xsd:documentation>дані, що одержані при проведенні інструментальних методів досліджень акредитованими лабораторіями в установленому законодавством порядку</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="CConcentration">
+				<xsd:sequence>
+					<xsd:element name="supervisionPoint" type="disp:CSupervisionPoint">
+						<xsd:annotation>
+							<xsd:documentation>місцезнаходження поста спостереження у основній системі координат (м)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="CEstimateConcentration">
+		<xsd:annotation>
+			<xsd:documentation>Оцінка впливу викидів забруднюючих речовин на стан забруднення атмосферного повітря здійснюється за даними результатів розрахунків розсіювання забруднюючих речовин в атмосферному повітрі</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CalcConcentration" type="CCalcConcentration" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Оцінка впливу викидів забруднюючих речовин на стан забруднення атмосферного повітря здійснюється за даними результатів розрахунків розсіювання забруднюючих речовин в атмосферному повітрі</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Resume" type="invcargo:richInfo">
+				<xsd:annotation>
+					<xsd:documentation>аналіз, щодо відповідності гігієничним нормативам</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--
+			<xsd:element name="MeasuredConcentration" type="CMeasuredConcentration" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Оцінка впливу викидів забруднюючих речовин на стан забруднення атмосферного повітря здійснюється по даних отриманих на підставі замірів</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+-->
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

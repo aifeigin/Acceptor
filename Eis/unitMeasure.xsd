@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- XML схема Одиниці виміру згідно УКТ ЗЕД
+     ЗАТВЕРДЖЕНО наказом Державної митної служби України від 12 липня 2001 р. № 473
+     Версія 3.1.1.2
+
+     Copyright(С) 2003-2004 ТОВ "Софт фонд", м. Київ. Всi права захищенi.
+     http://www.sfund.kiev.ua
+
+     Original copyright:
+
+     Copyright 2001 W3C (Massachusetts Institute of Technology,
+     Institut National de Recherche en Informatique et en Automatique,
+     Keio University). All Rights Reserved.
+     http://www.w3.org/Consortium/Legal/
+
+     This document is governed by the W3C Software License [1] as
+     described in the FAQ [2].
+
+     [1] http://www.w3.org/Consortium/Legal/copyright-software-19980720
+     [2] http://www.w3.org/Consortium/Legal/IPR-FAQ-20000620.html#DTD
+-->
+<xsd:schema targetNamespace="unitmeasure" xmlns:unitmeasure="unitmeasure" xmlns="unitmeasure" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="3.1.1.2">
+	<xsd:annotation>
+		<xsd:documentation>Одиниці виміру згідно УКТ ЗЕД</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="unitMeasureCode">
+		<xsd:annotation>
+			<xsd:documentation>Код одиниці виміру</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+ 		 <xsd:element name="digiT" type="xsd:integer">
+			<xsd:annotation>
+				<xsd:documentation>цифрове позначення одиниці виміру</xsd:documentation>
+			</xsd:annotation>
+		 </xsd:element>
+		 <xsd:element name="literaL" type="xsd:string" nillable="true">
+			<xsd:annotation>
+				<xsd:documentation>літерне позначення одиниці виміру</xsd:documentation>
+			</xsd:annotation>
+		 </xsd:element>
+	             </xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="unitMeasure">
+		<xsd:annotation>
+			<xsd:documentation>Тип одиниця виміру</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="codE" type="unitmeasure:unitMeasureCode">
+				<xsd:annotation>
+					<xsd:documentation>Код одиниці виміру</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="longName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Найменування одиниці вимірювання</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="shortName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>Умовне позначення</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="unitMeasureS">
+		<xsd:annotation>
+			<xsd:documentation>Тип одиниці виміру</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="unitMeasure" type="unitmeasure:unitMeasure" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Тип одиниці виміру</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

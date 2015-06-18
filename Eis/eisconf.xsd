@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<xsd:schema targetNamespace="econf" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:econf="econf" xmlns="econf"  xmlns:root="root" 
+            elementFormDefault="qualified" version="1.1">
+   <xsd:import namespace="root" schemaLocation="root.xsd"/>		
+   <xsd:complexType name="eisSettings">
+     <xsd:sequence>
+	      <xsd:element name="RegisteredHost" type="root:RegisteredHosts"/>
+	      <xsd:element name="SequenceNumber" type="root:SequenceNumber"/>
+        <xsd:element name="OutputDir" type="xsd:string"/>
+     </xsd:sequence>
+   </xsd:complexType>
+	
+   <xsd:element name="eisSettings" type="econf:eisSettings"/>
+</xsd:schema>
